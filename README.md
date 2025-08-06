@@ -27,6 +27,13 @@ This is an **enhanced and extended version** of [cs2-WeaponPaints by Nereziel](h
 - 🛠️ Works with CS2 WeaponPaint plugin for server skin injection
 
 ---
+## 🖥 Screenshots
+<img width="1327" height="1076" alt="{93C08B69-A1E7-4756-B014-69D8D943CB60}" src="https://github.com/user-attachments/assets/4dfd099e-e8a8-441d-b468-f54f0a6dd391" />
+<img width="1262" height="885" alt="{3B1D71E3-FAE8-473B-A93B-9DE7984DBDF7}" src="https://github.com/user-attachments/assets/d6023847-9835-4c1b-9fdc-fa565474e2db" />
+<img width="1304" height="1024" alt="{D142B961-4FD2-4BB9-9A7F-819C1634E3DB}" src="https://github.com/user-attachments/assets/ccbf4117-7c19-4d7d-b88d-f989e6b81ce2" />
+<img width="1959" height="1367" alt="{EB4E2F8F-BBE5-4DD8-9B5A-F8448C5B8C59}" src="https://github.com/user-attachments/assets/110e1946-3341-4ea6-a66e-166a40e7fcb5" />
+
+---
 
 ## 📦 Structure
 # 🎮 CS2 Weapon Customizer
