@@ -65,10 +65,6 @@ switch ($action) {
             $stickerFields = [];
             for ($i = 0; $i < 4; $i++) {
                 $id = isset($stickers[$i]) ? intval($stickers[$i]) : 0;
-                if ($id === 0) {
-                    $stickerFields[] = "0;0;0;0;0;0"; // Default empty sticker
-                    continue;
-                }
                 $stickerFields[] = "$id;0;0;0;0.5;0";
             }
 

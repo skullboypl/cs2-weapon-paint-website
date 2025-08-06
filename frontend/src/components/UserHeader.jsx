@@ -1,10 +1,12 @@
 import React from 'react';
 
 export default function UserHeader({ user }) {
+  const API_URL = import.meta.env.VITE_API_URL || "/api";
   const handleLogout = () => {
-    fetch(`/api/steamauth/logout.php`, {
+    fetch(`${API_URL}/steamauth/logout.php`, {
       credentials: 'include',
     }).then(() => {
+      // Wyczyść dane lokalnie i przeładuj
       localStorage.removeItem('steamid');
       window.location.reload();
     });
