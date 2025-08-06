@@ -54,7 +54,12 @@ switch ($action) {
             $seed = $_POST['seed'] ?? 0;
             $nametag = $_POST['nametag'] ?? null;
             $stattrak = $_POST['stattrak'] ?? null;
-            $stickers = $_POST['stickers'] ?? [];
+            $stickers = [
+                intval($_POST['weapon_sticker_0'] ?? 0),
+                intval($_POST['weapon_sticker_1'] ?? 0),
+                intval($_POST['weapon_sticker_2'] ?? 0),
+                intval($_POST['weapon_sticker_3'] ?? 0),
+             ];
             $keychainId = $_POST['keychainId'] ?? 0;
             $offsetX = $_POST['offsetX'] ?? 0;
             $offsetY = $_POST['offsetY'] ?? 0;

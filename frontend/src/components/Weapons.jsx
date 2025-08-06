@@ -164,16 +164,15 @@ params.append('weapon_defindex', data.weapon_defindex);
   params.append('seed', data.seed);
   params.append('nametag', data.nametag ?? '');
   params.append('stattrak', data.statTrak ?? '');
-
-  // Keychain z offsetem
-  const keychainString = `${data.keychainId || 0};${data.offsetX || 0};${data.offsetY || 0};0`;
-  params.append('weapon_keychain', keychainString);
+  params.append('keychainId', data.keychainId);
+  params.append('offsetX', data.offsetX || 0);
+  params.append('offsetY', data.offsetY || 0);
 
   // Stickery – każdy slot musi mieć pełny string np. id;0;0;0;1;0
   for (let i = 0; i < 4; i++) {
     const id = data.stickers?.[i] ?? 0;
-    const stickerFull = `${id};0;0;0;1;0`; // id;schema;x;y;scale;rotation
-    params.append(`weapon_sticker_${i}`, stickerFull);
+    //const stickerFull = `${id};0;0;0;1;0`; // id;schema;x;y;scale;rotation
+    params.append(`weapon_sticker_${i}`, id);
   }
 
   try {
@@ -299,7 +298,7 @@ params.append('weapon_defindex', data.weapon_defindex);
         weapon={selectedWeapon}
         onClose={() => setSelectedWeapon(null)}
         onSave={async (data) => {
-  await handleSaveWeapon(data); // call API save
+      await handleSaveWeapon(data); // call API save
 
   // 1. Update dbSkins[] (to update the database)
     setDbSkins(prev => {
