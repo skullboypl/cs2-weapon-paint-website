@@ -1,4 +1,5 @@
 # 🎮 CS2 Weapon Customizer (SKIN CHANGER WEBSITE FOR WEAPON PAINT PLUGIN)
+## This website is build with React + Vite and PHP for backend so its super fast 
 
 A modern, React-powered web app for **customizing Counter-Strike 2 weapon skins**, stickers, nametags and keychains. Includes a full PHP backend with Steam login and MySQL storage.
 
