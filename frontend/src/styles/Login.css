@@ -1,0 +1,56 @@
+/* Login.css */
+#root > div{
+  position: relative;
+}
+#root > div::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 0;
+  backdrop-filter: blur(10px);
+  display: block;
+}
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* pełna wysokość okna */
+  background: #0f0f0f; /* ciemne tło */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-box {
+  background: #1c1c1c;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.steam-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.steam-button img {
+  width: 200px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.steam-button:hover {
+  transform: scale(1.05);
+}
