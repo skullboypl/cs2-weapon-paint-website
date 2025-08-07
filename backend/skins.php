@@ -27,6 +27,11 @@ elseif ($team === 'T') $team = 2;
 }
 
 $db = Database::getInstance()->getConnection();
+if (!$db) {
+    http_response_code(500);
+    echo json_encode(['errorDB' => 'Database connection failed remember to set up data in config.php']);
+    exit;
+}
 switch ($action) {
     case 'getall':
         // Pobranie skinów dla danego steamid i teamu

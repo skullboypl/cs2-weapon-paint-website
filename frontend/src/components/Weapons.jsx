@@ -40,6 +40,13 @@ export default function Weapons({ team }) {
         });
 
         const knifeData = await resKnife.json();
+        if (knifeData.errorDB) {
+            alert(knifeData.errorDB);
+            return;
+        }
+        if (knifeData.error) {
+          console.warn(knifeData.error);
+        }
         if (knifeData.knife) {
             setSelectedKnifeModel(knifeData.knife);
         }
@@ -54,8 +61,15 @@ export default function Weapons({ team }) {
             team
             })
         });
-
-        // Pobierz agentów gracza 
+        const dbSkins = await resSkins.json(); // [{ weapon_defindex, weapon_paint_id }, ...]
+        if (dbSkins.errorDB) {
+            alert(dbSkins.errorDB);
+            return;
+        }
+        if (dbSkins.error) {
+            console.warn(dbSkins.error);
+        }
+        // Pobierz agentów gracza
         const resAgents = await fetch(`${API_URL}/skins.php`, {
            method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -66,6 +80,13 @@ export default function Weapons({ team }) {
             })
         });
         const agentsJson = await resAgents.json(); // <- TU!
+        if (agentsJson.errorDB) {
+            alert(agentsJson.errorDB);  
+            return;
+        }
+        if (agentsJson.error) {
+            console.warn(agentsJson.error);
+        }
         const agentsMap = await fetch('/data/agents_en.json');
         const agentsData = await agentsMap.json();
         const agentT = agentsData.find(a => a.model === agentsJson.agent_t);
@@ -84,6 +105,13 @@ export default function Weapons({ team }) {
             })
         });
         const glovesData = await resGloves.json();
+        if (glovesData.errorDB) {
+            alert(glovesData.errorDB);
+            return;
+        }
+        if (glovesData.error) {
+          console.warn(glovesData.error);
+        }
         const mergedGloves = glovesData.gloves_models.map(model => {
           const skin = glovesData.gloves_skins.find(s => Number(s.weapon_team) === Number(model.weapon_team)
         );
@@ -100,8 +128,6 @@ export default function Weapons({ team }) {
 
         const glovesTData = mergedGloves.find(g => g.team === 2);
         const glovesCTData = mergedGloves.find(g => g.team === 3);
-        //console.log('Gloves T data:', glovesTData);
-        //console.log('Gloves CT data:', glovesCTData);
 
         const glovesT = glovesJson.find(g =>
           g.weapon_defindex === glovesTData?.defindex &&
@@ -117,7 +143,6 @@ export default function Weapons({ team }) {
         //console.log('Gloves T:', glovesT);
         //console.log('Gloves CT:', glovesCT);
 
-        const dbSkins = await resSkins.json(); // [{ weapon_defindex, weapon_paint_id }, ...]
         setDbSkins(dbSkins);
         // 4. Pobierz mapowanie skinów z pliku
         const resSkinMap = await fetch('/data/skins_en.json');
