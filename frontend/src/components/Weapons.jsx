@@ -9,7 +9,7 @@ export default function Weapons({ team }) {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [selectedWeapon, setSelectedWeapon] = useState(null);
   const [dbSkins, setDbSkins] = useState([]);
-  const API_URL = import.meta.env.VITE_API_URL || "/api/";
+  const API_URL = import.meta.env.VITE_API_URL || "/api";
   const [agent_T, setAgent_T] = useState(null);
   const [agent_CT, setAgent_CT] = useState(null);
 
@@ -62,7 +62,7 @@ export default function Weapons({ team }) {
             })
         });
         const dbSkins = await resSkins.json(); // [{ weapon_defindex, weapon_paint_id }, ...]
-       // console.log('DB Skins:', dbSkins);
+        //console.log('DB Skins:', dbSkins);
         if (dbSkins.errorDB) {
             alert(dbSkins.errorDB);
             return;
@@ -80,7 +80,8 @@ export default function Weapons({ team }) {
             team
             })
         });
-        const agentsJson = await resAgents.json(); // <- TU!
+        const agentsJson = await resAgents.json();
+        //console.log('Agents data:', agentsJson);
         if (agentsJson.errorDB) {
             alert(agentsJson.errorDB);  
             return;
@@ -106,6 +107,7 @@ export default function Weapons({ team }) {
             })
         });
         const glovesData = await resGloves.json();
+        //console.log('Gloves data:', glovesData);
         if (glovesData.errorDB) {
             alert(glovesData.errorDB);
             return;
@@ -141,7 +143,7 @@ export default function Weapons({ team }) {
         );
         setGloves_T(glovesT);
         setGloves_CT(glovesCT);
-        //console.log('Gloves T:', glovesT);
+       // console.log('Gloves T:', glovesT);
         //console.log('Gloves CT:', glovesCT);
 
         setDbSkins(dbSkins);
@@ -206,7 +208,7 @@ export default function Weapons({ team }) {
         setWeapons(updatedWeapons);
 
         } catch (err) {
-        console.error('Błąd ładowania danych:', err);
+        console.error('Error loading data:', err);
         }
     };
 
@@ -285,6 +287,7 @@ const handleWeaponClick = (weapon) => {
 
 const handleSaveAgent = async (data) => {
   const params = new URLSearchParams();
+  console.log('Saving agent data:', data);
   params.append('action', 'agent_save');
   params.append('team', team); // '2' lub '3'
   params.append('agent_model', data.model);
@@ -300,13 +303,14 @@ const handleSaveAgent = async (data) => {
     });
 
     const result = await res.json();
-    //console.log('Zapisano agenta:', result);
+    console.log('Saved agent:', result);
   } catch (err) {
-    console.error('Błąd zapisu agenta:', err);
+    console.error('Error saving agent:', err);
   }
 }
 const handleSaveGloves = async (data) => {
   const params = new URLSearchParams();
+  console.log('Saving gloves data:', data);
   params.append('action', 'gloves_save');
   params.append('team', team); // 'CT' lub 'T'
   params.append('weapon_defindex', data.defindex);
@@ -324,15 +328,15 @@ const handleSaveGloves = async (data) => {
     });
 
     const result = await res.json();
-    //console.log('Zapisano rękawice:', result);
+    console.log('Saved gloves:', result);
   } catch (err) {
-    console.error('Błąd zapisu rękawic:', err);
+    console.error('Error saving gloves:', err);
   }
 
 };
 const handleSaveWeapon = async (data) => {
   const params = new URLSearchParams();
- // console.log('Saving weapon data:', data);
+ console.log('Saving weapon data:', data);
   params.append('action', 'save');
   params.append('team', team); // 'CT' lub 'T'
   params.append('weapon_defindex', data.weapon_defindex); 
@@ -340,13 +344,15 @@ const handleSaveWeapon = async (data) => {
   params.append('wear', data.wear);
   params.append('seed', data.seed);
   params.append('nametag', data.nametag ?? '');
-  if(data.statTrak) {
-    params.append('stattrak', '1');
+  //check if data.statTrack is null
+  if (data.statTrak === null || data.statTrak === undefined) {
+    params.append('stattrak', '0');
+    params.append('stattrak_count', data.statTrak ?? '0');
   } else {
     params.append('stattrak', '0');
+    params.append('stattrak_count', data.statTrak ?? '0');
   }
-  params.append('stattrak_count', data.statTrak ?? '');
-  params.append('keychainId', data.keychainId);
+  params.append('keychainId', data.keychainId ?? '0');
   params.append('offsetX', data.offsetX || 0);
   params.append('offsetY', data.offsetY || 0);
   for (let i = 0; i < 4; i++) {
@@ -366,9 +372,9 @@ const handleSaveWeapon = async (data) => {
     });
 
     const result = await res.json();
-    //console.log('Zapisano skina:', result);
+    console.log('Saved skin:', result);
   } catch (err) {
-    console.error('Błąd zapisu skina:', err);
+    console.error('Error saving skin:', err);
   }
 };
 

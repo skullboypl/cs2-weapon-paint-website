@@ -200,6 +200,8 @@ export default function WeaponCustomizer({ weapon, onClose, onSave }) {
             defindex: selectedSkin?.weapon_defindex || 0,
             image: selectedSkin?.image || null,
             name_main: weapon.name || 'NONE',
+            wear: wear,
+            seed: seed,
           });
         }
       }
