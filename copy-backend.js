@@ -12,7 +12,7 @@ fse.copySync(backendSrc, backendDest, {
   overwrite: true,
   filter: (src) => {
     const lowerSrc = src.toLowerCase();
-    return !lowerSrc.includes('.vscode') && !lowerSrc.includes('/old') && !lowerSrc.includes('\\old');
+    return !lowerSrc.includes('.vscode') && !lowerSrc.includes('/old') && !lowerSrc.includes('\\old') && !lowerSrc.includes('config.php');
   }
 });
 

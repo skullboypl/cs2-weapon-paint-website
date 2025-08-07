@@ -62,6 +62,7 @@ export default function Weapons({ team }) {
             })
         });
         const dbSkins = await resSkins.json(); // [{ weapon_defindex, weapon_paint_id }, ...]
+       // console.log('DB Skins:', dbSkins);
         if (dbSkins.errorDB) {
             alert(dbSkins.errorDB);
             return;
@@ -113,14 +114,14 @@ export default function Weapons({ team }) {
           console.warn(glovesData.error);
         }
         const mergedGloves = glovesData.gloves_models.map(model => {
-          const skin = glovesData.gloves_skins.find(s => Number(s.weapon_team) === Number(model.weapon_team)
+          const skin = glovesData.gloves_skins?.find(s => Number(s.weapon_team) === Number(model.weapon_team)
         );
           return {
             team: model.weapon_team,
             defindex: model.weapon_defindex,
-            paint_id: skin.weapon_paint_id,
-            wear: skin.weapon_wear,
-            seed: skin.weapon_seed
+            paint_id: skin?.weapon_paint_id ?? 0,
+            wear: skin?.weapon_wear ?? 0,
+            seed: skin?.weapon_seed ?? 0
           };
         });
         const glovesMap = await fetch('/data/gloves_en.json');
@@ -152,13 +153,13 @@ export default function Weapons({ team }) {
         const finalWeapons = filtered.map(w => {
             const dbSkin = dbSkins.find(s => s.weapon_defindex === w.cs2_id);
             if (dbSkin) {
-            const matchedSkin = skinMap.find(s =>
-                Number(s.weapon_defindex) === Number(dbSkin.weapon_defindex) &&
-                Number(s.paint) === Number(dbSkin.weapon_paint_id)
-            );
-            if (matchedSkin?.image) {
-                return { ...w, image: matchedSkin.image };
-            }
+                const matchedSkin = skinMap.find(s =>
+                    Number(s.weapon_defindex) === Number(dbSkin.weapon_defindex) &&
+                    Number(s.paint) === Number(dbSkin.weapon_paint_id)
+                );
+                if (matchedSkin?.image) {
+                    return { ...w, image: matchedSkin.image };
+                }
             }
             return w;
         });
@@ -500,6 +501,7 @@ const handleSaveWeapon = async (data) => {
     // 1. Update dbSkins[] (to update the database)
     setDbSkins(prev => {
         const copy = [...prev];
+        if (!data) return copy; //if no data, return copy
         const index = copy.findIndex(s => s.weapon_defindex === data.weapon_defindex);
 
         if (index !== -1) {
