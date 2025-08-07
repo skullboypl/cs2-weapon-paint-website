@@ -18,17 +18,16 @@ export default function Weapons({ team }) {
 
   const dropdownRef = useRef(null);
 
-    useEffect(() => {
+  useEffect(() => {
     const loadAll = async () => {
         try {
-        // 1. Wczytaj weapons.json i przefiltruj po teamie
+          // load weapons json base
         const resWeapons = await fetch('/weapons.json');
         const weaponsData = await resWeapons.json();
         const filtered = weaponsData.filter(w =>
             w.team === 'Both' || w.team === team
         );
-
-        // 2. Pobierz aktualny knife model z bazy
+        //load info about knife from API
         const resKnife = await fetch(`${API_URL}/knife.php`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -51,7 +50,7 @@ export default function Weapons({ team }) {
             setSelectedKnifeModel(knifeData.knife);
         }
 
-        // 3. Pobierz wszystkie ustawione skiny gracza z bazy
+        // load all skins weapons from DB
         const resSkins = await fetch(`${API_URL}/skins.php`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -129,29 +128,39 @@ export default function Weapons({ team }) {
         const glovesMap = await fetch('/data/gloves_en.json');
         const glovesJson = await glovesMap.json();
 
-        const glovesTData = mergedGloves.find(g => g.team === 2);
-        const glovesCTData = mergedGloves.find(g => g.team === 3);
+        const buildGloves = (teamId) => {
+            const base = mergedGloves.find(g => Number(g.team) === Number(teamId));
+            if (!base) return null;
 
-        const glovesT = glovesJson.find(g =>
-          g.weapon_defindex === glovesTData?.defindex &&
-          Number(g.paint) === Number(glovesTData?.paint_id ?? 0)
-        );
+            const skin = glovesJson.find(g =>
+              Number(g.weapon_defindex) === Number(base.defindex) &&
+              Number(g.paint) === Number(base.paint_id ?? 0)
+            );
 
-        const glovesCT = glovesJson.find(g =>
-          g.weapon_defindex === glovesCTData?.defindex &&
-          Number(g.paint) === Number(glovesCTData?.paint_id ?? 0)
-        );
+            return {
+              team: teamId,
+              defindex: base.defindex,
+              paint: base.paint_id ?? 0,
+              wear: base.wear ?? 0,
+              seed: base.seed ?? 0,
+              image: skin?.image || `/others/${teamId === 2 ? 'tt' : 'ct'}_gloves.png`,
+              name: skin?.name, 
+            };
+        };
+
+        const glovesT  = buildGloves(2);
+        const glovesCT = buildGloves(3);
+
         setGloves_T(glovesT);
         setGloves_CT(glovesCT);
-       // console.log('Gloves T:', glovesT);
+         //console.log('Gloves T:', glovesT);
         //console.log('Gloves CT:', glovesCT);
 
         setDbSkins(dbSkins);
-        // 4. Pobierz mapowanie skinów z pliku
+        // map skins with img
         const resSkinMap = await fetch('/data/skins_en.json');
         const skinMap = await resSkinMap.json();
-
-        // 5. Połącz dane
+        // merge final skins weapon list
         const finalWeapons = filtered.map(w => {
             const dbSkin = dbSkins.find(s => s.weapon_defindex === w.cs2_id);
             if (dbSkin) {
@@ -189,8 +198,10 @@ export default function Weapons({ team }) {
               image: glovesT?.image || '/others/tt_gloves.png',
               type: 'gloves' ,
               team: 2, // T,
-              defindex: glovesT?.weapon_defindex || 0,
+              defindex: glovesT?.defindex || 0,
               paint: glovesT?.paint || 0,
+              wear: glovesT?.wear || 0,
+              seed: glovesT?.seed || 0
             };
           }
           if(w.name === 'ct_gloves') {
@@ -199,12 +210,16 @@ export default function Weapons({ team }) {
               image: glovesCT?.image || '/others/ct_gloves.png',
               type: 'gloves',
               team: 3, // CT
-              defindex: glovesCT?.weapon_defindex || 0,
+              defindex: glovesCT?.defindex || 0,
               paint: glovesCT?.paint || 0,
+              wear: glovesCT?.wear || 0,
+              seed: glovesCT?.seed || 0
             };
           }
           return w;
         });
+        const toPreload = updatedWeapons.map(w => w.image).filter(Boolean).slice(0, 24);
+        await preloadImages(toPreload); // preload images for performance
         setWeapons(updatedWeapons);
 
         } catch (err) {
@@ -214,7 +229,16 @@ export default function Weapons({ team }) {
 
     loadAll();
     }, [team]);
-
+//preload images for weapons
+  const preloadImages = (urls) =>
+    Promise.all(
+      urls.map(url => new Promise(resolve => {
+        if (!url) return resolve();
+        const img = new Image();
+        img.onload = img.onerror = () => resolve();
+        img.src = url;
+      }))
+  );
 
   // knife modele
   const knifeModels = weapons.filter(w => w.category === 'Knife');
@@ -235,8 +259,40 @@ export default function Weapons({ team }) {
 
 
 const handleWeaponClick = (weapon) => {
-  const weaponSkin = dbSkins.find(s => s.weapon_defindex === weapon.cs2_id);
-  //console.log('Selected weapon skin:', weaponSkin);
+  console.log('CLICK WEAPON:', weapon);
+  console.log('Weapon name:', weapon.name);
+  let weaponSkin = dbSkins.find(s => s.weapon_defindex === weapon.cs2_id);
+  if (weapon.category === 'Other') {
+      if(weapon.name === 'tt_gloves') {
+          // console.log('TT GLOVES: ', gloves_T);
+      }
+      if(weapon.name === 'ct_gloves') {
+         // console.log('CT GLOVES: ', gloves_CT);
+      }
+      if(weapon.name === 'ct_agent') {
+          weaponSkin = agent_CT;
+          console.log('CT AGENT: ', agent_CT);
+          setSelectedWeapon({
+            ...weapon,
+            model: weaponSkin.model,
+            team: weaponSkin.team,
+            paint_name: weaponSkin.agent_name
+          });
+          return;
+      }
+      if(weapon.name === 'tt_agent') {
+          weaponSkin = agent_T;
+          console.log('TT AGENT: ', agent_T);
+          setSelectedWeapon({
+            ...weapon,
+            model: weaponSkin.model,
+            team: weaponSkin.team,
+            agent_name: weaponSkin.agent_name
+          });
+          return;
+      }
+  }
+  console.log('Selected weapon skin:', weaponSkin);
   if (!weaponSkin) {
     setSelectedWeapon(weapon);
     return;

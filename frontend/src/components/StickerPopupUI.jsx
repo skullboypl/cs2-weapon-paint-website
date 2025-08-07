@@ -3,27 +3,27 @@ import './../styles/StickerPopup.css';
 
 export default function StickerPopup({ stickers, selectedStickers, onSelect, onClose }) {
   const [loaded, setLoaded] = useState(false);
-  const [selectedSlot, setSelectedSlot] = useState(null); 
+  const [selectedSlot, setSelectedSlot] = useState(0); 
   const [searchTerm, setSearchTerm] = useState('');
 
   const normalizedQuery = searchTerm.toLowerCase().trim();
   const searchWords = normalizedQuery.split(/\s+/);
 
-    const filteredStickers = stickers.filter(sticker => {
+  const filteredStickers = stickers.filter(sticker => {
     const name = sticker.name.toLowerCase();
     return searchWords.every(word => name.includes(word));
-    });
-    const displayedStickers = filteredStickers.slice(0, 500); // max 800 pierwszych
+  });
 
+  const maxLimit = 600; // max first results for performance
+  const displayedStickers = filteredStickers.slice(0, maxLimit);
 
   useEffect(() => {
-    //console.log('selectedStickers in popup:', selectedStickers);
     setLoaded(true); // lazy load sticker list only when popup is open
   }, []);
 
   const handleStickerClick = (sticker) => {
     if (selectedSlot !== null) {
-      onSelect(selectedSlot, sticker); // przypisz tylko do wybranego slotu
+      onSelect(selectedSlot, sticker); 
     }
   };
 
@@ -36,10 +36,21 @@ export default function StickerPopup({ stickers, selectedStickers, onSelect, onC
           <div
             key={i}
             className={`sticker-slot-box ${selectedSlot === i ? 'selected-slot' : ''}`}
-            onClick={() => setSelectedSlot(i)} // klik w slot = aktywacja
+            onClick={() => setSelectedSlot(i)} 
           >
             {sticker ? (
-              <img src={sticker.image} alt={sticker.name} />
+               <>
+            <img src={sticker.image} alt={sticker.name} />
+            <button
+              className="remove-sticker-btn"
+              onClick={(e) => {
+                e.stopPropagation(); 
+                onSelect(i, null); 
+              }}
+            >
+            ✕
+          </button>
+        </>
             ) : (
               <div className="empty-slot">+</div>
             )}
@@ -70,9 +81,9 @@ export default function StickerPopup({ stickers, selectedStickers, onSelect, onC
                 <span>{st.name}</span>
             </div>
             ))}
-            {filteredStickers.length > 500 && (
+            {filteredStickers.length > maxLimit && (
             <div className="sticker-list-info">
-                Shown only 500 of {filteredStickers.length} results — please refine your search.
+                Shown only {maxLimit} of {filteredStickers.length} results — please refine your search.
             </div>
             )}
         </div>

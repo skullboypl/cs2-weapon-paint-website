@@ -126,7 +126,7 @@ export default function WeaponCustomizer({ weapon, onClose, onSave }) {
 
       useEffect(() => {
           if (!isCustom || !isAgent) return;
-
+          console.log('AGENT data:', JSON.stringify(weapon, null, 2));
           const team = weapon.team ?? '3'; // domyślnie CT jeśli brak
 
           fetch('/data/agents_en.json')
@@ -139,21 +139,24 @@ export default function WeaponCustomizer({ weapon, onClose, onSave }) {
               let i = 0;
               filteredSkinsNoIMG.forEach(skin => {
                 skin.key = `agent_${i}`;
+                skin.paint_name = skin.agent_name || 'Default Agent';
                 i++;
               });
-              const selected = filteredSkinsNoIMG.find(agent =>
-                agent.model === weapon.model && Number(agent.team) === Number(team)
-              );
-              setSelectedSkin(selected || null);
+              setSelectedSkin({
+                paint_name: weapon.agent_name || 'Default Agent',
+                image: weapon.image,
+                model: weapon.model ? weapon.model : "Default Model",
+            });
               setSkins(filteredSkinsNoIMG);
             });
     }, [weapon]);
 
     useEffect(() => {
           if (!isCustom || !isGloves) return;
-         // console.log('Weapon data:', JSON.stringify(weapon, null, 2));
+          //console.log('Weapon data:', JSON.stringify(weapon, null, 2));
           let team = weapon.team ?? '3'; // domyślnie CT jeśli brak
-
+          setWear(weapon.wear ?? 0);
+          setSeed(weapon.seed ?? 0);
           fetch('/data/gloves_en.json')
             .then(res => res.json())
             .then(data => {
@@ -279,43 +282,53 @@ export default function WeaponCustomizer({ weapon, onClose, onSave }) {
                 </React.Fragment>
             ))}
             </div>
-            {(!isCustom || isGloves) && (
-              <>
-                <label>Wear:
-                  <input type="number" min="0" max="1" step="0.01" value={wear} onChange={e => setWear(Number(e.target.value))} />
-                </label>
-                <label>Seed:
-                  <input type="number" min="0" max="999" value={seed} onChange={e => setSeed(Number(e.target.value))} />
-                </label>
-                {!isGloves && (
-                  <>
-                  <label>NameTag:
-                    <input type="text" value={nametag} onChange={e => setNametag(e.target.value)} placeholder="Brak (NULL)" />
-                  </label>
-                  <label>StatTrak:
-                    <input type="checkbox" checked={statTrakEnabled} onChange={e => setStatTrakEnabled(e.target.checked)} />
-                  </label>
-                  {statTrakEnabled && (
-                    <label>Kills:
-                      <input type="number" value={statTrakKills} onChange={e => setStatTrakKills(Number(e.target.value))} />
+          <div className="skin-details-settings">
+            <div className="skin-details-settings-labels">
+              {(!isCustom || isGloves) && (
+                <>
+                  <div className="skin-details-group">
+                    <label>Wear (ex. 0,15):
+                      <input type="number" min="0" max="1" step="0.01" value={wear} onChange={e => setWear(Number(e.target.value))} />
                     </label>
+                    <label>Seed (ex. 123):
+                      <input type="number" min="0" max="999" value={seed} onChange={e => setSeed(Number(e.target.value))} />
+                    </label>
+                  </div>
+                  {!isGloves && (
+                    <>
+                      <label>NameTag:
+                        <input type="text" maxLength={25} value={nametag} onChange={e => setNametag(e.target.value)} placeholder="None (NULL)" />
+                      </label>
+                      <div className="skin-details-group">
+                        <label>StatTrak:
+                          <input type="checkbox" checked={statTrakEnabled} onChange={e => setStatTrakEnabled(e.target.checked)} />
+                        </label>
+                        {statTrakEnabled && (
+                          <label>Kills:
+                            <input type="number" maxLength={10} value={statTrakKills} onChange={e => setStatTrakKills(Number(e.target.value))} />
+                          </label>
+                        )}
+                      </div>
+                    </>
                   )}
-                </>
-                )}
-                {(!isKnife && !isGloves) && (
-                  <>
-                      <label>Stickers:</label>
-                      <button onClick={() => setShowStickerPopup(true)}>Choose Stickers</button>
+                  {(!isKnife && !isGloves) && (
+                    <>
+                        <div className="skin-details-group">
+                          <label>Stickers:</label>
+                          <button onClick={() => setShowStickerPopup(true)}>Choose Stickers</button>
 
-                      <label>Keychain:</label>
-                      <button onClick={() => setShowKeychainPopup(true)}>Choose Keychain</button>
-                  </>
-                  )}
-              </>
-            )}
-          <div className="buttons">
-            <button onClick={onClose}>Cancel</button>
-            <button onClick={handleSave}>Save</button>
+                          <label>Keychain:</label>
+                          <button onClick={() => setShowKeychainPopup(true)}>Choose Keychain</button>
+                        </div>
+                    </>
+                    )}
+                </>
+              )}
+            </div>
+            <div className="buttons">
+              <button onClick={onClose}>Cancel</button>
+              <button onClick={handleSave}>Save</button>
+            </div>
           </div>
         </div>
 
@@ -339,13 +352,13 @@ export default function WeaponCustomizer({ weapon, onClose, onSave }) {
                       <>
                       {!isGloves && (
                         <>
-                          <p className='nametag_prev'>Nametag: {nametag || 'Brak'}</p>
+                          <p className='nametag_prev'>Nametag: {nametag || 'None'}</p>
                         </>
                       )}
                       <p>Wear: {wear} | Seed: {seed}</p>
                       {!isGloves && (
                         <>
-                      <p>StatTrak: {statTrakEnabled ? statTrakKills : 'Brak'}</p>
+                      <p>StatTrak: {statTrakEnabled ? statTrakKills : 'None'}</p>
                           {!isKnife && (
                           <>
                               <div className="preview-keychain">
@@ -361,7 +374,7 @@ export default function WeaponCustomizer({ weapon, onClose, onSave }) {
                                       <p>X: {offsetX} Y: {offsetY}</p>
                                   </div>
                                   ) : (
-                                  <p>Brak</p>
+                                  <p>None</p>
                                   )}
                               </div>
 
@@ -375,7 +388,7 @@ export default function WeaponCustomizer({ weapon, onClose, onSave }) {
                                           <span>{sticker.name}</span>
                                       </div>
                                       ) : (
-                                      <div key={i} className="sticker-preview empty">Brak</div>
+                                      <div key={i} className="sticker-preview empty">None</div>
                                       )
                                   )}
                                   </div>

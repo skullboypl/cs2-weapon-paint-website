@@ -1,19 +1,27 @@
 .sticker-popup {
   position: fixed;
-  top: 9dvh;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80dvw;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 75dvw;
   max-width: 100%;
   height: 100%;
-  max-height: 80dvh;
+  max-height: 95dvh;
   background: #1a1a1a;
   border: 2px solid #444;
   border-radius: 12px;
   padding: 20px;
-  z-index: 9999;
+  z-index: 999;
   color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .sticker-slots-preview{
     display: flex;
@@ -24,73 +32,23 @@
     width: 100%;
 }
 
-.sticker-popup h2 {
+.sticker-popup h3 {
+  margin: 0;
   margin-bottom: 15px;
   font-size: 1.4rem;
   text-align: center;
 }
 
 .sticker-slot-box {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     display: block;
 }
 .sticker-slot-box img{
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 6px;
     background: #222;
-}
-
-.sticker-slot {
-  width: 64px;
-  height: 64px;
-  background: #2a2a2a;
-  border: 2px dashed #555;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.sticker-slot img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-.empty-slot::before {
-  content: '+';
-  font-size: 32px;
-  color: #777;
-}
-
-.sticker-list {
-  max-height: 50dvh;
-  overflow-y: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
-  gap: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #333;
-  margin-bottom: 20px;
-}
-
-.sticker-list img {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  border-radius: 8px;
-  background: #222;
-}
-
-.sticker-list img:hover {
-  transform: scale(1.1);
 }
 
 .sticker-slot-box {
@@ -112,36 +70,51 @@
   font-size: 32px;
   color: #aaa;
 }
+
+.empty-slot::before {
+  content: '+';
+  font-size: 32px;
+  color: #77777795;
+}
 .sticker-search {
   width: 100%;
-  padding: 8px 12px;
+  padding: 10px 15px;
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 1em;
   border-radius: 6px;
   border: 1px solid #444;
   background-color: #1e1e1e;
   color: white;
 }
 
-.sticker-list-info {
-  color: #aaa;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 10px;
-}
 .sticker-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 10px;
-  max-height: 50dvh;
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
+}
+/* nice scrollbar */
+.sticker-list::-webkit-scrollbar {
+  width: 8px;
+}
+.sticker-list::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+.sticker-list::-webkit-scrollbar-track {
+  background: #222;
+}
+.sticker-list::-webkit-scrollbar-thumb:hover {
+  background: #777;
 }
 
 .sticker-item {
   background-color: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 6px;
-  padding: 6px;
+  border: 1px solid #33333390;
+  border-radius: 15px;
+  padding: 5px;
   cursor: pointer;
   text-align: center;
   transition: background-color 0.2s;
@@ -149,34 +122,152 @@
 
 .sticker-item:hover {
   background-color: #2a2a2a;
+  border: 1px solid #555555;
 }
 
 .sticker-item img {
-  width: 64px;
-  height: 64px;
+  width: 110px;
+  height: 110px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 4px;
+  margin: 0 auto 2px;
 }
 
 .sticker-item span {
-  font-size: 12px;
+  display: block;
+  font-size: 1em;
   color: #ddd;
   word-break: break-word;
-  display: block;
 }
 .sticker-popup .close-btn {
-  margin-top: 20px;
-  padding: 10px 16px;
-  background-color: #00bcd4;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #006673;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 1.5em;
+  font-weight: 500;
   transition: background-color 0.2s ease;
 }
 
 .sticker-popup .close-btn:hover {
-  background-color: #0097a7;
+  background-color: #00aabc;
+}
+.remove-sticker-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: rgba(0, 0, 0, 0.9);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.sticker-slot-box {
+  position: relative; /* ważne, żeby przycisk był w prawym górnym rogu obrazka */
+}
+@media (max-width: 1200px) {
+  .sticker-popup {
+    width: 85dvw;
+    height: 95dvh;
+  }
+  .sticker-list {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 915px) {
+  .sticker-popup {
+    width: 90dvw;
+    height: 95dvh;
+  }
+
+  .sticker-slot-box {
+    width: 25%;
+    height: 100%;
+  }
+  .sticker-slot-box img{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    object-fit: contain;
+  }
+  .sticker-list{
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  .sticker-item img {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media (max-width: 768px) {
+  .sticker-popup {
+    width: 92dvw;
+    height: 95dvh;
+    padding: 15px;
+  }
+  .sticker-popup h3 {
+    font-size: 1.2rem;
+  }
+  .sticker-slot-box {
+    width: 30%;
+    height: auto;
+  }
+  .sticker-slot-box img {
+    height: auto;
+    max-height: 120px;
+  }
+  .sticker-list {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+  .sticker-item img {
+    width: 90px;
+    height: 90px;
+  }
+  .sticker-popup .close-btn {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .sticker-popup {
+    width: 95dvw;
+    height: 95dvh;
+    border-radius: 10px;
+  }
+  .sticker-list {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 8px;
+  }
+  .sticker-item {
+    padding: 4px;
+    border-radius: 10px;
+  }
+  .sticker-item img {
+    width: 80px;
+    height: 80px;
+  }
+  .sticker-item span {
+    font-size: 0.85em;
+  }
+  .sticker-search {
+    font-size: 0.9em;
+  }
+}
+
+/* mobile landscape – mało miejsca w pionie */
+@media (max-height: 500px) and (orientation: landscape) {
+  .sticker-popup {
+    height: 90dvh;
+    padding: 12px;
+  }
+  .sticker-slot-box img {
+    max-height: 70px;
+  }
 }
