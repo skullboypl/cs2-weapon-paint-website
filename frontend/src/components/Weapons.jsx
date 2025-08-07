@@ -100,8 +100,8 @@ export default function Weapons({ team }) {
 
         const glovesTData = mergedGloves.find(g => g.team === 2);
         const glovesCTData = mergedGloves.find(g => g.team === 3);
-        console.log('Gloves T data:', glovesTData);
-        console.log('Gloves CT data:', glovesCTData);
+        //console.log('Gloves T data:', glovesTData);
+        //console.log('Gloves CT data:', glovesCTData);
 
         const glovesT = glovesJson.find(g =>
           g.weapon_defindex === glovesTData?.defindex &&
@@ -114,8 +114,8 @@ export default function Weapons({ team }) {
         );
         setGloves_T(glovesT);
         setGloves_CT(glovesCT);
-        console.log('Gloves T:', glovesT);
-        console.log('Gloves CT:', glovesCT);
+        //console.log('Gloves T:', glovesT);
+        //console.log('Gloves CT:', glovesCT);
 
         const dbSkins = await resSkins.json(); // [{ weapon_defindex, weapon_paint_id }, ...]
         setDbSkins(dbSkins);
@@ -274,7 +274,7 @@ const handleSaveAgent = async (data) => {
     });
 
     const result = await res.json();
-    console.log('Zapisano agenta:', result);
+    //console.log('Zapisano agenta:', result);
   } catch (err) {
     console.error('Błąd zapisu agenta:', err);
   }
@@ -298,7 +298,7 @@ const handleSaveGloves = async (data) => {
     });
 
     const result = await res.json();
-    console.log('Zapisano rękawice:', result);
+    //console.log('Zapisano rękawice:', result);
   } catch (err) {
     console.error('Błąd zapisu rękawic:', err);
   }
@@ -306,7 +306,7 @@ const handleSaveGloves = async (data) => {
 };
 const handleSaveWeapon = async (data) => {
   const params = new URLSearchParams();
-  console.log('Saving weapon data:', data);
+ // console.log('Saving weapon data:', data);
   params.append('action', 'save');
   params.append('team', team); // 'CT' lub 'T'
   params.append('weapon_defindex', data.weapon_defindex); 
@@ -340,7 +340,7 @@ const handleSaveWeapon = async (data) => {
     });
 
     const result = await res.json();
-    console.log('Zapisano skina:', result);
+    //console.log('Zapisano skina:', result);
   } catch (err) {
     console.error('Błąd zapisu skina:', err);
   }
@@ -452,7 +452,7 @@ const handleSaveWeapon = async (data) => {
         onClose={() => setSelectedWeapon(null)}
         onSave={async (data) => {
           if(data.type === 'custom'){
-            console.log('Custom weapon data:', data);
+            // console.log('Custom weapon data:', data);
             if(data.team === null) return; // if no team selected, do not save
             switch(data.other){
               case 'agent':
@@ -461,7 +461,7 @@ const handleSaveWeapon = async (data) => {
                 break;
               case 'gloves':
                 //GLOVES SAVE TO API we have data.defindex, data.paint, data.w
-                console.log('Saving gloves:', data);
+                //console.log('Saving gloves:', data);
                 await handleSaveGloves(data);
                 break;
               default:
