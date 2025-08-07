@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  background: #121212;
+  color: white;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  width: inherit;
+}
+
+#root > div,
+.page{
+  display: flex;
+  height: inherit;
+  width: inherit;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#root > div{
+  background-image: url('/images/De_mirage_cs2.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #181818;
+  padding: 10px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100dvw;
+  z-index: 10;
+}
+
+.page-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  z-index: 2;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.user-info .user-details {
+  display: flex;
+  flex-direction: column;
+}
+.user-info .user-details h2{
+  margin: 0;
+  font-size: 20px;
+}
+.logout-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #ff4d4f;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #ff1a1c;
+}
+
+.page-container {
+  color: white;
+  text-align: center;
+  padding: 40px;
+  box-sizing: border-box;
+  max-width: 100dvw;
+  max-height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.profile-box {
+  margin-bottom: 20px;
+}
+
+.team-select {
+  margin-top: 30px;
+}
+
+.team-button {
+  padding: 12px 32px;
+  margin: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.team-button.ct {
+  background-color: #007bff;
+  color: white;
+}
+
+.team-button.t {
+  background-color: #dc3545;
+  color: white;
+}
+
+.team-button:hover {
+  opacity: 0.85;
+}
+
+.page-container:has(.taskbar) {
+  padding-top:0;
+}
+
+.taskbar {
+  position: sticky;
+  top: 0;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #333;
+  z-index: 10;
+  width: 100dvw;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.change-team-btn {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.change-team-btn:hover {
+  background-color: #666;
+}

@@ -1,0 +1,159 @@
+.weapon-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.category-button {
+  font-size: 1.1em;
+  font-weight: 500;
+  background-color: #2b2b2b;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.category-button:hover {
+  background-color: #3a3a3a;
+}
+
+.category-button.active {
+  background-color: #007bff;
+}
+.weapons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  width: 100%;
+  justify-items: center;
+}
+
+.weapon-card {
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 150px;
+}
+
+.weapon-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.weapon-img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.weapon-name {
+  font-size: 1em;
+  color: #fff;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.knife-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.knife-card {
+  background: #1a1a1a;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.knife-card.selected {
+  border-color: #3498db; /* niebieska ramka */
+}
+
+.knife-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.knife-card p {
+  font-size: 0.8em;
+  margin-top: 4px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.knife-dropdown-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+  width: 250px;
+}
+
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  background-color: #222;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #444;
+  color: #fff;
+  justify-content: space-between;
+}
+
+.dropdown-header img {
+  margin-right: 10px;
+}
+
+.arrow {
+  margin-left: auto;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #333;
+}
+
+.dropdown-item.selected {
+  background-color: #2a2a2a;
+}
+
+.dropdown-item img {
+  margin-right: 10px;
+}

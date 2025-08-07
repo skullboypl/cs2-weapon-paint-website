@@ -1,0 +1,422 @@
+[
+  {
+    "name": "ak47",
+    "image": "/weapons/weapon_ak47.png",
+    "category": "Rifle",
+    "cs2_id": 7,
+    "team": "T"
+  },
+  {
+    "name": "aug",
+    "image": "/weapons/weapon_aug.png",
+    "category": "Rifle",
+    "cs2_id": 8,
+    "team": "CT"
+  },
+  {
+    "name": "awp",
+    "image": "/weapons/weapon_awp.png",
+    "category": "Sniper",
+    "cs2_id": 9,
+    "team": "Both"
+  },
+  {
+    "name": "bayonet",
+    "image": "/weapons/weapon_bayonet.png",
+    "category": "Knife",
+    "cs2_id": 500,
+    "team": "Both"
+  },
+  {
+    "name": "bizon",
+    "image": "/weapons/weapon_bizon.png",
+    "category": "PM",
+    "cs2_id": 26,
+    "team": "Both"
+  },
+  {
+    "name": "cz75a",
+    "image": "/weapons/weapon_cz75a.png",
+    "category": "Pistol",
+    "cs2_id": 63,
+    "team": "Both"
+  },
+  {
+    "name": "deagle",
+    "image": "/weapons/weapon_deagle.png",
+    "category": "Pistol",
+    "cs2_id": 1,
+    "team": "Both"
+  },
+  {
+    "name": "elite",
+    "image": "/weapons/weapon_elite.png",
+    "category": "Pistol",
+    "cs2_id": 2,
+    "team": "Both"
+  },
+  {
+    "name": "famas",
+    "image": "/weapons/weapon_famas.png",
+    "category": "Rifle",
+    "cs2_id": 10,
+    "team": "CT"
+  },
+  {
+    "name": "fiveseven",
+    "image": "/weapons/weapon_fiveseven.png",
+    "category": "Pistol",
+    "cs2_id": 3,
+    "team": "CT"
+  },
+  {
+    "name": "g3sg1",
+    "image": "/weapons/weapon_g3sg1.png",
+    "category": "Sniper",
+    "cs2_id": 11,
+    "team": "T"
+  },
+  {
+    "name": "galilar",
+    "image": "/weapons/weapon_galilar.png",
+    "category": "Rifle",
+    "cs2_id": 13,
+    "team": "T"
+  },
+  {
+    "name": "glock",
+    "image": "/weapons/weapon_glock.png",
+    "category": "Pistol",
+    "cs2_id": 4,
+    "team": "T"
+  },
+  {
+    "name": "hkp2000",
+    "image": "/weapons/weapon_hkp2000.png",
+    "category": "Pistol",
+    "cs2_id": 32,
+    "team": "CT"
+  },
+  {
+    "name": "knife_butterfly",
+    "image": "/weapons/weapon_knife_butterfly.png",
+    "category": "Knife",
+    "cs2_id": 515,
+    "team": "Both"
+  },
+  {
+    "name": "knife_canis",
+    "image": "/weapons/weapon_knife_canis.png",
+    "category": "Knife",
+    "cs2_id": 518,
+    "team": "Both"
+  },
+  {
+    "name": "knife_cord",
+    "image": "/weapons/weapon_knife_cord.png",
+    "category": "Knife",
+    "cs2_id": 517,
+    "team": "Both"
+  },
+  {
+    "name": "knife_css",
+    "image": "/weapons/weapon_knife_css.png",
+    "category": "Knife",
+    "cs2_id": 503,
+    "team": "Both"
+  },
+  {
+    "name": "knife_falchion",
+    "image": "/weapons/weapon_knife_falchion.png",
+    "category": "Knife",
+    "cs2_id": 512,
+    "team": "Both"
+  },
+  {
+    "name": "knife_flip",
+    "image": "/weapons/weapon_knife_flip.png",
+    "category": "Knife",
+    "cs2_id": 505,
+    "team": "Both"
+  },
+  {
+    "name": "knife_gut",
+    "image": "/weapons/weapon_knife_gut.png",
+    "category": "Knife",
+    "cs2_id": 506,
+    "team": "Both"
+  },
+  {
+    "name": "knife_gypsy_jackknife",
+    "image": "/weapons/weapon_knife_gypsy_jackknife.png",
+    "category": "Knife",
+    "cs2_id": 520,
+    "team": "Both"
+  },
+  {
+    "name": "knife_karambit",
+    "image": "/weapons/weapon_knife_karambit.png",
+    "category": "Knife",
+    "cs2_id": 507,
+    "team": "Both"
+  },
+  {
+    "name": "knife_kukri",
+    "image": "/weapons/weapon_knife_kukri.png",
+    "category": "Knife",
+    "cs2_id": null,
+    "team": "Both"
+  },
+  {
+    "name": "knife_m9_bayonet",
+    "image": "/weapons/weapon_knife_m9_bayonet.png",
+    "category": "Knife",
+    "cs2_id": 508,
+    "team": "Both"
+  },
+  {
+    "name": "knife_outdoor",
+    "image": "/weapons/weapon_knife_outdoor.png",
+    "category": "Knife",
+    "cs2_id": 521,
+    "team": "Both"
+  },
+  {
+    "name": "knife_push",
+    "image": "/weapons/weapon_knife_push.png",
+    "category": "Knife",
+    "cs2_id": 516,
+    "team": "Both"
+  },
+  {
+    "name": "knife_skeleton",
+    "image": "/weapons/weapon_knife_skeleton.png",
+    "category": "Knife",
+    "cs2_id": 525,
+    "team": "Both"
+  },
+  {
+    "name": "knife_stiletto",
+    "image": "/weapons/weapon_knife_stiletto.png",
+    "category": "Knife",
+    "cs2_id": 522,
+    "team": "Both"
+  },
+  {
+    "name": "knife_survival_bowie",
+    "image": "/weapons/weapon_knife_survival_bowie.png",
+    "category": "Knife",
+    "cs2_id": 514,
+    "team": "Both"
+  },
+  {
+    "name": "knife_tactical",
+    "image": "/weapons/weapon_knife_tactical.png",
+    "category": "Knife",
+    "cs2_id": 509,
+    "team": "Both"
+  },
+  {
+    "name": "knife_ursus",
+    "image": "/weapons/weapon_knife_ursus.png",
+    "category": "Knife",
+    "cs2_id": 519,
+    "team": "Both"
+  },
+  {
+    "name": "knife_widowmaker",
+    "image": "/weapons/weapon_knife_widowmaker.png",
+    "category": "Knife",
+    "cs2_id": 523,
+    "team": "Both"
+  },
+  {
+    "name": "knife",
+    "image": "/weapons/weapon_knife.png",
+    "category": "Knife",
+    "cs2_id": null,
+    "team": "Both"
+  },
+  {
+    "name": "m249",
+    "image": "/weapons/weapon_m249.png",
+    "category": "Machine Gun",
+    "cs2_id": 14,
+    "team": "Both"
+  },
+  {
+    "name": "m4a1_silencer",
+    "image": "/weapons/weapon_m4a1_silencer.png",
+    "category": "Rifle",
+    "cs2_id": 60,
+    "team": "CT"
+  },
+  {
+    "name": "m4a1",
+    "image": "/weapons/weapon_m4a1.png",
+    "category": "Rifle",
+    "cs2_id": 16,
+    "team": "CT"
+  },
+  {
+    "name": "mac10",
+    "image": "/weapons/weapon_mac10.png",
+    "category": "PM",
+    "cs2_id": 17,
+    "team": "T"
+  },
+  {
+    "name": "mag7",
+    "image": "/weapons/weapon_mag7.png",
+    "category": "Shotgun",
+    "cs2_id": 27,
+    "team": "CT"
+  },
+  {
+    "name": "mp5sd",
+    "image": "/weapons/weapon_mp5sd.png",
+    "category": "PM",
+    "cs2_id": 23,
+    "team": "Both"
+  },
+  {
+    "name": "mp7",
+    "image": "/weapons/weapon_mp7.png",
+    "category": "PM",
+    "cs2_id": 33,
+    "team": "Both"
+  },
+  {
+    "name": "mp9",
+    "image": "/weapons/weapon_mp9.png",
+    "category": "PM",
+    "cs2_id": 34,
+    "team": "CT"
+  },
+  {
+    "name": "negev",
+    "image": "/weapons/weapon_negev.png",
+    "category": "Machine Gun",
+    "cs2_id": 28,
+    "team": "Both"
+  },
+  {
+    "name": "nova",
+    "image": "/weapons/weapon_nova.png",
+    "category": "Shotgun",
+    "cs2_id": 35,
+    "team": "Both"
+  },
+  {
+    "name": "p250",
+    "image": "/weapons/weapon_p250.png",
+    "category": "Pistol",
+    "cs2_id": 36,
+    "team": "Both"
+  },
+  {
+    "name": "p90",
+    "image": "/weapons/weapon_p90.png",
+    "category": "PM",
+    "cs2_id": 19,
+    "team": "Both"
+  },
+  {
+    "name": "revolver",
+    "image": "/weapons/weapon_revolver.png",
+    "category": "Pistol",
+    "cs2_id": 64,
+    "team": "Both"
+  },
+  {
+    "name": "sawedoff",
+    "image": "/weapons/weapon_sawedoff.png",
+    "category": "Shotgun",
+    "cs2_id": 29,
+    "team": "T"
+  },
+  {
+    "name": "scar20",
+    "image": "/weapons/weapon_scar20.png",
+    "category": "Sniper",
+    "cs2_id": 38,
+    "team": "CT"
+  },
+  {
+    "name": "sg556",
+    "image": "/weapons/weapon_sg556.png",
+    "category": "Rifle",
+    "cs2_id": 39,
+    "team": "T"
+  },
+  {
+    "name": "ssg08",
+    "image": "/weapons/weapon_ssg08.png",
+    "category": "Sniper",
+    "cs2_id": 40,
+    "team": "Both"
+  },
+  {
+    "name": "taser",
+    "image": "/weapons/weapon_taser.png",
+    "category": "Pistol",
+    "cs2_id": null,
+    "team": "Both"
+  },
+  {
+    "name": "tec9",
+    "image": "/weapons/weapon_tec9.png",
+    "category": "Pistol",
+    "cs2_id": 30,
+    "team": "T"
+  },
+  {
+    "name": "ump45",
+    "image": "/weapons/weapon_ump45.png",
+    "category": "PM",
+    "cs2_id": 24,
+    "team": "Both"
+  },
+  {
+    "name": "usp_silencer",
+    "image": "/weapons/weapon_usp_silencer.png",
+    "category": "Pistol",
+    "cs2_id": 61,
+    "team": "CT"
+  },
+  {
+    "name": "xm1014",
+    "image": "/weapons/weapon_xm1014.png",
+    "category": "Shotgun",
+    "cs2_id": 25,
+    "team": "Both"
+  },
+  {
+    "name": "ct_agent",
+    "image": "/agents/ct_sas.png",
+    "category": "Other",
+    "cs2_id": null,
+    "team": "CT"
+  },
+  {
+    "name": "ct_gloves",
+    "image": "/others/ct_gloves.png",
+    "category": "Other",
+    "cs2_id": 0,
+    "team": "CT"
+  },
+  {
+    "name": "tt_agent",
+    "image": "/agents/tt_phoenix.png",
+    "category": "Other",
+    "cs2_id": null,
+    "team": "T"
+  },
+  {
+    "name": "tt_gloves",
+    "image": "/others/tt_gloves.png",
+    "category": "Other",
+    "cs2_id": null,
+    "team": "T"
+  }
+]

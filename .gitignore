@@ -1,0 +1,20 @@
+# --- BACKEND (PHP) ---
+backend/OLD/
+backend/.vscode/
+backend/config.php      
+
+# --- FRONTEND (React + Vite) ---
+frontend/node_modules/   
+frontend/.env               
+
+# --- MISC ---
+node_modules/
+/dist/
+dist/
+.env
+
+# --- SYSTEM / IDE ---
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
