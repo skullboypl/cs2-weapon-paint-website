@@ -12,7 +12,7 @@ A modern, React-powered web app for **customizing Counter-Strike 2 weapon skins*
 This is an **enhanced and extended version** of [cs2-WeaponPaints by Nereziel](https://github.com/Nereziel/cs2-WeaponPaints), redesigned as a complete **full-stack platform**:
 
 - Uses the original **weapon/sticker/keychain data** and images from Nereziel's repo.
-- Fully supports the **[CounterStrikeSharp Weapon Paint Plugin](https://github.com/Nereziel/cs2-WeaponPaints/tree/main/server)** for CS2 servers.
+- Fully supports the **[CounterStrikeSharp Weapon Paint Plugin](https://github.com/Nereziel/cs2-WeaponPaints/)** for CS2 servers.
 - Backend-ready — stores skins per Steam ID, with team (T/CT) separation.
 - Designed for server-side skin injection and syncing player preferences.
 - Built to be fast, responsive and easy to customize.
