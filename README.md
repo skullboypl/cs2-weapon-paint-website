@@ -76,9 +76,6 @@ This is an **enhanced and extended version** of [cs2-WeaponPaints by Nereziel](h
 
 ---
 
-## 🖥️ Demo website 
-[SKINS WEBSITE DEMO](https://skiny.blazepro.pl/)
-
 ## ⚙️ Setup Instructions
 
 ### 🔧 Backend + Frontend (Production-Ready)
