@@ -1,126 +1,178 @@
-# 🎮 CS2 Weapon Customizer (SKIN CHANGER WEBSITE FOR WEAPON PAINT PLUGIN)
-## This website is build with React + Vite and PHP for backend so its super fast 
+# CS2 Weapon Paints Website
 
-A modern, React-powered web app for **customizing Counter-Strike 2 weapon skins**, stickers, nametags and keychains. Includes a full PHP backend with Steam login and MySQL storage.
+React + Vite frontend and PHP backend for customizing Counter-Strike 2 weapon skins on your own servers. Works with the [CounterStrikeSharp Weapon Paint plugin](https://github.com/Nereziel/cs2-WeaponPaints/tree/main/server).
 
-> 🧪 Educational project — use at your own risk.
+Educational / hobby project. Not affiliated with Valve, Steam, or Counter-Strike. Use on your own servers at your own risk.
 
----
+Based on and extended from [Nereziel/cs2-WeaponPaints](https://github.com/Nereziel/cs2-WeaponPaints) (weapon/sticker/keychain data and images).
 
-## 📢 What is this?
+## Demo
 
-This is an **enhanced and extended version** of [cs2-WeaponPaints by Nereziel](https://github.com/Nereziel/cs2-WeaponPaints), redesigned as a complete **full-stack platform**:
+Live demo: [https://skins.vxh.pl/](https://skins.vxh.pl/)
 
-- Uses the original **weapon/sticker/keychain data** and images from Nereziel's repo.
-- Fully supports the **[CounterStrikeSharp Weapon Paint Plugin](https://github.com/Nereziel/cs2-WeaponPaints/tree/main/server)** for CS2 servers.
-- Backend-ready — stores skins per Steam ID, with team (T/CT) separation.
-- Designed for server-side skin injection and syncing player preferences.
-- Built to be fast, responsive and easy to customize.
+## Screenshots
 
----
+Screenshots live in the repo under [`readme/`](readme/) so they stay with the project.
 
-## 🚀 Features
+### Choose team
 
-- 🧩 Select skins, wear, seed, nametag
-- 🎨 Choose 4 stickers with real previews
-- 🔑 Assign keychains and control offset
-- 🧠 Automatically saves to your Steam-linked database profile
-- 🛠️ Works with CS2 WeaponPaint plugin for server skin injection
+![Choose team](readme/01-choose-team.png)
 
----
-## 🖥 Screenshots
-<img width="1327" height="1076" alt="{93C08B69-A1E7-4756-B014-69D8D943CB60}" src="https://github.com/user-attachments/assets/4dfd099e-e8a8-441d-b468-f54f0a6dd391" />
-<img width="1262" height="885" alt="{3B1D71E3-FAE8-473B-A93B-9DE7984DBDF7}" src="https://github.com/user-attachments/assets/d6023847-9835-4c1b-9fdc-fa565474e2db" />
-<img width="1304" height="1024" alt="{D142B961-4FD2-4BB9-9A7F-819C1634E3DB}" src="https://github.com/user-attachments/assets/ccbf4117-7c19-4d7d-b88d-f989e6b81ce2" />
-<img width="1959" height="1367" alt="{EB4E2F8F-BBE5-4DD8-9B5A-F8448C5B8C59}" src="https://github.com/user-attachments/assets/110e1946-3341-4ea6-a66e-166a40e7fcb5" />
+### Weapon categories and cards
 
----
+![Weapon categories](readme/02-weapon-categories.png)
 
-## 📦 Structure
-# 🎮 CS2 Weapon Customizer
+### Skin customizer (2D)
 
-A modern, React-powered web app for **customizing Counter-Strike 2 weapon skins**, stickers, nametags and keychains. Includes a full PHP backend with Steam login and MySQL storage.
+![Skin customizer 2D](readme/03-skin-customizer-2d.png)
 
-> 🧪 Educational project — use at your own risk.
+### Skin customizer (3D, beta)
 
----
+![Skin customizer 3D](readme/04-skin-customizer-3d.png)
 
-## 📢 What is this?
+### Saved loadouts
 
-This is an **enhanced and extended version** of [cs2-WeaponPaints by Nereziel](https://github.com/Nereziel/cs2-WeaponPaints), redesigned as a complete **full-stack platform**:
+![Loadouts panel](readme/05-loadouts-panel.png)
 
-- Uses the original **weapon/sticker/keychain data** and images from Nereziel's repo.
-- Fully supports the **[CounterStrikeSharp Weapon Paint Plugin](https://github.com/Nereziel/cs2-WeaponPaints/tree/main/server)** for CS2 servers.
-- Backend-ready — stores skins per Steam ID, with team (T/CT) separation.
-- Designed for server-side skin injection and syncing player preferences.
-- Built to be fast, responsive and easy to customize.
+### Full loadout (T + CT)
 
----
+![Full loadout](readme/06-full-loadout.png)
 
-## 🚀 Features
+### Stickers (size and position)
 
-- 🧩 Select skins, wear, seed, nametag
-- 🎨 Choose 4 stickers with real previews
-- 🔑 Assign keychains and control offset
-- 🧠 Automatically saves to your Steam-linked database profile
-- 🛠️ Works with CS2 WeaponPaint plugin for server skin injection
+![Choose stickers](readme/07-choose-stickers.png)
 
----
+### Keychains
 
-## 📦 Structure
-- /frontend → React (Vite) interface
-- /backend → PHP backend (Steam Auth + MySQL)
-- /config.sample.php → Config template for API keys and DB
+![Choose keychain](readme/08-choose-keychain.png)
 
+### Knives
 
+![Knives](readme/09-knives.png)
 
----
+## Features
 
-## ⚙️ Setup Instructions
+- Steam OpenID login; skins stored per SteamID
+- Separate loadouts for T and CT
+- Skins: paint, wear, seed, nametag, StatTrak
+- Stickers (5 slots, 5th beta): offsets, scale, rotation, wear
+- Keychains with X/Y offsets
+- Knives, agents, gloves
+- Named saved loadouts (team or both); optional public copy
+- Full loadout view: compare T/CT, reset skin/team/both
+- Optional beta 3D preview (`BETA_3D`)
+- i18n: English, Polish, German, French, Russian, Ukrainian
+- PWA-ready frontend assets
 
-### 🔧 Backend + Frontend (Production-Ready)
+## Structure
 
-1. **Download the latest release** from the [Releases](../../releases) tab.  
-   It contains:
-   - `/` — prebuilt React app (Vite) 
-   - `/api/` — backend PHP API (`/backend` folder renamed to `/api/`)
+```
+/
+  frontend/     React (Vite) UI
+  backend/      PHP API, Steam auth, MySQL
+  readme/       README screenshots (tracked in git)
+  scripts/      Dev helpers (plugin data, 3D manifest, …)
+```
 
-2. **Configure the backend**
-   - Rename `api/config.sample.php` → `config.php`
-   - Fill in your:
-     - **Steam Web API Key**
-     - **Domain name**
-     - **MySQL database credentials**
+Config template: `backend/config.sample.php` (copy to `config.php`, never commit secrets).
 
-3. **Upload the project to your server**
-   - Upload the full release folder to your web server
+## Production setup
 
-4. **Done!**  
-   Visit your domain in the browser and enjoy 🎉
+1. Download the latest [release](../../releases) (prebuilt frontend + `api/` PHP backend), **or** build locally with `pnpm release` (writes ready-to-upload `releases/newest-release/` folder).
+2. Copy `api/config.sample.php` to `api/config.php` and set:
 
-> ✅ No need to compile anything — the frontend is already built using `vite build`.
+- Steam Web API key
+- Domain name
+- MySQL host, port, database, user, password
 
-> ⚠️ Make sure your PHP hosting supports **PDO + MySQL** and HTTPS is enabled.
+3. Upload the contents of `releases/newest-release/` to your host document root (or a subdirectory).
+4. Open your domain over HTTPS.
 
----
+Requirements: PHP with PDO MySQL, HTTPS, writable session storage under the API.
 
-## 🔐 Steam Authentication
-- Uses OpenID login via steamauth/
+No frontend build step is required for the release folder.
 
-- Automatically stores user skins by their SteamID (wp_player_skins table)
+## Local development
 
-- Logout via /steamauth/logout.php
+Prefer **pnpm**.
 
-## 📸 Skin Images & Data
-All images, weapon definitions, sticker JSONs, and keychains are loaded from:
- - https://github.com/Nereziel/cs2-WeaponPaints (used under open license)
- - All rights belong to their respective owners (Valve, Nereziel, community).
+1. Backend config:
 
-## ⚠️ Legal & Safety
-- This project is for educational and hobbyist purposes only.
+```bash
+cp backend/config.sample.php backend/config.php
+```
 
-- Use on your own servers only.
+Edit Steam key, domain, and DB settings.
 
-- This is not affiliated with Valve or Steam.
+1. Frontend API URL (example):
 
-- Do not use to bypass in-game purchases or monetization.
+```bash
+cp frontend/.env.sample frontend/.env.development
+```
+
+Set `VITE_API_URL` to your local API (for example `http://127.0.0.1:8080/`).
+
+1. Install and run:
+
+```bash
+pnpm install
+pnpm --dir frontend install
+pnpm dev
+```
+
+Or separately:
+
+```bash
+pnpm dev:backend    # PHP on 127.0.0.1:8080
+pnpm dev:frontend   # Vite (default http://localhost:5173)
+```
+
+Use `http://localhost:5173` so the session cookie works with the API.
+
+Optional beta 3D in `backend/config.php`:
+
+```php
+define('BETA_3D', true);
+```
+
+Optional HTTP to HTTPS redirect:
+
+- `SSL_REDIRECT` in `config.php` only covers **PHP API** (`/api/…`).
+- Whole-site redirect (HTML + assets) is in `frontend/public/.htaccess` (copied into release root). On shared hosting that is usually what you need for `http://…` → `https://…`.
+
+```php
+define('SSL_REDIRECT', true);
+```
+
+Optional API protection (defaults apply if omitted):
+
+```php
+define('API_RATE_LIMIT', 120);      // requests / window (0 = off)
+define('API_RATE_WINDOW', 60);      // seconds
+define('API_READ_CACHE_TTL', 5);    // skip MySQL for identical reads (0 = off)
+```
+
+Cache build id (`backend/storage/cache/CACHE_VERSION`) is bumped automatically by `pnpm dev` and `pnpm release`, which also wipes PHP read/rate-limit cache files. Manual: `pnpm cache:bump`.
+
+## Steam auth
+
+- Login via `backend/steamauth/`
+- Session cookie: `wp_session` (HttpOnly)
+- Logout: `steamauth/logout.php`
+- Player skins: `wp_player_skins` (and related knife/gloves/loadout tables)
+
+## Data and images
+
+Weapon definitions, stickers, keychains, and many skin images come from [Nereziel/cs2-WeaponPaints](https://github.com/Nereziel/cs2-WeaponPaints). Rights belong to Valve, Nereziel, and other respective owners.
+
+Helper scripts (from repo root):
+
+- `pnpm plugin:update` - fetch/sync plugin data
+- `pnpm textures:manifest` - 3D texture availability manifest
+
+## Legal
+
+- Educational / hobby use only
+- Not affiliated with Valve or Steam
+- Do not use to bypass in-game purchases or monetization
+- Run only on servers you control

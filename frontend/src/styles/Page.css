@@ -1,263 +1,132 @@
-html, body, #root, * {
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
-  /* hide selection highlight */
-}
-body {
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+
+/* -- Skins page shell: always full viewport width -- */
+body.skinspage {
   margin: 0;
-  height: 100dvh;
-  width: 100dvw;
-  display: flex;
-  flex-direction: column;
-  background: #121212;
-  color: white;
+  width: 100%;
+  min-width: 100%;
+  max-width: none;
+  min-height: 100dvh;
+  display: block;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  background: #0a0d11;
+  color: #c7d5e0;
+  font-family: 'Noto Sans', 'Segoe UI', sans-serif;
 }
 
-#root {
-  flex: 1;
+body.skinspage #root,
+body.skinspage .app-root,
+body.skinspage .app-shell {
+  width: 100%;
+  max-width: none;
+  min-width: 100%;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  height: inherit;
-  width: inherit;
-  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-#root > div,
-.page{
-  display: flex;
-  height: inherit;
-  width: inherit;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-#root > div {
+.app-shell {
   position: relative;
-  z-index: 0;
+  z-index: 1;
+  flex: 1;
 }
-#root > div::before {
+
+.app-shell::before {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100dvw;
-  height: 100dvh;
-  background-image: url('/images/De_mirage_cs2.webp');
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-  opacity: 1;
-  animation: mirage-bg-scale 30s ease-in-out infinite;
+  inset: 0;
+  z-index: -1;
   pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(26, 159, 255, 0.07), transparent 50%),
+    linear-gradient(180deg, #10141a 0%, #0a0d11 100%);
 }
 
-@keyframes mirage-bg-scale {
-  0% {
-    transform: scale(1);
-  }
-  40% {
-    transform: scale(1.08, 1.13);
-  }
-  60% {
-    transform: scale(0.98, 1);
-  }
-  100% {
-    transform: scale(1);
-  }
+/* -- Topbar: 100% bar, inner max 1300 -- */
+.app-topbar {
+  width: 100%;
+  flex-shrink: 0;
+  background: #1b2838;
+  border-bottom: 2px solid rgba(102, 192, 244, 0.35);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
 
-.header {
-  position: relative;
+.app-topbar__inner {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0.85rem 1.35rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: rgba(23, 23, 23, 0.6);
-  padding: 10px 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100dvw;
-  z-index: 2;
-  backdrop-filter: blur(2px);
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.page-container {
+.app-topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.app-topbar__emblem {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.app-topbar__brand {
+  color: #fff;
+  font-family: 'Oswald', 'Noto Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.app-topbar__right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.app-main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 32px;
-  z-index: 2;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.user-info .user-details {
-  display: flex;
-  flex-direction: column;
-}
-.user-info .user-details h2{
-  margin: 0;
-  font-size: 20px;
-}
-.logout-button {
-  padding: 8px 16px;
-  font-size: 14px;
-  background-color: #ff4d4f;
-  border: none;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
+.app-weapons {
+  flex: 1;
+  width: 100%;
+  overflow: auto;
 }
 
-.logout-button:hover {
-  background-color: #ff1a1c;
+.app-shell--pick .app-topbar {
+  position: relative;
+  z-index: 5;
 }
 
-.page-container {
-  color: white;
-  text-align: center;
-  padding: 40px;
-  box-sizing: border-box;
-  max-width: 100dvw;
-  max-height: 100dvh;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.profile-box {
-  margin-bottom: 20px;
-}
-
-.team-select {
-  margin-top: 30px;
-}
-
-.team-button {
-  padding: 12px 32px;
-  margin: 10px;
-  font-size: 18px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.team-button.ct {
-  background-color: #007bff;
-  color: white;
-}
-
-.team-button.t {
-  background-color: #dc3545;
-  color: white;
-}
-
-.team-button:hover {
-  opacity: 0.85;
-}
-
-.page-container:has(.taskbar) {
-  padding-top:0;
-}
-
-.taskbar {
-  position: sticky;
-  top: 0;
-  background-color: rgba(30, 30, 30, 0.5);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  border-bottom: 1px solid #33333350;
-  z-index: 10;
-  width: 100dvw;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-size: 0.95rem;
-  color: #ccc;
-  backdrop-filter: blur(2px);
-}
-
-.change-team-btn {
-  background-color: #444;
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.change-team-btn:hover {
-  background-color: #666;
-}
-
-/* Responsive Design */
-@media (max-width: 915px) {
-  /* header */
-  .header{
-    padding: 5px 15px;
-  }
-  .header .user-info{
-    gap: 5px;
-  }
-  .header .user-info img{
-    width: 45px;
-    height: 45px;
-  }
-  .header .user-info .user-details h2{
-    font-size: 1.2em;
-    padding-left: 5px;
-  }
-  .header .user-info .user-details a{
-    display: none;
-  }
-  /* page-container */
-  .taskbar {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-  }
-  .page-container {
-    padding: 10px;
-  }
-  /* team-select */
-  .team-selector {
-    gap: 5px;
-  }
-  .team-selector h2{
-    margin: 0;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    font-size: 2em;
-  }
-  .team-selector .team-options {
-      gap: 15px
-  }
-  .team-selector .team-options .team-card{
-    width: 50%;
-    height: 100%;
-    max-height: 400px;
-    overflow: hidden;
+@media (max-width: 900px) {
+  .app-topbar__inner {
+    gap: 0.75rem;
   }
 }
 
-@media (max-width: 515px) {
-  
-  .team-selector h2{
-    font-size: 1.5em;
-    margin-top: 10px;
-  }
-   .team-selector .team-options{
-      flex-direction: column;
-   }
-   
-  .team-selector .team-options .team-card{
-    width: 100%;
-    height: 100%;
-    max-height: 350px;
+@media (max-width: 520px) {
+  .app-topbar__brand {
+    font-size: 1rem;
   }
 }

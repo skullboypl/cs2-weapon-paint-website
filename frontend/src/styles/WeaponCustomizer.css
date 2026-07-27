@@ -1,14 +1,15 @@
-.after-team-selection:has(.weapons-section .weapon-customizer-container){
+.after-team-selection:has(.weapons-section .weapon-customizer-container) {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
-  width: 100dvw;
-  max-width: 100dvw;
-}
-.weapons-section:has(.weapon-customizer-container){
   width: 100%;
-  max-width: 100dvw;
+  max-width: 100%;
+}
+
+.weapons-section:has(.weapon-customizer-container) {
+  width: 100%;
+  max-width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -17,520 +18,832 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
-  color: #fff;
-  font-family: Arial, sans-serif;
+  min-height: 100%;
+  color: #c7d5e0;
+  font-family: 'Noto Sans', 'Segoe UI', sans-serif;
 }
 
 .weapon-customizer-header {
-  width: 100dvw;
-  background-color: rgba(31, 31, 31, 0.5);
-  padding: 16px 24px;
+  width: 100%;
+  flex-shrink: 0;
+  background: rgba(27, 40, 56, 0.92);
+  border-bottom: 1px solid rgba(102, 192, 244, 0.28);
+}
+
+.weapon-customizer-header__inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.85rem 1.15rem;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-  border-bottom: 1px solid #33333350;
-  backdrop-filter: blur(2px);
+  gap: 1rem;
+  font-family: 'Oswald', 'Noto Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .weapon-customizer-header button {
-  background-color: #333;
-  border: none;
+  background: #2a3544;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
-  padding: 8px 16px;
+  padding: 0.45rem 0.9rem;
   cursor: pointer;
-  border-radius: 6px;
-  font-size: 14px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: inherit;
 }
 
 .weapon-customizer-header button:hover {
-  background-color: #444;
-}
-
-.weapon-customizer-content {
-  display: flex;
-  flex-grow: 1;
-  padding: 24px;
-  gap: 32px;
-}
-
-.customizer-left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 400px;
-}
-
-.customizer-left label {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-}
-
-.customizer-left input,
-.customizer-left select {
-  margin-top: 4px;
-  padding: 8px;
-  background-color: #222;
-  border: 1px solid #444;
-  border-radius: 4px;
-  color: #fff;
-}
-
-.stickers, .keychain {
-  margin-top: 16px;
-}
-
-.stickers h3,
-.keychain h3 {
-  margin-bottom: 8px;
-  font-size: 16px;
-  border-bottom: 1px solid #444;
-  padding-bottom: 4px;
-}
-
-.buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: auto;
-}
-
-.buttons button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  color: #fff;
-}
-
-.buttons button:first-child {
-  background-color: #444;
-}
-
-.buttons button:last-child {
-  background-color: #007bff;
-}
-
-.buttons button:last-child:hover {
-  background-color: #0069d9;
-}
-
-.customizer-right {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  overflow-y: auto;
+  border-color: rgba(102, 192, 244, 0.5);
+  background: #334155;
 }
 
 .weapon-customizer-body {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100%;
+  flex: 1;
   box-sizing: border-box;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-/* nice scroll */
-.weapon-customizer-body::-webkit-scrollbar {
-  width: 8px;
-}
-.weapon-customizer-body::-webkit-scrollbar-thumb {
-  background-color: #555;
-  border-radius: 4px;
-}
-.weapon-customizer-body::-webkit-scrollbar-track {
-  background-color: #222;
-}
-.weapon-customizer-body::-webkit-scrollbar-thumb:hover {
-  background-color: #888;
 }
 
-.weapon-customizer-body > div {
-  box-sizing: border-box;
-  padding: 15px;
-}
-
-.weapon-customizer-body .left-panel {
-  width: 75%;
+.weapon-customizer-body__inner {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* lub center jeśli chcesz centrować */
-  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.15rem 1.5rem;
+  gap: 1.1rem;
+  box-sizing: border-box;
 }
 
-.weapon-customizer-body .right-panel {
-  width: 25%;
+/* -- Hero: selected skin -- */
+.wc-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border: 1px solid #44444420;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.85rem 1rem 1rem;
   border-radius: 8px;
-  margin-top: 15px;
-  margin-right: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(102, 192, 244, 0.08), transparent 55%),
+    linear-gradient(180deg, #151b24 0%, #0e1319 100%);
 }
 
+.wc-hero .preview-mode-toggle {
+  margin-bottom: 0;
+}
 
-.weapon-preview {
+.wc-hero__stage-row {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.weapon-preview > img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  object-fit: contain;
-}
-.weapon-preview .preview-details{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
-.weapon-preview .preview-details h3{
-  margin: 0;
-  font-size: 1.2em;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  text-transform: capitalize;
-}
-.weapon-preview .preview-details p{
-  margin: 0;
-  font-size: 1em;
-  color: #ccc;
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
-.weapon-preview .preview-details .nametag_prev {
-  color: #fff;
-  font-size: 1em;
-  word-break: break-all;
-}
-
-
-.skin-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 5px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 0px 10px;
-  min-height: 170px;
-  max-height: 450px;
-  overflow-y: auto;
-  width: 100%;
+  gap: 0.75rem;
+  align-items: stretch;
+  justify-content: center;
 }
-/* nice scroll */
+
+.wc-hero__stage-row .wc-hero__stage {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.wc-hero__stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 280px;
+}
+
+.wc-hero__image {
+  width: min(100%, 520px);
+  max-height: min(42vh, 340px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
+}
+
+.wc-hero__empty {
+  color: #8f98a0;
+  font-size: 0.95rem;
+  padding: 3rem 1rem;
+}
+
+.wc-hero__meta {
+  text-align: center;
+  max-width: 40rem;
+}
+
+.wc-hero__title {
+  margin: 0;
+  color: #fff;
+  font-family: 'Oswald', 'Noto Sans', sans-serif;
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.wc-hero__sub {
+  margin: 0.35rem 0 0;
+  color: #9aa4ad;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.wc-hero .weapon-3d-preview {
+  width: 100%;
+  max-width: 920px;
+}
+
+.wc-hero .weapon-3d-canvas {
+  height: min(56vh, 520px);
+  min-height: 340px;
+}
+
+/* -- Skin grid -- */
+.wc-skins {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.wc-skins__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.wc-skins__title {
+  margin: 0;
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8f98a0;
+}
+
+.weapon-customizer-container .wc-skins__search,
+.wc-skins__search {
+  flex: 1 1 14rem;
+  min-width: 11rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.55rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #0b1018;
+  color: #e8eef4;
+  font: inherit;
+  font-size: 0.88rem;
+  line-height: 1.3;
+  color-scheme: dark;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.weapon-customizer-container .wc-skins__search:focus,
+.wc-skins__search:focus {
+  outline: none;
+  border-color: rgba(125, 211, 252, 0.55);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
+}
+
+.weapon-customizer-container .wc-skins__search::placeholder,
+.wc-skins__search::placeholder {
+  color: #6b7684;
+  opacity: 1;
+}
+
+.wc-skins__search::-webkit-search-decoration,
+.wc-skins__search::-webkit-search-cancel-button,
+.wc-skins__search::-webkit-search-results-button,
+.wc-skins__search::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+.wc-skins__count {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #8f98a0;
+}
+
+.wc-skins__empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 1.25rem 0.75rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #8f98a0;
+}
+
+.skin-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  gap: 0.55rem;
+  width: 100%;
+  max-height: min(38vh, 360px);
+  overflow-y: auto;
+  padding: 0.15rem 0.2rem 0.35rem;
+  scrollbar-gutter: stable;
+}
+
 .skin-list::-webkit-scrollbar {
   width: 8px;
 }
 .skin-list::-webkit-scrollbar-thumb {
-  background-color: #555;
+  background-color: #3a4656;
   border-radius: 4px;
 }
 .skin-list::-webkit-scrollbar-track {
-  background-color: #222;
-}
-.skin-list::-webkit-scrollbar-thumb:hover {
-  background-color: #888;
+  background-color: #151b24;
 }
 
 .skin-button {
-  border: none;
-  background: transparent;
-  padding: 0;
+  position: relative;
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0.4rem 0.35rem 0.45rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(22, 28, 36, 0.9);
   cursor: pointer;
-  border-radius: 5px;
-  background-color: #22222250;
-  border: 1px solid #22222250;
-  transition: transform 0.2s, outline 0.2s, border 0.2s, box-shadow 0.2s;
+  color: inherit;
+  text-align: left;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
-.skin-thumb {
-  cursor: pointer;
-  border: 2px solid transparent;
-  padding: 4px;
-}
-
-
-.skin-thumb img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
 .skin-button:hover {
-  border-color: #61dafb;
+  border-color: rgba(102, 192, 244, 0.45);
+  background: rgba(28, 36, 48, 0.95);
 }
 
 .skin-button.selected {
-    outline: 1px solid #61dafb;
-  box-shadow: 0 0 5px #61dafb80;
+  border-color: #66c0f4;
+  box-shadow: 0 0 0 1px rgba(102, 192, 244, 0.35);
+  background: rgba(32, 48, 64, 0.95);
 }
 
 .skin-thumb {
-  width: 110px;
-  height: auto;
-  border-radius: 4px;
-  display: block;
-}
-.preview-keychain {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 0px;
-  margin-bottom: 5px;
-  background-color: #1a1a1a40;
-  justify-content: center;
   width: 100%;
-  border-radius: 20px;
-  padding: 5px;
-  font-size: 0.8em;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  display: block;
+  border-radius: 3px;
 }
-.preview-keychain p{
-  margin: 0;
+
+.skin-button__name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.68rem;
+  line-height: 1.25;
+  color: #a8b4c0;
+  min-height: 1.7em;
 }
-.keychain-preview{
+
+.skin-button.selected .skin-button__name {
+  color: #e8eef4;
+}
+
+.skin-badge-3d {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  z-index: 2;
+  padding: 0.12rem 0.35rem;
+  border-radius: 3px;
+  background: rgba(10, 14, 20, 0.82);
+  border: 1px solid rgba(102, 192, 244, 0.55);
+  color: #66c0f4;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* -- Compact options (above skins) -- */
+.wc-options {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(16, 20, 28, 0.75);
   display: flex;
-  align-items: center;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 0.45rem;
 }
+
+.wc-options__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.45rem 0.55rem;
+}
+
+.wc-opt {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #9aa4ad;
+  min-width: 0;
+}
+
+.wc-opt__label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.wc-opt__wear-val {
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  color: #c7d5e0;
+  font-size: 0.72rem;
+}
+
+.wc-opt--wear {
+  flex: 1 1 180px;
+  min-width: 140px;
+  max-width: 260px;
+}
+
+.wc-opt--wear input[type='number'] {
+  max-width: none;
+}
+
+.wc-opt__range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 0.35rem;
+  margin: 0.35rem 0 0.15rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #3d9e6f 0%,
+    #c4a035 42%,
+    #b85a2a 70%,
+    #8a3030 100%
+  );
+  outline: none;
+  cursor: pointer;
+}
+
+.wc-opt__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  background: #e8eef4;
+  border: 2px solid #1a222c;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.wc-opt__range::-moz-range-thumb {
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 50%;
+  background: #e8eef4;
+  border: 2px solid #1a222c;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.wc-opt__range::-moz-range-track {
+  height: 0.35rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #3d9e6f 0%,
+    #c4a035 42%,
+    #b85a2a 70%,
+    #8a3030 100%
+  );
+}
+
+.wc-opt input:not([type='checkbox']):not([type='range']) {
+  padding: 0.32rem 0.45rem;
+  min-width: 4.5rem;
+  max-width: 7.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: #12171f;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.wc-opt--grow {
+  flex: 1 1 140px;
+}
+
+.wc-opt--grow input {
+  max-width: none;
+  min-width: 8rem;
+}
+
+.wc-opt--check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.wc-opt--check input {
+  width: 0.95rem;
+  height: 0.95rem;
+  cursor: pointer;
+}
+
+.wc-opt--both-teams {
+  display: flex;
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(102, 192, 244, 0.28);
+  border-radius: 6px;
+  background: rgba(102, 192, 244, 0.08);
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
+.wc-opt--both-teams span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #e6edf3;
+}
+
+.wc-opt__hint {
+  font-style: normal;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #9aa4ad;
+  line-height: 1.35;
+}
+
+.wc-opt-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin-left: auto;
+}
+
+.wc-opt-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #1c2430;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.wc-opt-actions button:hover {
+  border-color: rgba(102, 192, 244, 0.45);
+}
+
+.wc-opt-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding: 0 0.25rem;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.2);
+  color: #7dd3fc;
+  font-size: 0.68rem;
+}
+
+.wc-opt-thumb {
+  width: 2.35rem;
+  height: 2.35rem;
+  object-fit: contain;
+  flex: 0 0 auto;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.1rem;
+}
+
+.wc-sticker-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.wc-sticker-chip {
+  position: relative;
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: 0;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0c1016;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.wc-sticker-chip img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.wc-sticker-chip .wp-beta-badge--slot {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 1;
+  padding: 0.04rem 0.16rem;
+  font-size: 0.42rem;
+}
+
+.wc-wear-seed-3d-hint {
+  margin: 0;
+  max-width: 40rem;
+  font-size: 0.7rem;
+  line-height: 1.35;
+  color: #c4a574;
+}
+
+/* -- Settings footer -- */
+.wc-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(16, 20, 28, 0.75);
+}
+
+.skin-details-settings-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skin-details-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.skin-details-settings-labels label {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #9aa4ad;
+}
+
+.skin-details-settings-labels label input:not([type='checkbox']) {
+  padding: 0.45rem 0.6rem;
+  min-width: 7rem;
+  background: #12171f;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.skin-details-settings-labels label input[type='checkbox'] {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.skin-details-group button {
+  padding: 0.45rem 0.85rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #1c2430;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.skin-details-group button:hover {
+  border-color: rgba(102, 192, 244, 0.45);
+}
+
+.wc-extras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.preview-keychain,
+.preview-stickers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.22);
+  font-size: 0.8rem;
+}
+
+.preview-keychain p,
+.preview-stickers p {
+  margin: 0;
+  color: #8f98a0;
+  font-weight: 600;
+}
+
+.keychain-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
 .keychain-img {
-  width: 65px;
+  width: 56px;
   height: auto;
   object-fit: contain;
 }
 
-.preview-stickers {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  background-color: #1a1a1a40;
-  padding: 5px;
-  border-radius: 8px;
-  width: 100%;
-}
-.weapon-preview .preview-details .preview-stickers p{
-  margin: 0;
-  font-size: 1em;
-}
 .sticker-preview-list {
   display: flex;
-  gap: 10px;
+  gap: 0.45rem;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  max-width: 100%;
-  padding: 10px;
 }
+
 .sticker-preview {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 20%;
-  width: 100%;
+  width: 4.2rem;
 }
+
+.sticker-preview .wp-beta-badge--slot {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 2;
+  padding: 0.06rem 0.22rem;
+  font-size: 0.5rem;
+  border-radius: 2px;
+  font-family: 'Oswald', 'Noto Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #0b1220;
+  background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 55%, #0ea5e9 100%);
+}
+
 .sticker-img {
-  width: inherit;
+  width: 100%;
   height: auto;
   object-fit: contain;
-  border-radius: 4px;
 }
+
 .sticker-preview.empty {
-  color: gray;
-  font-size: 12px;
+  color: #6a7380;
+  font-size: 0.72rem;
+  text-align: center;
+  padding: 0.8rem 0.2rem;
+}
+
+.sticker-preview span {
+  font-size: 0.65rem;
+  color: #9aa4ad;
+  word-break: break-word;
   text-align: center;
 }
-.sticker-preview span{
-  font-size: 12px;
-  word-break: break-all;
-  color: #ccc;
-}
 
-.weapon-customizer-body .left-panel .skin-details-settings{
+.buttons {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 100%;
-  margin-left: 15px;
-}
-.weapon-customizer-body .left-panel .skin-details-settings .skin-details-settings-labels{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-.weapon-customizer-body .left-panel .skin-details-settings .skin-details-settings-labels .skin-details-group{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
-}
-.weapon-customizer-body .left-panel .skin-details-settings .skin-details-settings-labels label{
-  font-size: 1em;
-  color: rgb(239, 239, 239);
-  font-weight: 500;
-}
-.weapon-customizer-body .left-panel .skin-details-settings .skin-details-settings-labels label input:not([type="checkbox"]){
-  padding: 5px 10px;
-  background-color: #222;
-  border: 1px solid #444;
-  border-radius: 4px;
-  color: #fff;
-  margin-left: 5px;
-  font-size: 1em;
-}
-.weapon-customizer-body .left-panel .skin-details-settings .skin-details-settings-labels label input[type="checkbox"]{
-  width: 17px;
-  height: 17px;
-  margin-left: 5px;
-  background-color: #222;
-  border: 1px solid #444;
-  border-radius: 4px;
-  color: #fff;
-  cursor: pointer;
-}
-.weapon-customizer-body .left-panel .skin-details-settings .buttons{
-  display: flex;
-  flex-direction: row;
+  gap: 0.65rem;
   justify-content: flex-end;
-  width: 100%;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-top: auto;
-  padding-top: 5px;
 }
-.weapon-customizer-body .left-panel .skin-details-settings .buttons button{
-  padding: 8px 25px;
+
+.buttons .wc-btn--danger {
+  margin-right: auto;
+}
+
+.wc-btn {
+  padding: 0.55rem 1.25rem;
   border: none;
-  border-radius: 6px;
-  font-size: 1.2em;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 700;
   cursor: pointer;
   color: #fff;
 }
-.weapon-customizer-body .left-panel .skin-details-settings .buttons button:first-child {
-  background-color: #444;
-}
-.weapon-customizer-body .left-panel .skin-details-settings .buttons button:last-child {
-  background-color: #0056b3;
-}
-.weapon-customizer-body .left-panel .skin-details-settings .buttons button:last-child:hover {
-  background-color: #006fe6;
+
+.wc-btn--muted {
+  background: #3a4554;
 }
 
-@media (max-height: 915px) {
- body{
-    height: max-content;
-   max-height: max-content;
-   overflow-y: auto;
-   overflow-x: hidden;
- }
- .weapon-customizer-body {
-  overflow-y: hidden;
-  overflow-x: hidden;
-  max-height: max-content; /* Adjust based on header height */
+.wc-btn--muted:hover {
+  background: #465364;
 }
+
+.wc-btn--primary {
+  background: #1a6fb5;
 }
-@media (max-width: 1000px){
-  .sticker-preview span{
-    display: none;
-  }
+
+.wc-btn--primary:hover {
+  background: #2180cc;
 }
-@media (max-width: 915px) {
-  .skin-list {
-    max-height: 35dvh;
-  }
-  .weapon-customizer-body .left-panel .skin-details-settings .buttons{
-    justify-content: flex-start;
-    padding-top: 20px;
-  }
-  .weapon-customizer-body .left-panel .skin-details-settings .buttons button{
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    font-weight: 600;
-  }
+
+.wc-btn--danger {
+  background: transparent;
+  border: 1px solid rgba(232, 120, 90, 0.55);
+  color: #f0a090;
 }
-@media (max-width: 815px) {
+
+.wc-btn--danger:hover {
+  background: rgba(232, 120, 90, 0.12);
+  border-color: rgba(232, 120, 90, 0.8);
+  color: #ffc8b8;
+}
+
+@media (max-width: 700px) {
   .weapon-customizer-body {
-    flex-direction: column;
+    padding: 0.75rem 0.75rem 1.25rem;
   }
-  .weapon-customizer-body .right-panel {
-    width: 100%;
-  }
-  .weapon-customizer-body .left-panel{
-    width: 100%;
-    padding-right: 35px;
-    box-sizing: border-box;
-  }
-  .weapon-customizer-body .right-panel .weapon-preview{
-    width: 100%;
-    max-width: 100%;
-    flex-direction: row-reverse;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .weapon-customizer-body .right-panel .weapon-preview img{
-      max-width: 40%;
-      width: auto;
-      flex: 0 0 40%;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 12px;
-      background-color: #1f1f1f40;
-      height: 100%;
-  }
-   .weapon-customizer-body .right-panel .weapon-preview .preview-details {
-      width: 100%;
-      text-align: center;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      flex: 1;
-      font-size: 0.8em;
-   }
 
-   .preview-keychain{
-      width: 100%;
-   }
-  .preview-keychain p{
-      display: none;
+  .skin-list {
+    grid-template-columns: repeat(auto-fill, minmax(98px, 1fr));
+    max-height: 42vh;
   }
-  .weapon-customizer-body .right-panel .weapon-preview .preview-keychain img{
-    margin: 0;
-    background: none;
-    padding: 0;
-    height: 160px;
+
+  .buttons {
+    justify-content: stretch;
   }
-    .weapon-customizer-body .right-panel .weapon-preview .preview-stickers .sticker-preview-list .sticker-preview img{
-      margin: 0;
-      padding: 0;
-      max-width: 100%;
-    }
 
+  .buttons button {
+    flex: 1;
+  }
+}
 
+@media (max-width: 480px) {
+  .weapon-customizer-header {
+    padding: 0.7rem 0.85rem;
+    font-size: 0.95rem;
+  }
 
+  .wc-hero__image {
+    max-height: 34vh;
+  }
 
+  .skin-button__name {
+    font-size: 0.62rem;
+  }
 }

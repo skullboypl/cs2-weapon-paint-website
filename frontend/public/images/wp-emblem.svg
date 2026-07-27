@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" role="img" aria-label="Weapon Paints">
+  <defs>
+    <linearGradient id="wpBlue" x1="20" y1="110" x2="110" y2="18" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#66c0f4"/>
+      <stop offset="1" stop-color="#1a9fff"/>
+    </linearGradient>
+  </defs>
+  <!-- Ring -->
+  <circle cx="64" cy="64" r="56" stroke="url(#wpBlue)" stroke-width="6"/>
+  <!-- Inner disc hint (transparent fill - stroke only) -->
+  <circle cx="64" cy="64" r="44" stroke="#c9a227" stroke-width="2" opacity="0.9"/>
+  <!-- Bold WP monogram -->
+  <path
+    d="M30 40 L42 88 H52 L64 52 L76 88 H86 L98 40 H86 L78 72 L68 44 H60 L50 72 L42 40 Z"
+    fill="url(#wpBlue)"
+  />
+  <!-- Paint tick -->
+  <circle cx="64" cy="22" r="5" fill="#c9a227"/>
+</svg>

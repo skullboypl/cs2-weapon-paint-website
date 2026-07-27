@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" role="img" aria-label="Russia">
+  <clipPath id="a"><rect width="60" height="40" rx="2"/></clipPath>
+  <g clip-path="url(#a)">
+    <rect width="60" height="40" fill="#fff"/>
+    <rect y="13.333" width="60" height="13.334" fill="#0039A6"/>
+    <rect y="26.667" width="60" height="13.333" fill="#D52B1E"/>
+  </g>
+</svg>

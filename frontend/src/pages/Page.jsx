@@ -1,57 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import TeamSelector from './../components/TeamSelector';
-import './../styles/Page.css'; 
-import Weapons from './../components/Weapons';
+import { useEffect, useState } from 'react'
+import TeamSelector from '../components/TeamSelector'
+import Weapons from '../components/Weapons'
+import LoadoutsPanel from '../components/LoadoutsPanel'
+import {
+  HeaderUserMenu,
+  LangDropdown,
+  TeamSwitcher,
+} from '../components/HeaderMenus'
+import { useI18n } from '../i18n/I18nProvider'
+import { apiUrl } from '../lib/api'
+import { prefetchWeaponCatalogs } from '../lib/dataCache'
+import SiteFooter from '../components/SiteFooter'
+import '../styles/Page.css'
 
-export default function Page({ user, team, setTeam }) {
+export default function Page({ user, team, setTeam, category, setCategory }) {
+  const { t } = useI18n()
+  const [weaponsKey, setWeaponsKey] = useState(0)
 
-  const API_URL = import.meta.env.VITE_API_URL || "/api";
-  const handleTeamSelect = (side) => {
-    setTeam(side);
-  };
+  useEffect(() => {
+    document.body.classList.add('skinspage')
+    document.body.classList.remove('login-page')
+    return () => document.body.classList.remove('skinspage')
+  }, [])
+
+  useEffect(() => {
+    const idle = () => {
+      prefetchWeaponCatalogs()
+    }
+    if (typeof requestIdleCallback === 'function') {
+      const id = requestIdleCallback(idle, { timeout: 800 })
+      return () => cancelIdleCallback?.(id)
+    }
+    const tmr = setTimeout(idle, 100)
+    return () => clearTimeout(tmr)
+  }, [])
 
   const handleLogout = () => {
-    window.location.href = `${API_URL}/steamauth/logout.php`;
-  };
-
-  //add class skinspage to body on load and remove on unload
-  useEffect(() => {
-    document.body.classList.add('skinspage');
-    return () => {
-      document.body.classList.remove('skinspage');
-    };
-  }, []);
+    window.location.href = apiUrl('steamauth/logout.php')
+  }
 
   return (
-    <div className="page">
-      <div className="header">
-        <div className="user-info">
-          <img src={user.avatar} alt="avatar" width={64} height={64} />
-          <div className="user-details">
-            <h2>{user.personaname}</h2>
-            <a href={user.profileurl} target="_blank" rel="noreferrer">View Steam Profile</a>
+    <div className={team ? 'app-shell' : 'app-shell app-shell--pick'}>
+      <header className="app-topbar">
+        <div className="app-topbar__inner">
+          <div className="app-topbar__left">
+            <img
+              className="app-topbar__emblem"
+              src="/images/wp-emblem.svg"
+              width={34}
+              height={34}
+              alt=""
+              draggable={false}
+            />
+            <span className="app-topbar__brand">{t.brand}</span>
+            {team && (
+              <TeamSwitcher
+                team={team}
+                onSelect={setTeam}
+                onBack={() => setTeam(null)}
+              />
+            )}
+          </div>
+
+          <div className="app-topbar__right">
+            {team && (
+              <LoadoutsPanel
+                team={team}
+                onApplied={() => setWeaponsKey((k) => k + 1)}
+              />
+            )}
+            <LangDropdown />
+            <HeaderUserMenu user={user} onLogout={handleLogout} />
           </div>
         </div>
-        <button onClick={handleLogout} className="logout-button">Logout</button>
-      </div>
+      </header>
 
-        <div className="page-container">
+      <main className="app-main">
         {team ? (
-            <>
-            <div className="taskbar">
-                <span>Team selected: <strong>{team} </strong> </span>
-                <button onClick={() => setTeam(null)} className="change-team-btn">Change Team</button>
-            </div>
-
-            <div className="after-team-selection">
-                    <Weapons team={team} />
-            </div>
-            </>
+          <div className="app-weapons">
+            <Weapons
+              key={`${team}-${weaponsKey}`}
+              team={team}
+              category={category}
+              onCategoryChange={setCategory}
+            />
+          </div>
         ) : (
-            <TeamSelector onSelect={handleTeamSelect} />
+          <TeamSelector onSelect={setTeam} />
         )}
-        </div>
+      </main>
 
+      <SiteFooter />
     </div>
-  );
+  )
 }

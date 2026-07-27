@@ -1,0 +1,27 @@
+# Weapon Paints Website - release package
+
+## Contents
+
+- `/` - built React frontend (Vite)
+- `/api/` - PHP backend (Steam auth + MySQL API)
+- `/readme/` - screenshots (optional)
+
+## Install
+
+1. Upload the contents of `releases/newest-release/` (from `pnpm release`) to your web host document root (or a subdirectory).
+2. Copy `api/config.sample.php` to `api/config.php`.
+3. Edit `api/config.php`:
+   - `STEAM_API_KEY`
+   - `DOMAIN_NAME` (https, no trailing slash)
+   - MySQL credentials
+   - Optional: `define('BETA_3D', true);` for 3D preview
+   - Optional: `define('SSL_REDIRECT', true);` to 301 HTTP -> HTTPS on API
+   - Optional: `API_RATE_LIMIT` / `API_READ_CACHE_TTL` (see `config.sample.php`)
+4. Ensure PHP has PDO MySQL and `api/storage/sessions` (plus `cache`, `ratelimit`) is writable.
+5. Point the site at HTTPS. The frontend calls `/api/` on the same origin.
+
+## Notes
+
+- Do not commit or upload a real `config.php` with secrets into public repos.
+- Plugin (CounterStrikeSharp WeaponPaints) must use the same MySQL database.
+- Educational / hobby project. Not affiliated with Valve or Steam.

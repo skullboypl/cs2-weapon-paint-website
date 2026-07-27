@@ -1,0 +1,37 @@
+# SPA fallback - deep links like /t/rifle must serve index.html
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Force HTTPS (whole site: HTML + API). Safe behind typical shared hosting.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Keep real files/dirs (assets, api, data, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Never rewrite API
+  RewriteRule ^api(/|$) - [L]
+
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType application/manifest+json .json
+  AddType image/svg+xml .svg
+</IfModule>
+
+# Allow SW control of whole origin
+<IfModule mod_headers.c>
+  <FilesMatch "sw\.js$">
+    Header set Service-Worker-Allowed "/"
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(webmanifest)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

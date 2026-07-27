@@ -1,20 +1,38 @@
 # --- BACKEND (PHP) ---
 backend/OLD/
 backend/.vscode/
-backend/config.php      
+backend/config.php
+backend/storage/sessions/*
+!backend/storage/sessions/.gitignore
+backend/storage/cache/*
+!backend/storage/cache/.gitignore
+backend/storage/ratelimit/*
+!backend/storage/ratelimit/.gitignore
 
 # --- FRONTEND (React + Vite) ---
-frontend/node_modules/   
-frontend/.env               
+frontend/node_modules/
+frontend/.env
+
+# --- PLUGIN (Nereziel/cs2-WeaponPaints clone) ---
+plugin/
+
+# --- SAMPLE (optional LielXD reference clone; not required at runtime) ---
+sample/
 
 # --- MISC ---
 node_modules/
 /dist/
 dist/
 .env
+/releases/
+releases/
+# legacy path (pre releases/newest-release)
+/newest-release/
+newest-release/
 
 # --- SYSTEM / IDE ---
 .DS_Store
 Thumbs.db
 *.swp
 .vscode/
+.cursor/

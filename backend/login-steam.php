@@ -1,14 +1,13 @@
 <?php
-session_start();
-require_once __DIR__ . '/config.php'; 
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/class/SessionBootstrap.php';
 
+wp_boot_session();
 
 if (isset($_SESSION['steamid'])) {
-    $steamid = $_SESSION['steamid'];
-    header("Location: " . DOMAIN_NAME . "/?steamid=$steamid");
+    header('Location: ' . rtrim(DOMAIN_NAME, '/') . '/?steamid=' . urlencode($_SESSION['steamid']));
     exit;
 }
 
-// Jeśli nie ma sesji, przekieruj do steamlogin.php
-header("Location: " . API_DOMAIN_NAME . "/steamauth/steamlogin.php");
+header('Location: ' . rtrim(API_DOMAIN_NAME, '/') . '/steamauth/steamlogin.php');
 exit;

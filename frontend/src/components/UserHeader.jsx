@@ -1,16 +1,10 @@
-import React from 'react';
+import React from 'react'
+import { apiUrl } from '../lib/api'
 
 export default function UserHeader({ user }) {
-  const API_URL = import.meta.env.VITE_API_URL || "/api";
   const handleLogout = () => {
-    fetch(`${API_URL}/steamauth/logout.php`, {
-      credentials: 'include',
-    }).then(() => {
-      // Wyczyść dane lokalnie i przeładuj
-      localStorage.removeItem('steamid');
-      window.location.reload();
-    });
-  };
+    window.location.href = apiUrl('steamauth/logout.php')
+  }
 
   return (
     <div>
@@ -18,5 +12,5 @@ export default function UserHeader({ user }) {
       <span>{user.personaname}</span>
       <button onClick={handleLogout}>Wyloguj</button>
     </div>
-  );
+  )
 }

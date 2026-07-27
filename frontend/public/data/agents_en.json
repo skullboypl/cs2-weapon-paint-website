@@ -1,13 +1,13 @@
 [
     {
         "team": 2,
-        "image": "/agents/tt_phoenix.png",
+        "image": "",
         "model": "null",
         "agent_name": "Agent | Default"
     },
     {
         "team": 3,
-        "image": "/agents/ct_sas.png",
+        "image": "",
         "model": "null",
         "agent_name": "Agent | Default"
     },

@@ -1,4 +1,23 @@
 {
+  "name": "weapon-paints-website",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:frontend": "pnpm --dir frontend run dev",
+    "dev:backend": "node scripts/bump-cache-version.mjs && php -S 127.0.0.1:8080 -t backend",
+    "cache:bump": "node scripts/bump-cache-version.mjs",
+    "build": "pnpm --dir frontend run build",
+    "lint": "pnpm --dir frontend run lint",
+    "preview": "pnpm --dir frontend run preview",
+    "plugin:fetch": "node scripts/sync-plugin-data.mjs --fetch",
+    "plugin:sync": "node scripts/sync-plugin-data.mjs",
+    "plugin:update": "node scripts/sync-plugin-data.mjs --fetch --sync",
+    "skins:images": "node scripts/patch-skin-images.mjs",
+    "textures:manifest": "node scripts/build-3d-manifest.mjs",
+    "release": "node scripts/make-release.mjs"
+  },
   "dependencies": {
     "fs-extra": "^11.3.1"
   }

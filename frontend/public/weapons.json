@@ -360,7 +360,7 @@
     "name": "taser",
     "image": "/weapons/weapon_taser.png",
     "category": "Pistol",
-    "cs2_id": null,
+    "cs2_id": 31,
     "team": "Both"
   },
   {
@@ -415,6 +415,34 @@
   {
     "name": "tt_gloves",
     "image": "/others/tt_gloves.png",
+    "category": "Other",
+    "cs2_id": null,
+    "team": "T"
+  },
+  {
+    "name": "ct_music",
+    "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/music_kit-1.png",
+    "category": "Other",
+    "cs2_id": null,
+    "team": "CT"
+  },
+  {
+    "name": "tt_music",
+    "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/music_kit-1.png",
+    "category": "Other",
+    "cs2_id": null,
+    "team": "T"
+  },
+  {
+    "name": "ct_pin",
+    "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-875.png",
+    "category": "Other",
+    "cs2_id": null,
+    "team": "CT"
+  },
+  {
+    "name": "tt_pin",
+    "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-875.png",
     "category": "Other",
     "cs2_id": null,
     "team": "T"

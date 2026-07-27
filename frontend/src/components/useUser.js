@@ -1,29 +1,43 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
+import { apiUrl } from '../lib/api'
+
+const PROFILE_TIMEOUT_MS = 20000
 
 export function useUser() {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-  const API_URL = import.meta.env.VITE_API_URL || "/api/";
   useEffect(() => {
-    fetch(`${API_URL}/getUserProfile.php`, {
-      credentials: 'include',
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (!data.error) {
-          setUser(data);
-        //  console.log('User profile fetched successfully:', data);
-        }else{
-          console.error('Error fetching user profile:', data.error);
-        }
-        //clear get parameter from URL
-        const url = new URL(window.location);
-        url.searchParams.delete('steamid');
-        window.history.replaceState({}, document.title, url);
-        setLoading(false);
-      });
-  }, []);
+    const ctrl = new AbortController()
+    const timer = setTimeout(() => ctrl.abort(), PROFILE_TIMEOUT_MS)
 
-  return { user, loading };
+    fetch(apiUrl('getUserProfile.php'), {
+      credentials: 'include',
+      signal: ctrl.signal,
+    })
+      .then(async (res) => {
+        const data = await res.json()
+        if (!data.error && data.steamid) {
+          setUser(data)
+        }
+        const url = new URL(window.location.href)
+        url.searchParams.delete('steamid')
+        url.searchParams.delete('login')
+        window.history.replaceState({}, document.title, url.pathname + url.search)
+      })
+      .catch(() => {
+        /* timeout / network - treat as logged out */
+      })
+      .finally(() => {
+        clearTimeout(timer)
+        setLoading(false)
+      })
+
+    return () => {
+      clearTimeout(timer)
+      ctrl.abort()
+    }
+  }, [])
+
+  return { user, loading }
 }

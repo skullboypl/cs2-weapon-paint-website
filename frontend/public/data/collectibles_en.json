@@ -590,6 +590,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-995.png"
     },
     {
+        "id": "1000",
+        "name": "Operation Payback Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1000.png"
+    },
+    {
         "id": "1001",
         "name": "Operation Payback Challenge Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1001.png"
@@ -638,6 +643,11 @@
         "id": "1010",
         "name": "Library Map Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1010.png"
+    },
+    {
+        "id": "1012",
+        "name": "Operation Bravo Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1012.png"
     },
     {
         "id": "1013",
@@ -690,6 +700,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1022.png"
     },
     {
+        "id": "1023",
+        "name": "Operation Phoenix Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1023.png"
+    },
+    {
         "id": "1024",
         "name": "Operation Phoenix Challenge Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1024.png"
@@ -703,6 +718,11 @@
         "id": "1026",
         "name": "Gold Operation Phoenix Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1026.png"
+    },
+    {
+        "id": "1027",
+        "name": "Operation Breakout All Access Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1027.png"
     },
     {
         "id": "1028",
@@ -1015,6 +1035,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1089.png"
     },
     {
+        "id": "1315",
+        "name": "Operation Vanguard Access Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1315.png"
+    },
+    {
         "id": "1316",
         "name": "Operation Vanguard Challenge Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1316.png"
@@ -1028,6 +1053,11 @@
         "id": "1318",
         "name": "Gold Operation Vanguard Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1318.png"
+    },
+    {
+        "id": "1326",
+        "name": "Operation Bloodhound Access Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1326.png"
     },
     {
         "id": "1327",
@@ -1053,6 +1083,11 @@
         "id": "1332",
         "name": "2015 Service Medal",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1332.png"
+    },
+    {
+        "id": "1335",
+        "name": "Operation Wildfire Access Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1335.png"
     },
     {
         "id": "1336",
@@ -1098,6 +1133,11 @@
         "id": "1344",
         "name": "2016 Service Medal",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1344.png"
+    },
+    {
+        "id": "1352",
+        "name": "Operation Hydra Access Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-1352.png"
     },
     {
         "id": "1357",
@@ -1215,6 +1255,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4356.png"
     },
     {
+        "id": "4549",
+        "name": "Operation Shattered Web Premium Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4549.png"
+    },
+    {
         "id": "4550",
         "name": "Operation Shattered Web Challenge Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4550.png"
@@ -1233,6 +1278,11 @@
         "id": "4553",
         "name": "Diamond Operation Shattered Web Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4553.png"
+    },
+    {
+        "id": "4554",
+        "name": "Katowice 2019 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4554.png"
     },
     {
         "id": "4555",
@@ -1255,6 +1305,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4558.png"
     },
     {
+        "id": "4622",
+        "name": "Berlin 2019 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4622.png"
+    },
+    {
         "id": "4623",
         "name": "Berlin 2019 Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4623.png"
@@ -1273,6 +1328,16 @@
         "id": "4626",
         "name": "Berlin 2019 Diamond Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4626.png"
+    },
+    {
+        "id": "4627",
+        "name": "Berlin 2019 Viewer Pass + 3 Souvenir Tokens",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4627.png"
+    },
+    {
+        "id": "4628",
+        "name": "Berlin 2019 Souvenir Token",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4628.png"
     },
     {
         "id": "4674",
@@ -1360,6 +1425,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4692.png"
     },
     {
+        "id": "4699",
+        "name": "Operation Broken Fang Premium Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4699.png"
+    },
+    {
         "id": "4700",
         "name": "Operation Broken Fang Challenge Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4700.png"
@@ -1410,6 +1480,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4742.png"
     },
     {
+        "id": "4758",
+        "name": "Operation Riptide Premium Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4758.png"
+    },
+    {
         "id": "4759",
         "name": "Operation Riptide Challenge Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4759.png"
@@ -1430,6 +1505,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4762.png"
     },
     {
+        "id": "4796",
+        "name": "Stockholm 2021 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4796.png"
+    },
+    {
         "id": "4797",
         "name": "Stockholm 2021 Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4797.png"
@@ -1448,6 +1528,16 @@
         "id": "4800",
         "name": "Stockholm 2021 Diamond Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4800.png"
+    },
+    {
+        "id": "4801",
+        "name": "Stockholm 2021 Viewer Pass + 3 Souvenir Tokens",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4801.png"
+    },
+    {
+        "id": "4802",
+        "name": "Stockholm 2021 Souvenir Token",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4802.png"
     },
     {
         "id": "4819",
@@ -1480,6 +1570,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4824.png"
     },
     {
+        "id": "4825",
+        "name": "Antwerp 2022 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4825.png"
+    },
+    {
         "id": "4826",
         "name": "Antwerp 2022 Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4826.png"
@@ -1500,6 +1595,21 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4829.png"
     },
     {
+        "id": "4830",
+        "name": "Antwerp 2022 Viewer Pass + 3 Souvenir Tokens",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4830.png"
+    },
+    {
+        "id": "4831",
+        "name": "Antwerp 2022 Souvenir Token",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4831.png"
+    },
+    {
+        "id": "4850",
+        "name": "Rio 2022 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4850.png"
+    },
+    {
         "id": "4851",
         "name": "Rio 2022 Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4851.png"
@@ -1518,6 +1628,16 @@
         "id": "4854",
         "name": "Rio 2022 Diamond Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4854.png"
+    },
+    {
+        "id": "4855",
+        "name": "Rio 2022 Viewer Pass + 3 Souvenir Tokens",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4855.png"
+    },
+    {
+        "id": "4856",
+        "name": "Rio 2022 Souvenir Token",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4856.png"
     },
     {
         "id": "4873",
@@ -1550,6 +1670,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4878.png"
     },
     {
+        "id": "4883",
+        "name": "Paris 2023 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4883.png"
+    },
+    {
         "id": "4884",
         "name": "Paris 2023 Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4884.png"
@@ -1568,6 +1693,16 @@
         "id": "4887",
         "name": "Paris 2023 Diamond Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4887.png"
+    },
+    {
+        "id": "4888",
+        "name": "Paris 2023 Viewer Pass + 3 Souvenir Tokens",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4888.png"
+    },
+    {
+        "id": "4889",
+        "name": "Paris 2023 Souvenir Token",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4889.png"
     },
     {
         "id": "4906",
@@ -1600,6 +1735,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4911.png"
     },
     {
+        "id": "4916",
+        "name": "Copenhagen 2024 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4916.png"
+    },
+    {
         "id": "4917",
         "name": "Copenhagen 2024 Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4917.png"
@@ -1618,6 +1758,16 @@
         "id": "4920",
         "name": "Copenhagen 2024 Diamond Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4920.png"
+    },
+    {
+        "id": "4921",
+        "name": "Copenhagen 2024 Viewer Pass + 3 Souvenir Tokens",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4921.png"
+    },
+    {
+        "id": "4922",
+        "name": "Copenhagen 2024 Souvenir Package",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4922.png"
     },
     {
         "id": "4933",
@@ -1695,6 +1845,11 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4956.png"
     },
     {
+        "id": "4957",
+        "name": "Shanghai 2024 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4957.png"
+    },
+    {
         "id": "4958",
         "name": "Shanghai 2024 Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4958.png"
@@ -1713,6 +1868,16 @@
         "id": "4961",
         "name": "Shanghai 2024 Diamond Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4961.png"
+    },
+    {
+        "id": "4962",
+        "name": "Shanghai 2024 Viewer Pass + 3 Souvenir Tokens",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4962.png"
+    },
+    {
+        "id": "4963",
+        "name": "Shanghai 2024 Souvenir Package",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-4963.png"
     },
     {
         "id": "4974",
@@ -1938,6 +2103,576 @@
         "id": "5022",
         "name": "Premier Season Two Medal",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5022.png"
+    },
+    {
+        "id": "5110",
+        "name": "Austin 2025 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5110.png"
+    },
+    {
+        "id": "5111",
+        "name": "Austin 2025 Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5111.png"
+    },
+    {
+        "id": "5112",
+        "name": "Austin 2025 Silver Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5112.png"
+    },
+    {
+        "id": "5113",
+        "name": "Austin 2025 Gold Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5113.png"
+    },
+    {
+        "id": "5114",
+        "name": "Austin 2025 Diamond Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5114.png"
+    },
+    {
+        "id": "5115",
+        "name": "Austin 2025 Viewer Pass + 3 Souvenir Tokens",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5115.png"
+    },
+    {
+        "id": "5116",
+        "name": "Austin 2025 Souvenir Package",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5116.png"
+    },
+    {
+        "id": "5127",
+        "name": "Champion at BLAST.tv Austin 2025",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5127.png"
+    },
+    {
+        "id": "5128",
+        "name": "Finalist at BLAST.tv Austin 2025",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5128.png"
+    },
+    {
+        "id": "5129",
+        "name": "Semifinalist at BLAST.tv Austin 2025",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5129.png"
+    },
+    {
+        "id": "5130",
+        "name": "Quarterfinalist at BLAST.tv Austin 2025",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5130.png"
+    },
+    {
+        "id": "5135",
+        "name": "Agency Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5135.png"
+    },
+    {
+        "id": "5136",
+        "name": "Jura Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5136.png"
+    },
+    {
+        "id": "5137",
+        "name": "Grail Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5137.png"
+    },
+    {
+        "id": "5138",
+        "name": "Dogtown Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5138.png"
+    },
+    {
+        "id": "5139",
+        "name": "Brewery Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5139.png"
+    },
+    {
+        "id": "5140",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5140.png"
+    },
+    {
+        "id": "5141",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5141.png"
+    },
+    {
+        "id": "5142",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5142.png"
+    },
+    {
+        "id": "5143",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5143.png"
+    },
+    {
+        "id": "5144",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5144.png"
+    },
+    {
+        "id": "5145",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5145.png"
+    },
+    {
+        "id": "5146",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5146.png"
+    },
+    {
+        "id": "5147",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5147.png"
+    },
+    {
+        "id": "5148",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5148.png"
+    },
+    {
+        "id": "5149",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5149.png"
+    },
+    {
+        "id": "5150",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5150.png"
+    },
+    {
+        "id": "5151",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5151.png"
+    },
+    {
+        "id": "5152",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5152.png"
+    },
+    {
+        "id": "5153",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5153.png"
+    },
+    {
+        "id": "5154",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5154.png"
+    },
+    {
+        "id": "5155",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5155.png"
+    },
+    {
+        "id": "5156",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5156.png"
+    },
+    {
+        "id": "5157",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5157.png"
+    },
+    {
+        "id": "5158",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5158.png"
+    },
+    {
+        "id": "5159",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5159.png"
+    },
+    {
+        "id": "5160",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5160.png"
+    },
+    {
+        "id": "5161",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5161.png"
+    },
+    {
+        "id": "5162",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5162.png"
+    },
+    {
+        "id": "5163",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5163.png"
+    },
+    {
+        "id": "5164",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5164.png"
+    },
+    {
+        "id": "5165",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5165.png"
+    },
+    {
+        "id": "5166",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5166.png"
+    },
+    {
+        "id": "5167",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5167.png"
+    },
+    {
+        "id": "5168",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5168.png"
+    },
+    {
+        "id": "5169",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5169.png"
+    },
+    {
+        "id": "5170",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5170.png"
+    },
+    {
+        "id": "5171",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5171.png"
+    },
+    {
+        "id": "5172",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5172.png"
+    },
+    {
+        "id": "5173",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5173.png"
+    },
+    {
+        "id": "5174",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5174.png"
+    },
+    {
+        "id": "5175",
+        "name": "Premier Season Three Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5175.png"
+    },
+    {
+        "id": "5177",
+        "name": "Golden Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5177.png"
+    },
+    {
+        "id": "5178",
+        "name": "Rooftop Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5178.png"
+    },
+    {
+        "id": "5179",
+        "name": "Palacio Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5179.png"
+    },
+    {
+        "id": "5180",
+        "name": "(Redacted) Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5180.png"
+    },
+    {
+        "id": "5209",
+        "name": "Budapest 2025 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5209.png"
+    },
+    {
+        "id": "5210",
+        "name": "Budapest 2025 Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5210.png"
+    },
+    {
+        "id": "5211",
+        "name": "Budapest 2025 Silver Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5211.png"
+    },
+    {
+        "id": "5212",
+        "name": "Budapest 2025 Gold Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5212.png"
+    },
+    {
+        "id": "5213",
+        "name": "Budapest 2025 Diamond Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5213.png"
+    },
+    {
+        "id": "5214",
+        "name": "Budapest 2025 Viewer Pass + 3 Souvenir Tokens",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5214.png"
+    },
+    {
+        "id": "5215",
+        "name": "Budapest 2025 Souvenir Package",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5215.png"
+    },
+    {
+        "id": "5226",
+        "name": "Champion at StarLadder Budapest 2025",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5226.png"
+    },
+    {
+        "id": "5227",
+        "name": "Finalist at StarLadder Budapest 2025",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5227.png"
+    },
+    {
+        "id": "5228",
+        "name": "Semifinalist at StarLadder Budapest 2025",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5228.png"
+    },
+    {
+        "id": "5229",
+        "name": "Quarterfinalist at StarLadder Budapest 2025",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5229.png"
+    },
+    {
+        "id": "5234",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5234.png"
+    },
+    {
+        "id": "5235",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5235.png"
+    },
+    {
+        "id": "5236",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5236.png"
+    },
+    {
+        "id": "5237",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5237.png"
+    },
+    {
+        "id": "5238",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5238.png"
+    },
+    {
+        "id": "5239",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5239.png"
+    },
+    {
+        "id": "5240",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5240.png"
+    },
+    {
+        "id": "5241",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5241.png"
+    },
+    {
+        "id": "5242",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5242.png"
+    },
+    {
+        "id": "5243",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5243.png"
+    },
+    {
+        "id": "5244",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5244.png"
+    },
+    {
+        "id": "5245",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5245.png"
+    },
+    {
+        "id": "5246",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5246.png"
+    },
+    {
+        "id": "5247",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5247.png"
+    },
+    {
+        "id": "5248",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5248.png"
+    },
+    {
+        "id": "5249",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5249.png"
+    },
+    {
+        "id": "5250",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5250.png"
+    },
+    {
+        "id": "5251",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5251.png"
+    },
+    {
+        "id": "5252",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5252.png"
+    },
+    {
+        "id": "5253",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5253.png"
+    },
+    {
+        "id": "5254",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5254.png"
+    },
+    {
+        "id": "5255",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5255.png"
+    },
+    {
+        "id": "5256",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5256.png"
+    },
+    {
+        "id": "5257",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5257.png"
+    },
+    {
+        "id": "5258",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5258.png"
+    },
+    {
+        "id": "5259",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5259.png"
+    },
+    {
+        "id": "5260",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5260.png"
+    },
+    {
+        "id": "5261",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5261.png"
+    },
+    {
+        "id": "5262",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5262.png"
+    },
+    {
+        "id": "5263",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5263.png"
+    },
+    {
+        "id": "5264",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5264.png"
+    },
+    {
+        "id": "5265",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5265.png"
+    },
+    {
+        "id": "5266",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5266.png"
+    },
+    {
+        "id": "5267",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5267.png"
+    },
+    {
+        "id": "5268",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5268.png"
+    },
+    {
+        "id": "5269",
+        "name": "Premier Season Four Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5269.png"
+    },
+    {
+        "id": "5270",
+        "name": "2026 Service Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5270.png"
+    },
+    {
+        "id": "5271",
+        "name": "2026 Service Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5271.png"
+    },
+    {
+        "id": "5272",
+        "name": "2026 Service Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5272.png"
+    },
+    {
+        "id": "5273",
+        "name": "2026 Service Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5273.png"
+    },
+    {
+        "id": "5274",
+        "name": "2026 Service Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5274.png"
+    },
+    {
+        "id": "5275",
+        "name": "2026 Service Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5275.png"
+    },
+    {
+        "id": "5276",
+        "name": "Warden Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5276.png"
+    },
+    {
+        "id": "5277",
+        "name": "Stronghold Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5277.png"
+    },
+    {
+        "id": "5278",
+        "name": "Alpine Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5278.png"
+    },
+    {
+        "id": "5279",
+        "name": "Poseidon Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5279.png"
+    },
+    {
+        "id": "5280",
+        "name": "Sanctum Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5280.png"
     },
     {
         "id": "6001",
