@@ -14,6 +14,14 @@ Live demo: [https://skins.vxh.pl/](https://skins.vxh.pl/)
 
 Screenshots live in the repo under [`readme/`](readme/) so they stay with the project.
 
+### Steam login
+
+![Steam login](readme/00-steam-login.png)
+
+### Language picker
+
+![Language picker](readme/10-language-picker.png)
+
 ### Choose team
 
 ![Choose team](readme/01-choose-team.png)
