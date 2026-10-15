@@ -36,3 +36,11 @@ Thumbs.db
 *.swp
 .vscode/
 .cursor/
+
+# Automated local test artifacts
+/test-results/
+/playwright-report/
+
+# Reproducible optimized upstream images (included in release)
+frontend/public/catalog-images/
+frontend/public/data/image-manifest.json

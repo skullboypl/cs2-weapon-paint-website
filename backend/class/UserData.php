@@ -9,20 +9,8 @@ class UserData
 {
     public static function clientIp(): ?string
     {
-        $candidates = [
-            $_SERVER['HTTP_CF_CONNECTING_IP'] ?? null,
-            $_SERVER['HTTP_X_FORWARDED_FOR'] ?? null,
-            $_SERVER['REMOTE_ADDR'] ?? null,
-        ];
-        foreach ($candidates as $raw) {
-            if (!$raw) {
-                continue;
-            }
-            $ip = trim(explode(',', $raw)[0]);
-            if (filter_var($ip, FILTER_VALIDATE_IP)) {
-                return $ip;
-            }
-        }
+        $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+        if (filter_var($ip, FILTER_VALIDATE_IP)) { return $ip; }
         return null;
     }
 

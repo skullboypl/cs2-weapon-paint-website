@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/class/SessionBootstrap.php';
 require_once __DIR__ . '/class/ApiProtect.php';
 require_once __DIR__ . '/class/Database.php';
@@ -14,6 +14,8 @@ if (!isset($_SESSION['steamid'])) {
     echo json_encode(['error' => 'Not logged in']);
     exit;
 }
+
+wp_require_post();
 
 $steamid = (string) $_SESSION['steamid'];
 wp_enforce_rate_limit($steamid);
@@ -57,8 +59,8 @@ try {
     Database::reset();
     http_response_code(503);
     echo json_encode([
-        'errorDB' => 'Database connection failed: ' . $e->getMessage(),
-        'hint' => 'Empty tables are OK (plugin does not seed). Check MySQL reachability / config.php.',
+        'errorDB' => 'Database unavailable. Please try again later.',
+        'hint' => 'Contact the server administrator if this persists.',
     ]);
     exit;
 }
@@ -67,7 +69,7 @@ if (!$db) {
         ob_end_clean();
     }
     http_response_code(500);
-    echo json_encode(['errorDB' => 'Database connection failed remember to set up data in config.php']);
+    echo json_encode(['errorDB' => 'Database unavailable']);
     exit;
 }
 
@@ -102,6 +104,10 @@ switch ($action) {
             echo json_encode(['error' => 'Invalid team']);
             exit;
         }
+
+        $allowed = array_map(fn($w) => 'weapon_' . $w['name'], array_filter(wp_catalog('weapons.json'), fn($w) => $w['category'] === 'Knife'));
+        $allowed[] = 'weapon_knife';
+        if (!in_array($knife, $allowed, true)) { wp_json_error(422, 'Unknown knife'); }
 
         // Czy rekord istnieje?
         $stmt = $db->prepare('SELECT COUNT(*) FROM wp_player_knife WHERE steamid = ? AND weapon_team = ?');

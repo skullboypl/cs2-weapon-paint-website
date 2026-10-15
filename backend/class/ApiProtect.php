@@ -9,27 +9,14 @@ require_once __DIR__ . '/SessionBootstrap.php';
 
 function wp_client_ip(): string
 {
-    $candidates = [
-        $_SERVER['HTTP_CF_CONNECTING_IP'] ?? null,
-        $_SERVER['HTTP_X_FORWARDED_FOR'] ?? null,
-        $_SERVER['REMOTE_ADDR'] ?? null,
-    ];
-    foreach ($candidates as $raw) {
-        if ($raw === null || $raw === '') {
-            continue;
-        }
-        // X-Forwarded-For may be a list
-        $ip = trim(explode(',', (string) $raw)[0]);
-        if (filter_var($ip, FILTER_VALIDATE_IP)) {
-            return $ip;
-        }
-    }
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+    if (filter_var($ip, FILTER_VALIDATE_IP)) { return $ip; }
     return '0.0.0.0';
 }
 
 function wp_storage_subdir(string $name): string
 {
-    $dir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . $name;
+    $dir = wp_storage_root() . DIRECTORY_SEPARATOR . $name;
     if (!is_dir($dir)) {
         @mkdir($dir, 0775, true);
     }

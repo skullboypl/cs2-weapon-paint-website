@@ -1,9 +1,9 @@
 import React from 'react'
-import { apiUrl } from '../lib/api'
+import { logout } from '../lib/session'
 
 export default function UserHeader({ user }) {
   const handleLogout = () => {
-    window.location.href = apiUrl('steamauth/logout.php')
+    logout()
   }
 
   return (

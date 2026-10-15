@@ -150,7 +150,9 @@ function LoadoutRoute({ user }) {
 }
 
 export default function App() {
-  const { user, loading } = useUser()
+  const { user, loading, error } = useUser()
+
+  if (error) return <main className="ch-connection-error"><h1>CloudHub CS2</h1><p>Nie można połączyć się z aplikacją / Unable to connect.</p><button className="ch-primary" onClick={() => window.location.reload()}>Spróbuj ponownie / Retry</button></main>
 
   if (loading) {
     return (

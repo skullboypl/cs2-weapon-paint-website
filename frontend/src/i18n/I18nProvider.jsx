@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   DEFAULT_LOCALE,
   LOCALES,
@@ -6,7 +6,7 @@ import {
   translations,
 } from './translations'
 
-const I18nContext = createContext(null)
+import { I18nContext } from './useI18n'
 
 function resolveInitialLocale() {
   try {
@@ -42,10 +42,4 @@ export function I18nProvider({ children }) {
       {children}
     </I18nContext.Provider>
   )
-}
-
-export function useI18n() {
-  const ctx = useContext(I18nContext)
-  if (!ctx) throw new Error('useI18n must be used within I18nProvider')
-  return ctx
 }

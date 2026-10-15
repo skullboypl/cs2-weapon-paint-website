@@ -358,11 +358,6 @@
   border-color: #66c0f4;
   color: #fff;
 }
-  font-size: 0.95rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 
 .wp-user-links {
   display: flex;

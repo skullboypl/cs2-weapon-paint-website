@@ -1,4 +1,4 @@
-import { useI18n } from '../i18n/I18nProvider'
+import { useI18n } from '../i18n/useI18n'
 import '../styles/LoadingScreen.css'
 
 /** Falling loot bits - same curated skins as login showcase + cash chips */

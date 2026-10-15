@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../bootstrap.php';
 
 class Database {
     private static $instance = null;
@@ -29,6 +29,10 @@ class Database {
                 if (defined('PDO::MYSQL_ATTR_CONNECT_TIMEOUT')) {
                     $pdoOpts[PDO::MYSQL_ATTR_CONNECT_TIMEOUT] = $connectTimeout;
                 }
+                if (defined('DB_SSL_CA')) {
+                    $pdoOpts[PDO::MYSQL_ATTR_SSL_CA] = DB_SSL_CA;
+                    $pdoOpts[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = true;
+                }
                 $this->pdo = new PDO(
                     'mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';dbname=' . DB_NAME . ';charset=utf8mb4',
                     DB_USER,
@@ -41,7 +45,7 @@ class Database {
                 } catch (PDOException $ignored) {
                     // Some shared hosts disallow SESSION wait_timeout
                 }
-                $this->ensureSchema();
+                if (!defined('DB_AUTO_MIGRATE') || DB_AUTO_MIGRATE) { $this->ensureSchema(); }
                 self::$lastError = null;
                 return;
             } catch (PDOException $e) {

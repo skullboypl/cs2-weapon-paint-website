@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useI18n } from '../i18n/I18nProvider'
+import { useI18n } from '../i18n/useI18n'
 import '../styles/SkinShowcase.css'
 
 /** Curated iconic skins - IDs matched to public/data/skins_en.json */

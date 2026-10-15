@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import { postApi, invalidateApiCache } from '../lib/postApi'
 import { askConfirm, showToast } from '../lib/dialogs'
 import { fetchJsonCached } from '../lib/dataCache'
-import { useI18n } from '../i18n/I18nProvider'
+import { useI18n } from '../i18n/useI18n'
 import '../styles/Loadouts.css'
 
 function teamLabel(weaponTeam, t) {

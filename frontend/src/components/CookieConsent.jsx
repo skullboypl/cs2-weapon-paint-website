@@ -1,5 +1,5 @@
 import { useEffect, useId, useState } from 'react'
-import { useI18n } from '../i18n/I18nProvider'
+import { useI18n } from '../i18n/useI18n'
 import {
   COOKIE_INVENTORY,
   readCookieConsent,
@@ -29,7 +29,7 @@ function CookieGlyph() {
 }
 
 export default function CookieConsent() {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const panelId = useId()
   const [mounted, setMounted] = useState(false)
   const [hasChoice, setHasChoice] = useState(true)
@@ -69,12 +69,12 @@ export default function CookieConsent() {
                 {t.cookieTitle}
               </p>
               <p id={`${panelId}-desc`} className="cookie-dock__desc">
-                {t.cookieDesc}
+                {locale === 'pl' ? 'Używamy niezbędnych cookies do bezpiecznego logowania i zapamiętania Twoich ustawień. Bez reklam i śledzenia.' : 'Essential cookies keep your sign-in secure and remember your preferences. No ads or tracking.'}
               </p>
             </div>
           </div>
 
-          <ul className="cookie-dock__list">
+          <details className="ch-cookie-details"><summary>{locale === 'pl' ? 'Szczegóły' : 'Details'}</summary><ul className="cookie-dock__list">
             {COOKIE_INVENTORY.map((item) => (
               <li key={item.id}>
                 <strong>{item.name}</strong>
@@ -82,16 +82,9 @@ export default function CookieConsent() {
                 <em>{t[item.durationKey]}</em>
               </li>
             ))}
-          </ul>
+          </ul></details>
 
           <div className="cookie-dock__actions">
-            <button
-              type="button"
-              className="cookie-dock__btn cookie-dock__btn--ghost"
-              onClick={() => decide(false)}
-            >
-              {t.cookieEssential}
-            </button>
             <button
               type="button"
               className="cookie-dock__btn cookie-dock__btn--primary"

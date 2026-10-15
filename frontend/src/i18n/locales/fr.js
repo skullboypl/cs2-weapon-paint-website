@@ -1,6 +1,6 @@
 /** Auto-maintained locale: fr */
 export default {
-  brand: "Weapon Paints",
+  brand: "CloudHub CS2",
   signInHeading: "Connexion avec Steam",
   tagline:
     "Connectez-vous pour gérer skins, stickers, nametags et porte-clés pour votre serveur CS2.",

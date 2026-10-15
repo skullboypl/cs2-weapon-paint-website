@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import process from 'node:process'
 import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -16,7 +17,7 @@ export default defineConfig({
     proxy: {
       // Lokalne testy: /api/* → PHP built-in server (pnpm run dev)
       '/api': {
-        target: 'http://127.0.0.1:8080',
+        target: `http://127.0.0.1:${process.env.WP_BACKEND_PORT || '8080'}`,
         changeOrigin: true,
         cookieDomainRewrite: '',
         rewrite: (p) => p.replace(/^\/api/, ''),

@@ -1,95 +1,57 @@
-/* Weapon Paints PWA service worker */
-const CACHE_VERSION = 'wp-pwa-v2'
-const PRECACHE = [
-  '/',
-  '/index.html',
-  '/manifest.webmanifest',
-  '/icon.png',
-  '/images/Steam_icon_logo.svg',
-]
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches
-      .open(CACHE_VERSION)
-      .then((cache) => cache.addAll(PRECACHE))
-      .then(() => self.skipWaiting())
-      .catch(() => self.skipWaiting()),
-  )
-})
-
-self.addEventListener('activate', (event) => {
+/* CloudHub: network-first HTML/catalogues, immutable build assets only cached first. */
+const CACHE_VERSION = "cloudhub-v1";
+self.addEventListener("install", (event) => {
+  event.waitUntil(self.skipWaiting());
+});
+self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
       .then((keys) =>
         Promise.all(
           keys
-            .filter((key) => key.startsWith('wp-pwa-') && key !== CACHE_VERSION)
+            .filter(
+              (key) =>
+                (key.startsWith("wp-pwa-") || key.startsWith("cloudhub-")) &&
+                key !== CACHE_VERSION,
+            )
             .map((key) => caches.delete(key)),
         ),
       )
       .then(() => self.clients.claim()),
+  );
+});
+self.addEventListener("fetch", (event) => {
+  const req = event.request,
+    url = new URL(req.url);
+  if (
+    req.method !== "GET" ||
+    url.origin !== self.location.origin ||
+    url.pathname.startsWith("/api") ||
+    url.pathname.startsWith("/lielxd") ||
+    url.pathname.endsWith(".php")
   )
-})
-
-function shouldBypass(url) {
-  if (url.origin !== self.location.origin) return true
-  const path = url.pathname
-  if (path.startsWith('/api')) return true
-  if (path.startsWith('/lielxd')) return true
-  if (path.includes('steamauth')) return true
-  if (path.endsWith('.php')) return true
-  return false
-}
-
-self.addEventListener('fetch', (event) => {
-  const req = event.request
-  if (req.method !== 'GET') return
-
-  let url
-  try {
-    url = new URL(req.url)
-  } catch {
-    return
-  }
-
-  if (shouldBypass(url)) return
-
-  // SPA navigations: network first, fallback to cached shell
-  if (req.mode === 'navigate') {
-    event.respondWith(
-      fetch(req)
-        .then((res) => {
-          const copy = res.clone()
-          caches.open(CACHE_VERSION).then((cache) => cache.put('/index.html', copy))
-          return res
-        })
-        .catch(() =>
-          caches.match('/index.html').then((cached) => cached || caches.match('/')),
-        ),
-    )
-    return
-  }
-
-  // Static assets: cache-first, then network
+    return;
+  const immutable = url.pathname.startsWith("/assets/");
   event.respondWith(
-    caches.match(req).then((cached) => {
-      if (cached) return cached
-      return fetch(req)
-        .then((res) => {
-          if (!res || res.status !== 200 || res.type === 'opaque') return res
-          const copy = res.clone()
-          caches.open(CACHE_VERSION).then((cache) => cache.put(req, copy))
-          return res
-        })
-        .catch(() => cached)
+    caches.open(CACHE_VERSION).then(async (cache) => {
+      if (immutable) {
+        const cached = await cache.match(req);
+        if (cached) return cached;
+      }
+      try {
+        const response = await fetch(req);
+        if (response.ok && (immutable || req.mode === "navigate"))
+          await cache.put(req, response.clone());
+        return response;
+      } catch (error) {
+        const cached = await cache.match(req);
+        if (cached) return cached;
+        throw error;
+      }
     }),
-  )
-})
-
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting()
-  }
-})
+  );
+});
+self.addEventListener("message", (event) => {
+  if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
+});

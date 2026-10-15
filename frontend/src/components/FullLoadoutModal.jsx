@@ -4,7 +4,7 @@ import { askConfirm, getConfirmState } from '../lib/dialogs'
 import { fetchJsonCached } from '../lib/dataCache'
 import { buildTeamLoadout, skinIsCustomized } from '../lib/loadoutBuild'
 import { getWeaponLabel } from '../lib/weaponDisplay'
-import { useI18n } from '../i18n/I18nProvider'
+import { useI18n } from '../i18n/useI18n'
 import '../styles/FullLoadoutModal.css'
 
 function TeamSection({

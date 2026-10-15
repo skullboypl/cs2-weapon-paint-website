@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { useI18n } from '../i18n/I18nProvider'
+import { useI18n } from '../i18n/useI18n'
 import '../styles/HeaderMenus.css'
 
 const LOCALE_META = {
@@ -198,14 +198,14 @@ export function HeaderUserMenu({ user, onLogout }) {
       <div className="wp-user-head">
         <img
           className="wp-user-head__avatar"
-          src={user.avatar}
+          src={user.avatar || "/images/cloudhub/avatar.svg"}
           alt=""
           width={44}
           height={44}
           draggable={false}
         />
         <div className="wp-user-head__copy">
-          <strong>{user.personaname}</strong>
+          <strong>{user.personaname || 'Player'}</strong>
           {user.realname ? <em className="wp-user-realname">{user.realname}</em> : null}
         </div>
       </div>
@@ -240,7 +240,7 @@ export function HeaderUserMenu({ user, onLogout }) {
       <div className="wp-user-links">
         <a
           className="wp-menu-item"
-          href={user.profileurl}
+          href={`https://steamcommunity.com/profiles/${user.steamid}`}
           target="_blank"
           rel="noreferrer"
           role="menuitem"
@@ -276,13 +276,13 @@ export function HeaderUserMenu({ user, onLogout }) {
       >
         <img
           className="wp-user-trigger__avatar"
-          src={user.avatar}
+          src={user.avatar || "/images/cloudhub/avatar.svg"}
           alt=""
           width={36}
           height={36}
           draggable={false}
         />
-        <span className="wp-user-trigger__name">{user.personaname}</span>
+        <span className="wp-user-trigger__name">{user.personaname || 'Player'}</span>
         <span className="wp-menu-caret" aria-hidden>
           ▾
         </span>

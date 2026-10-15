@@ -1,43 +1,16 @@
 import { useState, useEffect } from 'react'
 import { apiUrl } from '../lib/api'
-
-const PROFILE_TIMEOUT_MS = 20000
-
 export function useUser() {
-  const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const ctrl = new AbortController()
-    const timer = setTimeout(() => ctrl.abort(), PROFILE_TIMEOUT_MS)
-
-    fetch(apiUrl('getUserProfile.php'), {
-      credentials: 'include',
-      signal: ctrl.signal,
-    })
-      .then(async (res) => {
-        const data = await res.json()
-        if (!data.error && data.steamid) {
-          setUser(data)
-        }
-        const url = new URL(window.location.href)
-        url.searchParams.delete('steamid')
-        url.searchParams.delete('login')
-        window.history.replaceState({}, document.title, url.pathname + url.search)
-      })
-      .catch(() => {
-        /* timeout / network - treat as logged out */
-      })
-      .finally(() => {
-        clearTimeout(timer)
-        setLoading(false)
-      })
-
-    return () => {
-      clearTimeout(timer)
-      ctrl.abort()
-    }
-  }, [])
-
-  return { user, loading }
+ const [user,setUser]=useState(null), [loading,setLoading]=useState(true), [error,setError]=useState(false)
+ useEffect(()=>{
+  let active=true
+  const ctrl=new AbortController(), timer=setTimeout(()=>ctrl.abort(),15000)
+  fetch(apiUrl('getUserProfile.php'),{credentials:'include',signal:ctrl.signal}).then(async res=>{
+   if (!res.ok) throw new Error('Profile unavailable')
+   const data=await res.json()
+   if (active && !data.error && data.steamid) setUser(data)
+  }).catch(()=>{if(active)setError(true)}).finally(()=>{clearTimeout(timer);if(active)setLoading(false)})
+  return ()=>{active=false;clearTimeout(timer);ctrl.abort()}
+ },[])
+ return {user,loading,error}
 }
