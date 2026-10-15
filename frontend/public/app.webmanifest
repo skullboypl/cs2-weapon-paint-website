@@ -1,7 +1,7 @@
 {
   "id": "/",
-  "name": "Weapon Paints",
-  "short_name": "Weapon Paints",
+  "name": "CloudHub CS2",
+  "short_name": "CloudHub CS2",
   "description": "Manage your CS2 WeaponPaints loadout - skins, stickers, StatTrak, nametags and keychains for T and CT.",
   "lang": "en",
   "dir": "ltr",
@@ -53,21 +53,21 @@
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Weapon Paints - CS2 loadout manager"
+      "label": "CloudHub CS2 - CS2 loadout manager"
     },
     {
       "src": "/icons/screenshot-narrow.png",
       "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Weapon Paints on mobile"
+      "label": "CloudHub CS2 on mobile"
     },
     {
       "src": "/icons/og-image.png",
       "sizes": "1200x630",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Weapon Paints brand preview"
+      "label": "CloudHub CS2 brand preview"
     }
   ],
   "shortcuts": [

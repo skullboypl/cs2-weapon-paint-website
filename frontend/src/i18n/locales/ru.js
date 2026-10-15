@@ -1,6 +1,6 @@
 /** Auto-maintained locale: ru */
 export default {
-  brand: "Weapon Paints",
+  brand: "CloudHub CS2",
   signInHeading: "Вход через Steam",
   tagline:
     "Войдите, чтобы управлять скинами, стикерами, неймтегами и брелками для вашего CS2-сервера.",

@@ -1,5 +1,5 @@
 import { STICKER_SLOT_COUNT } from '../lib/stickerFormat'
-import { useI18n } from '../i18n/I18nProvider'
+import { useI18n } from '../i18n/useI18n'
 import './../styles/StickerPlacement.css'
 
 function FieldRow({ label, children }) {

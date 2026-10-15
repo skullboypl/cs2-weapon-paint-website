@@ -1,9 +1,10 @@
 <?php
-require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/../class/SessionBootstrap.php';
 
 wp_send_cors_headers();
 wp_boot_session();
+wp_require_post();
 
 $_SESSION = [];
 
@@ -19,5 +20,6 @@ if (ini_get('session.use_cookies')) {
 
 session_destroy();
 
-header('Location: ' . rtrim(DOMAIN_NAME, '/') . '/');
+header('Content-Type: application/json');
+echo json_encode(['success' => true]);
 exit;

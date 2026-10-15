@@ -1,0 +1,126 @@
+export function cloudhubCopy(locale) {
+  const pl = locale === "pl";
+  return pl
+    ? {
+        studio: "Twoje studio skinów",
+        arsenal: "Arsenał",
+        loadout: "Moje wyposażenie",
+        collection: "KOLEKCJA",
+        account: "KONTO",
+        profile: "Profil gracza",
+        help: "Jak to działa",
+        menu: "Otwórz nawigację",
+        welcome: "Witaj z powrotem,",
+        hero: "Twój styl. Twoje zasady.",
+        heroSub:
+          "Dobierz skiny, dopracuj każdy detal i stwórz wyposażenie, które wyróżnia Cię na serwerze.",
+        customize: "Odkryj arsenał",
+        badge: "CLOUDHUB EXPERIENCE",
+        team: "AKTYWNA DRUŻYNA",
+        search: "Szukaj broni lub skina…",
+        all: "Wszystkie",
+        equipped: "Zmienione",
+        sort: "Sortowanie",
+        defaultSort: "Domyślne",
+        nameSort: "Nazwa A–Z",
+        noResults: "Brak pasujących przedmiotów",
+        clear: "Wyczyść filtry",
+        items: "przedmiotów",
+        saved: "Zapisano wyposażenie",
+        saving: "Zapisywanie…",
+        loginTitle: "Twój arsenał.\nBez kompromisów.",
+        loginSub:
+          "Kultowe skiny. Perfekcyjny zestaw. Twoje własne studio Counter-Strike 2 — od pierwszego wyboru po ostatnią naklejkę.",
+        steam: "Kontynuuj przez Steam",
+        secure: "Bezpieczne logowanie przez Steam OpenID",
+        explore: "Zobacz, co możesz stworzyć",
+        detail: "Każdy detal ma znaczenie",
+        detailSub:
+          "Wear, seed, StatTrak, naklejki i zawieszki. Wybierz swój styl, a my zadbamy o resztę.",
+        teams: "Dwa zespoły. Dwa style.",
+        teamsSub:
+          "Niezależne wyposażenie T i CT oraz zapisane zestawy na każdą okazję.",
+        sync: "Gotowe do gry",
+        syncSub:
+          "Zapis trafia do bazy WeaponPaints. Wejdź na obsługiwany serwer i odśwież wyposażenie.",
+        helpTitle: "Od pomysłu do wyposażenia",
+        steps: [
+          "Zaloguj się przez oficjalną stronę Steam. CloudHub nie otrzymuje Twojego hasła.",
+          "Wybierz drużynę, broń i skina. Ustaw wear, seed oraz dodatki.",
+          "Zapisz zmiany. Plugin pobiera wyposażenie z tej samej bazy — odśwież je komendą !ws lub połącz się ponownie.",
+        ],
+        loginError: "Nie udało się zalogować. Spróbuj ponownie przez Steam.",
+        connected: "Konto Steam",
+        legal:
+          "Skiny dotyczą serwerów z WeaponPaints. Nie zmieniają ekwipunku Steam.",
+        back: "Wróć do arsenału",
+        choose: "Zacznij od swojej drużyny",
+        chooseSub:
+          "Każdy zespół ma własne wyposażenie. Możesz je przełączać w dowolnym momencie.",
+        favorites: "Zapisane zestawy",
+        status: "Twój profil",
+        error: "Nie można połączyć się z aplikacją.",
+        retry: "Spróbuj ponownie",
+      }
+    : {
+        studio: "Your skin studio",
+        arsenal: "Arsenal",
+        loadout: "My loadout",
+        collection: "COLLECTION",
+        account: "ACCOUNT",
+        profile: "Player profile",
+        help: "How it works",
+        menu: "Open navigation",
+        welcome: "Welcome back,",
+        hero: "Your style. Your rules.",
+        heroSub:
+          "Find your signature skins, fine-tune every detail, and build a loadout that stands out on the server.",
+        customize: "Explore the arsenal",
+        badge: "THE CLOUDHUB EXPERIENCE",
+        team: "ACTIVE TEAM",
+        search: "Search weapons or skins…",
+        all: "All items",
+        equipped: "Customized",
+        sort: "Sort by",
+        defaultSort: "Default",
+        nameSort: "Name A–Z",
+        noResults: "No matching items",
+        clear: "Clear filters",
+        items: "items",
+        saved: "Loadout saved",
+        saving: "Saving…",
+        loginTitle: "Your arsenal.\nNo compromises.",
+        loginSub:
+          "Iconic skins. The perfect loadout. Your own Counter-Strike 2 studio — from the first pick to the final sticker.",
+        steam: "Continue with Steam",
+        secure: "Secure sign-in with Steam OpenID",
+        explore: "Make it unmistakably yours",
+        detail: "Every detail matters",
+        detailSub:
+          "Wear, seed, StatTrak, stickers, and charms. Find your style. Make every weapon your own.",
+        teams: "Two teams. Two identities.",
+        teamsSub:
+          "Independent T and CT loadouts, with saved collections for every occasion.",
+        sync: "Ready for your next round",
+        syncSub:
+          "Your choices are saved to WeaponPaints. Join a supported server and refresh your loadout.",
+        helpTitle: "From inspiration to your loadout",
+        steps: [
+          "Sign in on the official Steam website. CloudHub never receives your password.",
+          "Pick a team, a weapon, and a skin. Adjust wear, seed, and accessories.",
+          "Save your changes. The plugin reads the shared database — refresh with !ws or reconnect to the server.",
+        ],
+        loginError: "Sign-in failed. Please try again through Steam.",
+        connected: "Steam account",
+        legal:
+          "For servers running WeaponPaints. Does not modify your Steam inventory.",
+        back: "Back to arsenal",
+        choose: "Choose your side",
+        chooseSub:
+          "Each team has its own loadout. Switch between them whenever you want.",
+        favorites: "Saved loadouts",
+        status: "Your profile",
+        error: "Unable to connect to the application.",
+        retry: "Try again",
+      };
+}

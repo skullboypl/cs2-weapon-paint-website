@@ -1,5 +1,6 @@
 /** Register Weapon Paints service worker (PWA). */
 export function registerServiceWorker() {
+  if (import.meta.env.DEV) return
   if (typeof window === 'undefined' || !('serviceWorker' in navigator)) return
 
   const register = () => {

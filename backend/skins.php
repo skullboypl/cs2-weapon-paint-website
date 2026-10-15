@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/class/SessionBootstrap.php';
 require_once __DIR__ . '/class/ApiProtect.php';
 require_once __DIR__ . '/class/Database.php';
@@ -15,11 +15,14 @@ if (!isset($_SESSION['steamid'])) {
     exit;
 }
 
+wp_require_post();
+
 $steamid = $_SESSION['steamid'];
 wp_enforce_rate_limit((string) $steamid);
 
 $teamRaw = $_POST['team'] ?? '';
 $action = $_POST['action'] ?? '';
+wp_validate_skin_input($action);
 
 // reset_both clears T+CT and does not need a single team
 if ($action === 'reset_both') {
@@ -71,8 +74,8 @@ try {
     Database::reset();
     http_response_code(503);
     echo json_encode([
-        'errorDB' => 'Database connection failed: ' . $e->getMessage(),
-        'hint' => 'Empty tables are OK (plugin does not seed). Check MySQL reachability / config.php.',
+        'errorDB' => 'Database unavailable. Please try again later.',
+        'hint' => 'Contact the server administrator if this persists.',
     ]);
     exit;
 }
@@ -81,9 +84,11 @@ if (!$db) {
         ob_end_clean();
     }
     http_response_code(500);
-    echo json_encode(['errorDB' => 'Database connection failed remember to set up data in config.php']);
+    echo json_encode(['errorDB' => 'Database unavailable']);
     exit;
 }
+$isWrite = in_array($action, $writeActions, true);
+if ($isWrite) { $db->beginTransaction(); ob_start(); }
 switch ($action) {
     case 'getall':
         // Pobranie skinów dla danego steamid i teamu
@@ -645,6 +650,7 @@ switch ($action) {
         exit;
 }
 
+if ($isWrite) { $db->commit(); ob_end_flush(); }
 if ($caching) {
     wp_api_end_read_cache();
 }

@@ -69,6 +69,9 @@ function resolvePhpRuntime() {
   if (!bin) return null
 
   const phpHome = path.dirname(bin)
+  if (phpHasPdoMysql(bin, [])) {
+    return { bin, phpHome, extensionDir: 'php.ini (system)', iniArgs: [] }
+  }
   const candidates = [
     process.env.PHP_EXTENSION_DIR,
     path.join(phpHome, 'ext'),

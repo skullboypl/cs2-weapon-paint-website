@@ -3,7 +3,7 @@ import ru from "./locales/ru.js";
 import uk from "./locales/uk.js";
 
 export const LOCALES = ["en", "pl", "de", "fr", "ru", "uk"];
-export const DEFAULT_LOCALE = "en";
+export const DEFAULT_LOCALE = "pl";
 export const STORAGE_KEY = "wp_locale";
 
 const sharedCookiesEn = {
@@ -28,7 +28,7 @@ const sharedCookiesEn = {
 
 export const translations = {
   en: {
-    brand: "Weapon Paints",
+    brand: "CloudHub CS2",
     signInHeading: "Sign in with Steam",
     tagline:
       "Log in to manage skins, stickers, nametags and keychains for your CS2 server.",
@@ -271,7 +271,7 @@ export const translations = {
     stickerSlotEmpty: "Pick a sticker for this slot first.",
   },
   pl: {
-    brand: "Weapon Paints",
+    brand: "CloudHub CS2",
     signInHeading: "Zaloguj przez Steam",
     tagline:
       "Zaloguj się, aby zarządzać skinami, naklejkami, nametagami i brelokami na serwerze CS2.",
@@ -532,7 +532,7 @@ export const translations = {
     stickerSlotEmpty: "Najpierw wybierz naklejkę dla tego slotu.",
   },
   de: {
-    brand: "Weapon Paints",
+    brand: "CloudHub CS2",
     signInHeading: "Mit Steam anmelden",
     tagline:
       "Melde dich an, um Skins, Sticker, Nametags und Keychains für deinen CS2-Server zu verwalten.",

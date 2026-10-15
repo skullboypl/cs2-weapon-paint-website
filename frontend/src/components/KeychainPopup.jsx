@@ -1,6 +1,6 @@
 import { useEffect, useId, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { useI18n } from '../i18n/I18nProvider'
+import { useI18n } from '../i18n/useI18n'
 import '../styles/AddonModal.css'
 
 export default function KeychainPopup({

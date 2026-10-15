@@ -1,11 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import '@fontsource-variable/inter'
 import './index.css'
 import App from './App.jsx'
 import { I18nProvider } from './i18n/I18nProvider.jsx'
 import { registerServiceWorker } from './lib/registerSW.js'
 import AppDialogs from './components/AppDialogs.jsx'
 import { loadSiteConfig } from './lib/siteConfig.js'
+
+import './styles/CloudHub.css'
 
 // Sync API cache_version early (clears FE TTL/ETag after dev restart / release)
 loadSiteConfig()

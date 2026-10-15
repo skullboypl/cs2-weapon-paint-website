@@ -7,7 +7,7 @@ import { HDRLoader } from 'three/addons/loaders/HDRLoader.js'
 import { getHdriUrl, resolveWeapon3dAssets } from '../lib/weapon3dPaths'
 import { applyStickersToModel } from '../lib/stickerApply'
 import { applyWearSeedToPaintedMaterials } from '../lib/paintKitPreview'
-import { useI18n } from '../i18n/I18nProvider'
+import { useI18n } from '../i18n/useI18n'
 import '../styles/Weapon3DPreview.css'
 
 function centerMesh(weapon, center) {

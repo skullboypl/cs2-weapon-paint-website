@@ -8,12 +8,6 @@ function wp_request_is_https(): bool {
     if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
         return true;
     }
-    if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string) $_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') {
-        return true;
-    }
-    if (isset($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') {
-        return true;
-    }
     if (isset($_SERVER['SERVER_PORT']) && (int) $_SERVER['SERVER_PORT'] === 443) {
         return true;
     }
@@ -72,7 +66,7 @@ function wp_session_lifetime(): int {
 }
 
 function wp_session_save_path(): string {
-    $dir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'sessions';
+    $dir = wp_storage_root() . DIRECTORY_SEPARATOR . 'sessions';
     if (!is_dir($dir)) {
         @mkdir($dir, 0775, true);
     }
@@ -146,12 +140,16 @@ function wp_send_cors_headers(): void {
         header('Vary: Origin');
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') {
         header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-        header('Access-Control-Allow-Headers: Content-Type');
+        header('Access-Control-Allow-Headers: Content-Type, X-CSRF-Token, If-None-Match');
         http_response_code(204);
         exit;
     }
+}
+
+function wp_storage_root(): string {
+    return defined('STORAGE_PATH') ? rtrim(STORAGE_PATH, '/') : dirname(__DIR__) . '/storage';
 }
 
 wp_maybe_ssl_redirect();

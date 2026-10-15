@@ -187,7 +187,7 @@ class LightOpenID
         return $use_secure_protocol ? 'https://' : 'http://';
     }
 
-    protected function request_curl($url, $method='GET', $params=array(), $update_claimed_id)
+    protected function request_curl($url, $method='GET', $params=array(), $update_claimed_id = false)
     {
         $params = http_build_query($params, '', '&');
         $curl = curl_init($url . ($method == 'GET' && $params ? '?' . $params : ''));
@@ -264,7 +264,7 @@ class LightOpenID
                 }
             }
 
-            if($update_claimed_id) {
+            if($update_claimed_id = false) {
                 # Update the claimed_id value in case of redirections.
                 $effective_url = curl_getinfo($curl, CURLINFO_EFFECTIVE_URL);
                 # Ignore the fragment (some cURL versions don't handle it well).
@@ -287,7 +287,7 @@ class LightOpenID
         return $response;
     }
 
-    protected function parse_header_array($array, $update_claimed_id)
+    protected function parse_header_array($array, $update_claimed_id = false)
     {
         $headers = array();
         foreach($array as $header) {
@@ -301,7 +301,7 @@ class LightOpenID
                 # are followed automatically.
                 # We ignore redirections with relative paths.
                 # If any known provider uses them, file a bug report.
-                if($name == 'location' && $update_claimed_id) {
+                if($name == 'location' && $update_claimed_id = false) {
                     if(strpos($headers[$name], 'http') === 0) {
                         $this->identity = $this->claimed_id = $headers[$name];
                     } elseif($headers[$name][0] == '/') {
@@ -317,7 +317,7 @@ class LightOpenID
         return $headers;
     }
 
-    protected function request_streams($url, $method='GET', $params=array(), $update_claimed_id)
+    protected function request_streams($url, $method='GET', $params=array(), $update_claimed_id = false)
     {
         if(!$this->hostExists($url)) {
             throw new ErrorException("Could not connect to $url.", 404);
@@ -426,7 +426,7 @@ class LightOpenID
                     call_user_func_array(array($this, 'request_streams'), $args);
                     $headers = $this->headers;
                 } else {
-                    $headers = $this->parse_header_array($headers, $update_claimed_id);
+                    $headers = $this->parse_header_array($headers, $update_claimed_id = false);
                 }
             } else {
                 $headers = array();
@@ -448,7 +448,7 @@ class LightOpenID
         # This is a hack for providers who don't support HEAD requests.
         # It just creates the headers array for the last request in $this->headers.
         if(isset($http_response_header)) {
-            $this->headers = $this->parse_header_array($http_response_header, $update_claimed_id);
+            $this->headers = $this->parse_header_array($http_response_header, $update_claimed_id = false);
         }
 
         return $data;
@@ -477,8 +477,8 @@ class LightOpenID
         
         return
             $use_curl
-                ? $this->request_curl($url, $method, $params, $update_claimed_id)
-                : $this->request_streams($url, $method, $params, $update_claimed_id);
+                ? $this->request_curl($url, $method, $params, $update_claimed_id = false)
+                : $this->request_streams($url, $method, $params, $update_claimed_id = false);
     }
     
     protected function proxy_url()

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/class/SessionBootstrap.php';
 require_once __DIR__ . '/class/ApiProtect.php';
 require_once __DIR__ . '/class/Database.php';
@@ -14,6 +14,8 @@ if (!isset($_SESSION['steamid'])) {
     echo json_encode(['error' => 'Not logged in']);
     exit;
 }
+
+wp_require_post();
 
 $steamid = (string) $_SESSION['steamid'];
 wp_enforce_rate_limit($steamid);
@@ -54,7 +56,7 @@ try {
     }
     Database::reset();
     http_response_code(503);
-    echo json_encode(['error' => 'Database connection failed: ' . $e->getMessage()]);
+    echo json_encode(['error' => 'Database unavailable. Please try again later.']);
     exit;
 }
 
@@ -684,7 +686,7 @@ switch ($action) {
                 $db->rollBack();
             }
             http_response_code(500);
-            echo json_encode(['error' => 'Apply failed: ' . $e->getMessage()]);
+            echo json_encode(['error' => 'Apply failed: ' . 'Operation failed']);
             exit;
         }
 
