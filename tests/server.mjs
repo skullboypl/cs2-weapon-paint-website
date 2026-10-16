@@ -22,7 +22,8 @@ fs.writeFileSync(
  define('DB_NAME',${php(db)});
  define('DB_USER',${php(process.env.CLOUDHUB_TEST_DB_USER || os.userInfo().username)});
  define('DB_PASS','');
- define('DB_AUTO_MIGRATE',true);
+ if (!defined('DB_AUTO_MIGRATE')) { define('DB_AUTO_MIGRATE',true); }
+ define('CLOUDHUB_CORE_ENABLED',true);
  define('STORAGE_PATH',${php(runtime + "/storage")});
  define('API_DOMAIN_NAME', DOMAIN_NAME.'/api');
  define('API_READ_CACHE_TTL',0);
@@ -42,6 +43,8 @@ const sessions = JSON.parse(
     encoding: "utf8",
   }),
 );
+// Exercise the public CLI entry point too; it must leave WeaponPaints intact.
+execFileSync("php", ["bin/cloudhub-migrate.php", "--apply"], { env, stdio: "inherit" });
 fs.mkdirSync(path.join(root, "test-results"), { recursive: true });
 fs.writeFileSync(
   path.join(root, "test-results/sessions.json"),

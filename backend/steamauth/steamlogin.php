@@ -40,5 +40,21 @@ $_SESSION['user_profile'] = [
     'profileurl' => 'https://steamcommunity.com/profiles/' . $steamid,
 ];
 $_SESSION['user_profile_at'] = time();
+require_once __DIR__ . '/../class/CloudHubAccounts.php';
+if (CloudHubAccounts::enabled()) {
+    try {
+        require_once __DIR__ . '/../class/Database.php';
+        (new CloudHubAccounts(Database::getInstance()->getConnection()))->register(
+            $steamid,
+            (string)($_SESSION['user_profile']['personaname'] ?? 'Player'),
+            $_SESSION['user_profile']['avatar'] ?? null,
+            true // Reached only after SteamOpenID::verify succeeded above.
+        );
+    } catch (Throwable $e) {
+        // Core is additive: its outage must not break existing Steam/WeaponPaints login.
+        error_log('CloudHub account initialization failed: ' . get_class($e));
+    }
+}
+
 wp_refresh_session_cookie();
 header('Location: ' . rtrim(DOMAIN_NAME, '/') . '/');

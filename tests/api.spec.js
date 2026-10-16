@@ -269,3 +269,25 @@ test("Steam challenge uses fixed provider, callback and state; forged responses 
   );
   await ctx.dispose();
 });
+
+test("CloudHub account: authentication, private wallet, session identity and no role/currency writes", async ({ playwright }) => {
+  const anon = await client(playwright);
+  expect((await anon.get('/api/cloudhub.php')).status()).toBe(401);
+  const player = await client(playwright, 1);
+  const response = await player.get('/api/cloudhub.php?steamid=76561198000000001&role=OWNER');
+  expect(response.status()).toBe(200);
+  expect(response.headers()['cache-control']).toContain('no-store');
+  const { account, features } = await response.json();
+  expect(account.steamid).toBe('76561198000000002');
+  expect(account.roles).toEqual(['PLAYER']);
+  expect(account.balance).toBe('0');
+  expect(account.rp).toBe('0');
+  expect(account.rank.rank_key).toBe('bronze');
+  expect(features).toEqual({ shop_purchases: false, ownership_enforcement: false });
+  await post(player, 'cloudhub.php', { action: 'grant_role', role: 'OWNER', balance: '5000' }, 405);
+  const unchanged = await (await player.get('/api/cloudhub.php')).json();
+  expect(unchanged.account).toEqual(account);
+  const owner = await client(playwright, 0);
+  expect((await (await owner.get('/api/cloudhub.php')).json()).account.roles).toEqual(['OWNER','PLAYER']);
+  await anon.dispose(); await player.dispose(); await owner.dispose();
+});
