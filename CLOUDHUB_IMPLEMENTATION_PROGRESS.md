@@ -1,0 +1,49 @@
+# CloudHub — postęp implementacji
+
+## Aktualny etap
+
+Etap 1: audyt i fundamenty, gałąź `cloudhub-foundations`, na bazie połączonego PR #1 (`6b7e432`). Oryginalna wersja CloudHub CS2 (`f02bbf1`) jest zachowana. Pełne wymagania: [docs/CLOUDHUB_REQUIREMENTS.pl.md](docs/CLOUDHUB_REQUIREMENTS.pl.md).
+
+## Wykonano
+
+- Audyt React/Vite, PHP, przepływu Steam OpenID i PDO/WeaponPaints. Bez dostępu do produkcji.
+- Addytywna migracja 001 z wersjonowaniem/checksumą, blokadą współbieżności i bez wywołania migratora `wp_*`.
+- Konta po SteamID64, profil i ustawienia prywatności, role i uprawnienia, portfel oraz statystyki inicjalizowane atomowo.
+- Integracja konta po poprawnym callbacku Steam, za flagą domyślnie false; zachowanie starego logowania w przypadku awarii Core.
+- Prywatne API konta, z saldem i RP tylko aktualnej sesji, odczytem ról z bazy i wyliczaniem rangi.
+- Jawne nadanie pierwszego OWNER przez CLI po zweryfikowanym logowaniu Steam, z powodem, blokadą i audytem. Nie nadano rzeczywistemu użytkownikowi żadnej roli; SteamID właściciela nie jest znany.
+- Fundament tabel statystyk, sezonów, rang, portfeli, ledgeru i idempotencji zdarzeń. Bez naliczania nagród, pobierania CC i blokowania skinów.
+- Testy regresji, bezpieczeństwa API, migracji, zachowania wyposażenia i kont. Skrypt produkcyjnego pakowania uwzględnia katalog migracji poza publicznym rootem.
+
+## Schemat i konfiguracja
+
+Szczegóły tabel, decyzji, instalacji testowej, uprawnień DB i rollbacku: [docs/FOUNDATIONS.pl.md](docs/FOUNDATIONS.pl.md).
+
+Nowe: `cloudhub_players`, `cloudhub_profiles`, `cloudhub_roles`, `cloudhub_player_roles`, `cloudhub_role_permissions`, `cloudhub_rank_config`, `cloudhub_seasons`, `cloudhub_player_stats`, `cloudhub_player_season_stats`, `cloudhub_wallets`, `cloudhub_wallet_transactions`, `cloudhub_processed_events`, `cloudhub_admin_audit_logs`, `cloudhub_schema_migrations`.
+
+`CLOUDHUB_CORE_ENABLED=false` domyślnie. Najpierw osobno autoryzowana migracja, potem włączenie Core i ponowne logowanie Steam, następnie kontrolowany bootstrap OWNER. Sekrety i konfiguracja DB pozostają poza repozytorium. Sklep i egzekwowanie własności nie są włączalne w tym etapie. Personalizacja ma pozostać darmowa również po wdrożeniu sklepu.
+
+## Weryfikacja — 16 października 2026
+
+- 9/9 testów Playwright (API i przeglądarka), w izolowanej lokalnej MariaDB.
+- 31 sprawdzeń fundamentów w PHP: migracje i checksumy, zachowanie `wp_*` oraz starego skina, inicjalizacja kont, trwałość danych, uprawnienia, bootstrap OWNER, nieujemne saldo i arytmetyka ledgeru.
+- Lint frontendu bez błędów. Build poprawny; istniejące ostrzeżenie o opcjonalnym module 3D >500 kB pozostaje.
+- Kontrola składni PHP poprawna. Bez realnego logowania Steam, gry CS2 i produkcyjnego PHP 8.5.
+- Testy nie dowodzą jeszcze współbieżnych zakupów, wydajności leaderboardu ani odporności pluginu na zmiany map — te usługi nie są zaimplementowane.
+
+## Ryzyka i możliwość połączenia
+
+Etap nadaje się do przeglądu i połączenia jako wyłączony domyślnie fundament. Sam merge nie uruchamia migracji ani nowych funkcji na VPS. Włączenie Core bez migracji daje niedostępne API konta, ale nie powinno blokować starego logowania. Nie wdrażać jako ukończonego portalu ekonomicznego. Nie nadpisywać starego archiwum CloudHub 1.0.0 bez nadania nowej wersji przy przyszłym pakowaniu.
+
+## Pozostałe etapy
+
+2. CloudHub Core C#: źródła/kontrakt Match System, audyt kolizji, zaufane zdarzenia i uczestnictwo rund, antyfarm, kolejka, retry, RP/CC, testy; bez instalacji na produkcji.
+3. Backend: transakcyjny ledger i zakupy, kontrole idempotencji/replay, profile, leaderboard, sezony, odznaki TOP/historyczne, role/admin, znajomi, blokowanie i komentarze.
+4. Frontend: rozszerzenie aktualnej nawigacji o ranking, profile, portfel, społeczność, sklep i administrację; brak drugiej niezależnej strony.
+5. Ekonomia: katalog i propozycje cen, symulacja, zatwierdzenie przez OWNER, własność bazowych skinów, bezpłatne presety/personalizacja, dry-run migracji wyposażenia. Kontrola własności także we wszystkich ścieżkach pluginu WeaponPaints, nie tylko w WWW. Żadnego automatycznego odbierania wyposażenia.
+6. CS2UIKit: audyt API `v2.0.0-preview.1`, lokalny prototyp, integracja GUI i fallback, weryfikacja Workshop 3807024759 / MultiAddonManager / `mm_client_extra_addons`. Bez aktualizacji CSS/Metamod/gamedata.
+7. Pełne testy systemowe, bezpieczeństwa, współbieżności, wydajności, awarii DB, zmian map i restartów w środowisku testowym. Wdrożenie, migracja produkcji i restart CS2 wymagają osobnej zgody właściciela.
+
+## Następny krok
+
+Rozpocząć etap 2 od odczytu API CounterStrikeSharp i CS2UIKit oraz kontraktu z CloudHub Match System. Brakujące informacje produkcyjne opisano w instrukcji audytu; nie zgadywać wyników meczów, wersji schematu WeaponPaints 3.3a, SteamID właściciela ani istniejących komend. Nadal można lokalnie projektować i testować logikę kolejki, antyfarm i rozliczeń niezależnie od gry.
