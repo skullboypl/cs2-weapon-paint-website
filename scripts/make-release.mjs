@@ -24,7 +24,7 @@ fs.mkdirSync(stage, { recursive: true });
 fs.cpSync(path.join(root, "dist"), path.join(stage, "public"), {
   recursive: true,
 });
-for (const folder of ["deployment", "docs", "bin"])
+for (const folder of ["deployment", "docs", "bin", "migrations"])
   fs.cpSync(path.join(root, folder), path.join(stage, folder), {
     recursive: true,
   });

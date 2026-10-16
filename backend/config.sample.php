@@ -23,3 +23,6 @@ define('API_RATE_WINDOW', 60);
 define('API_READ_CACHE_TTL', 5);
 // For a remote DB, set DB_SSL_CA to your CA file; verification stays enabled.
 // define('DB_SSL_CA', '/etc/cloudhub/database-ca.pem');
+
+// Stage 1 is opt-in. Run cloudhub-migrate.php first; never enables purchases or skin restrictions.
+define('CLOUDHUB_CORE_ENABLED', false);

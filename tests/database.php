@@ -8,6 +8,7 @@ if (($argv[1] ?? '') === 'drop') { $pdo->exec("DROP DATABASE IF EXISTS `$name`")
 $pdo->exec("CREATE DATABASE `$name` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci");
 require_once __DIR__ . '/../backend/class/Database.php';
 Database::getInstance()->getConnection();
+require __DIR__ . "/foundations.php";
 require_once __DIR__ . '/../backend/class/SessionBootstrap.php';
 foreach (['76561198000000001','76561198000000002'] as $index => $steamid) {
     session_save_path(wp_session_save_path());
