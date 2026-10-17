@@ -1,4 +1,6 @@
 <?php
+// HTTP ingestion never runs schema migrations, even with a misconfigured private config.
+if (!defined('DB_AUTO_MIGRATE')) { define('DB_AUTO_MIGRATE',false); }
 require_once __DIR__.'/bootstrap.php';
 if (!defined('CLOUDHUB_CORE_ENABLED') || CLOUDHUB_CORE_ENABLED!==true || !defined('CLOUDHUB_INGEST_ENABLED') || CLOUDHUB_INGEST_ENABLED!==true) { wp_json_error(404,'Not found'); }
 if (($_SERVER['REQUEST_METHOD']??'')!=='POST') { header('Allow: POST'); wp_json_error(405,'POST required'); }

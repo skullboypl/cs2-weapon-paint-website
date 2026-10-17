@@ -30,7 +30,7 @@ public sealed class DurableOutbox : IAsyncDisposable {
         var recovery=Task.Run(Recover);
         writer=Task.Run(async()=>{await recovery;await WriteLoop();}); sender=Task.Run(async()=>{await recovery;await SendLoop();});
     }
-    public bool TryEnqueue(RoundEvent e) => input.Writer.TryWrite(e);
+    public bool TryEnqueue(RoundEvent e) => Guid.TryParseExact(e.EventId,"D",out _) && Guid.TryParseExact(e.RoundId,"D",out _) && input.Writer.TryWrite(e);
     private async Task WriteLoop() {
         await foreach(var e in input.Reader.ReadAllAsync()) {
             var body=Protocol.Encode(e); var bytes=Encoding.UTF8.GetBytes(body);

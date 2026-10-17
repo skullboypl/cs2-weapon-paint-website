@@ -4,7 +4,7 @@
     "net10.0": {
       "CounterStrikeSharp.API": {
         "type": "Direct",
-        "requested": "[1.0.376, )",
+        "requested": "[1.0.376, 1.0.376]",
         "resolved": "1.0.376",
         "contentHash": "TD0fSqxkNcJWFuR2TtHhYw72ONL7Rm+whsgdwlqW1UkMBdjdyNc0EtTDErf/DvgTEmwG7KNwOWZrXSjblFge9A==",
         "dependencies": {

@@ -53,4 +53,12 @@ $reject(fn()=>CloudHubIngestAuth::verify($headers,$body,['other'=>$key],time()),
 $race=$round();$file=tempnam(sys_get_temp_dir(),'ch-race-');file_put_contents($file,json_encode($race));$workers=[];
 for($i=0;$i<2;$i++){$pipes=[];$p=proc_open([PHP_BINARY,__DIR__.'/round-worker.php',$file],[1=>['pipe','w'],2=>['pipe','w']],$pipes);$workers[]=[$p,$pipes];}
 $results=[];foreach($workers as [$p,$pipes]){$out=stream_get_contents($pipes[1]);$err=stream_get_contents($pipes[2]);fclose($pipes[1]);fclose($pipes[2]);$code=proc_close($p);$check($code===0,'parallel worker '.$err);$results[]=trim($out);}unlink($file);sort($results);$check($results===['applied','duplicate'],'concurrent exactly-once settlement');
+$cross=$round();$before=$wallet($ids[0]);$check($service->accept('second-server',json_encode($cross))['status']==='applied' && $wallet($ids[0])-$before===3,'pair antifarm shared across servers');
+$late=$round();$late['ended_at']-=60;$before=$wallet($ids[0]);$send($late);$check($wallet($ids[0])-$before===3,'out-of-order replay cannot bypass pair cap');
+$db->exec("UPDATE cloudhub_reward_rules SET value=-1 WHERE rule_key='kill_cc'");$invalidRule=$round();$before=$wallet($ids[0]);$reject(fn()=>$send($invalidRule),'invalid rule fails closed');$check($wallet($ids[0])===$before,'invalid rule no wallet change');$db->exec("UPDATE cloudhub_reward_rules SET value=2 WHERE rule_key='kill_cc'");
+$db->exec("INSERT INTO cloudhub_seasons(name,starts_at,ends_at,status,policy_json) VALUES ('Overlap1',UTC_TIMESTAMP()-INTERVAL 1 DAY,UTC_TIMESTAMP()+INTERVAL 1 DAY,'active','{}'),('Overlap2',UTC_TIMESTAMP()-INTERVAL 1 DAY,UTC_TIMESTAMP()+INTERVAL 1 DAY,'active','{}')");
+$reject(fn()=>$send($round()),'overlapping seasons reject');$db->exec("UPDATE cloudhub_seasons SET status='closed'");
+foreach($ids as $id){$sum=(int)$db->query("SELECT COALESCE(SUM(amount),0) FROM cloudhub_wallet_transactions WHERE steamid='$id'")->fetchColumn();$check($sum===$wallet($id),'wallet reconciles with ledger');}
+$vector=json_decode(file_get_contents(__DIR__.'/protocol-vector.json'),true,512,JSON_THROW_ON_ERROR);
+$check(CloudHubIngestAuth::signature($vector['key'],$vector['server'],$vector['timestamp'],$vector['body'])===$vector['signature'],'shared UTF-8 HMAC vector');
 fwrite(STDERR,"CloudHub rounds assertions passed: $n\n");

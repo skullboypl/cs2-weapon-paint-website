@@ -18,4 +18,12 @@ require_once __DIR__ . '/class/Database.php';
 $accounts = new CloudHubAccounts(Database::getInstance()->getConnection());
 $account = $accounts->account((string)$_SESSION['steamid']);
 if (!$account) { wp_json_error(409, 'Sign in through Steam again to initialize your CloudHub account'); }
+if (($_GET['action'] ?? '') === 'history') {
+    $before=$_GET['before']??null;
+    if ($before!==null && !is_string($before)) { wp_json_error(422,'Invalid cursor'); }
+    try { $history=$accounts->transactions((string)$_SESSION['steamid'],$before); }
+    catch (InvalidArgumentException $e) { wp_json_error(422,'Invalid cursor'); }
+    echo json_encode(['transactions'=>$history,'next_before'=>count($history)===50?end($history)['id']:null],JSON_THROW_ON_ERROR);
+    exit;
+}
 echo json_encode(['account'=>$account,'features'=>['shop_purchases'=>false,'ownership_enforcement'=>false]], JSON_THROW_ON_ERROR);

@@ -3,7 +3,7 @@ set -euo pipefail
 export CI=true
 # Never consume deployment settings during preparation.
 for cloudhub_var in $(compgen -e); do
- case "$cloudhub_var" in DB_*|CLOUDHUB_CONFIG|CLOUDHUB_STORAGE|CLOUDHUB_DOMAIN|STEAM_API_KEY) unset "$cloudhub_var";; esac
+ case "$cloudhub_var" in DB_*|CLOUDHUB_*|MYSQL_*|MARIADB_*|STEAM_API_KEY) unset "$cloudhub_var";; esac
 done
 cd /workspace/cs2-weapon-paint-website
 tools=/workspace/.cloud-tools
@@ -72,3 +72,8 @@ export PATH=/workspace/.cloud-tools/dotnet10:$PATH
 export DOTNET_CLI_HOME=/workspace/.cloud-tools/dotnet-home
 export NUGET_PACKAGES=/workspace/.cloud-tools/nuget
 CLOUDHUB_DOTNET_ENV
+
+# Dependency restore only, and only for projects actually present in this checkout.
+for cloudhub_project in server/CloudHub.Plugin/CloudHub.Plugin.csproj server/CloudHub.Core.Tests/CloudHub.Core.Tests.csproj; do
+ if [ -f "$cloudhub_project" ]; then dotnet restore "$cloudhub_project" --locked-mode; fi
+done

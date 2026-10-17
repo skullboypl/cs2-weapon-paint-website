@@ -42,9 +42,9 @@ try {
     var conflict=new FakeHandler(_=>new(HttpStatusCode.Conflict));
     await using(var box=new DurableOutbox(directory,endpoint,"test",key,_=>{},conflict,TimeSpan.FromMilliseconds(20))){await Until(()=>Directory.GetFiles(directory,"*.rejected").Length==1);Check(Directory.GetFiles(directory,"*.json").Length==0,"interrupted write recovered then conflict quarantined");}
     var e3=Round();var badAck=new FakeHandler(_=>new(HttpStatusCode.OK){Content=new StringContent("{\"status\":\"unknown\"}")});
-    await using(var box=new DurableOutbox(directory,endpoint,"test",key,_=>{},badAck,TimeSpan.FromMilliseconds(20))){box.TryEnqueue(e3);await Until(()=>badAck.Calls>0);Check(Directory.GetFiles(directory,"*.json").Length==1,"invalid ack does not delete record");}
+    await using(var box=new DurableOutbox(directory,endpoint,"test",key,_=>{},badAck,TimeSpan.FromMilliseconds(20))){box.TryEnqueue(e3);await Until(()=>badAck.Calls>=2);Check(Directory.GetFiles(directory,"*.json").Length==1,"invalid ack does not delete record");}
     var oversize=new FakeHandler(_=>new(HttpStatusCode.OK){Content=new StringContent(new string('x',5000))});
-    await using(var box=new DurableOutbox(directory,endpoint,"test",key,_=>{},oversize,TimeSpan.FromMilliseconds(20))){await Until(()=>oversize.Calls>0);Check(Directory.GetFiles(directory,"*.json").Length==1,"oversized ack does not delete record");}
+    await using(var box=new DurableOutbox(directory,endpoint,"test",key,_=>{},oversize,TimeSpan.FromMilliseconds(20))){await Until(()=>oversize.Calls>=2);Check(Directory.GetFiles(directory,"*.json").Length==1,"oversized ack does not delete record");}
 } finally {Directory.Delete(directory,true);}
 Console.WriteLine($"CloudHub C# assertions passed: {checks}");
 sealed class FakeHandler(Func<HttpRequestMessage,HttpResponseMessage> reply):HttpMessageHandler {

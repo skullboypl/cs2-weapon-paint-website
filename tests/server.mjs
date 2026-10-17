@@ -34,6 +34,8 @@ fs.writeFileSync(
  ini_set('pdo_mysql.default_socket',${php(process.env.CLOUDHUB_TEST_SOCKET)});
 `,
 );
+const disabledConfig=path.join(runtime,"disabled.php");
+fs.writeFileSync(disabledConfig, "<?php define('CLOUDHUB_CORE_ENABLED',true); define('CLOUDHUB_INGEST_ENABLED',false);");
 const env = {
   ...process.env,
   CLOUDHUB_CONFIG: config,
@@ -71,6 +73,7 @@ process.on("SIGTERM", () => stop());
 process.on("SIGINT", () => stop());
 for (const [cmd, args] of [
   ["php", ["-S", "127.0.0.1:8082", "-t", "backend"]],
+  ["php", ["-S", "127.0.0.1:8083", "-t", "backend"]],
   [
     "node",
     [
@@ -84,7 +87,7 @@ for (const [cmd, args] of [
     ],
   ],
 ]) {
-  const child = spawn(cmd, args, { cwd: root, env, stdio: "inherit" });
+  const child = spawn(cmd, args, { cwd: root, env: args.includes("127.0.0.1:8083") ? {...env,CLOUDHUB_CONFIG:disabledConfig} : env, stdio: "inherit" });
   children.push(child);
   child.on("exit", (code) => {
     if (!stopping) stop(code || 1);

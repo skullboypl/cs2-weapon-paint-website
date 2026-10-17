@@ -75,11 +75,11 @@ public sealed class CloudHubPlugin : BasePlugin, IPluginConfig<CloudHubConfig> {
         tracker.Died(killer,victim,Id(e.Assister),e.Headshot);return HookResult.Continue;
     }
     [GameEventHandler(HookMode.Post)]
-    public HookResult Fire(EventWeaponFire e,GameEventInfo info){var id=Id(e.Userid);if(id is not null)tracker.Fired(id);return HookResult.Continue;}
+    public HookResult Fire(EventWeaponFire e,GameEventInfo info){if(outbox is null)return HookResult.Continue;var id=Id(e.Userid);if(id is not null)tracker.Fired(id);return HookResult.Continue;}
     [GameEventHandler(HookMode.Post)]
-    public HookResult Spawn(EventPlayerSpawn e,GameEventInfo info){var id=Id(e.Userid);if(id is not null)tracker.Spawned(id);return HookResult.Continue;}
+    public HookResult Spawn(EventPlayerSpawn e,GameEventInfo info){if(outbox is null)return HookResult.Continue;var id=Id(e.Userid);if(id is not null)tracker.Spawned(id);return HookResult.Continue;}
     [GameEventHandler(HookMode.Pre)]
-    public HookResult Disconnect(EventPlayerDisconnect e,GameEventInfo info){var id=Id(e.Userid);if(id is not null)tracker.Disconnected(id);return HookResult.Continue;}
+    public HookResult Disconnect(EventPlayerDisconnect e,GameEventInfo info){if(outbox is null)return HookResult.Continue;var id=Id(e.Userid) ?? e.Xuid.ToString(System.Globalization.CultureInfo.InvariantCulture);tracker.Disconnected(id);return HookResult.Continue;}
     [GameEventHandler(HookMode.Post)]
     public HookResult RoundEnd(EventRoundEnd e,GameEventInfo info) {
         if(outbox is null)return HookResult.Continue;

@@ -64,6 +64,18 @@ final class CloudHubAccounts {
         }
         return $account;
     }
+    /** Session-owned, bounded ledger page. Cursor is a decimal string to preserve BIGINT precision. */
+    public function transactions(string $steamid, ?string $before = null): array {
+        self::steamId($steamid);
+        if ($before !== null && (!preg_match('/^[1-9][0-9]{0,18}$/D',$before) || strlen($before) === 19 && strcmp($before,'9223372036854775807')>0)) { throw new InvalidArgumentException('Invalid cursor'); }
+        $sql='SELECT id,amount,balance_before,balance_after,source,reason,created_at FROM cloudhub_wallet_transactions WHERE steamid=?';
+        $args=[$steamid];
+        if ($before!==null) { $sql.=' AND id<?'; $args[]=$before; }
+        $stmt=$this->db->prepare($sql.' ORDER BY id DESC LIMIT 50'); $stmt->execute($args);
+        $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($rows as &$row) foreach (['id','amount','balance_before','balance_after'] as $field) $row[$field]=(string)$row[$field];
+        return $rows;
+    }
     /** First OWNER only, from an OS-controlled CLI, after a verified Steam login. */
     public function bootstrapOwner(string $steamid, string $reason): void {
         if (PHP_SAPI !== 'cli') { throw new LogicException('CLI only'); }
