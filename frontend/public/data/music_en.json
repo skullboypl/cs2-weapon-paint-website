@@ -473,5 +473,40 @@
         "id": "96",
         "name": "Music Kit | Tigercub, The Perfume of Decay",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/music_kit-96.png"
+    },
+    {
+        "id": "98",
+        "name": "Music Kit | ALRT, DOPAMINE HIT",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/music_kit-98.png"
+    },
+    {
+        "id": "99",
+        "name": "Music Kit | Altare, Change My Mind",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/music_kit-99.png"
+    },
+    {
+        "id": "100",
+        "name": "Music Kit | borne, Give It To Me",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/music_kit-100.png"
+    },
+    {
+        "id": "101",
+        "name": "Music Kit | Pirapus, EVERYNITE",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/music_kit-101.png"
+    },
+    {
+        "id": "102",
+        "name": "Music Kit | Repiet & Julia Kleijn, On And On",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/music_kit-102.png"
+    },
+    {
+        "id": "103",
+        "name": "Music Kit | ShockOne, Voices",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/music_kit-103.png"
+    },
+    {
+        "id": "104",
+        "name": "Music Kit | Starjunk 95, Industrial Sunset Memories",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/music_kit-104.png"
     }
 ]

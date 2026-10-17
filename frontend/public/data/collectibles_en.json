@@ -2380,11 +2380,6 @@
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5179.png"
     },
     {
-        "id": "5180",
-        "name": "(Redacted) Map Coin",
-        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5180.png"
-    },
-    {
         "id": "5209",
         "name": "Budapest 2025 Viewer Pass",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5209.png"
@@ -2673,6 +2668,261 @@
         "id": "5280",
         "name": "Sanctum Map Coin",
         "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5280.png"
+    },
+    {
+        "id": "5281",
+        "name": "Boulder Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5281.png"
+    },
+    {
+        "id": "5282",
+        "name": "Fachwerk Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5282.png"
+    },
+    {
+        "id": "5283",
+        "name": "Shelter Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5283.png"
+    },
+    {
+        "id": "5284",
+        "name": "Debris Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5284.png"
+    },
+    {
+        "id": "5285",
+        "name": "El Dorado Map Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5285.png"
+    },
+    {
+        "id": "5310",
+        "name": "Cologne 2026 Viewer Pass",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5310.png"
+    },
+    {
+        "id": "5311",
+        "name": "Cologne 2026 Viewer Pass + 900 Tokens",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5311.png"
+    },
+    {
+        "id": "5312",
+        "name": "Cologne 2026 Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5312.png"
+    },
+    {
+        "id": "5313",
+        "name": "Cologne 2026 Silver Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5313.png"
+    },
+    {
+        "id": "5314",
+        "name": "Cologne 2026 Gold Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5314.png"
+    },
+    {
+        "id": "5315",
+        "name": "Cologne 2026 Diamond Coin",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5315.png"
+    },
+    {
+        "id": "5319",
+        "name": "Champion at IEM Cologne 2026",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5319.png"
+    },
+    {
+        "id": "5320",
+        "name": "Finalist at IEM Cologne 2026",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5320.png"
+    },
+    {
+        "id": "5321",
+        "name": "Semifinalist at IEM Cologne 2026",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5321.png"
+    },
+    {
+        "id": "5322",
+        "name": "Quarterfinalist at IEM Cologne 2026",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5322.png"
+    },
+    {
+        "id": "5330",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5330.png"
+    },
+    {
+        "id": "5331",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5331.png"
+    },
+    {
+        "id": "5332",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5332.png"
+    },
+    {
+        "id": "5333",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5333.png"
+    },
+    {
+        "id": "5334",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5334.png"
+    },
+    {
+        "id": "5335",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5335.png"
+    },
+    {
+        "id": "5336",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5336.png"
+    },
+    {
+        "id": "5337",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5337.png"
+    },
+    {
+        "id": "5338",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5338.png"
+    },
+    {
+        "id": "5339",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5339.png"
+    },
+    {
+        "id": "5340",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5340.png"
+    },
+    {
+        "id": "5341",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5341.png"
+    },
+    {
+        "id": "5342",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5342.png"
+    },
+    {
+        "id": "5343",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5343.png"
+    },
+    {
+        "id": "5344",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5344.png"
+    },
+    {
+        "id": "5345",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5345.png"
+    },
+    {
+        "id": "5346",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5346.png"
+    },
+    {
+        "id": "5347",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5347.png"
+    },
+    {
+        "id": "5348",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5348.png"
+    },
+    {
+        "id": "5349",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5349.png"
+    },
+    {
+        "id": "5350",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5350.png"
+    },
+    {
+        "id": "5351",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5351.png"
+    },
+    {
+        "id": "5352",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5352.png"
+    },
+    {
+        "id": "5353",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5353.png"
+    },
+    {
+        "id": "5354",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5354.png"
+    },
+    {
+        "id": "5355",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5355.png"
+    },
+    {
+        "id": "5356",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5356.png"
+    },
+    {
+        "id": "5357",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5357.png"
+    },
+    {
+        "id": "5358",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5358.png"
+    },
+    {
+        "id": "5359",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5359.png"
+    },
+    {
+        "id": "5360",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5360.png"
+    },
+    {
+        "id": "5361",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5361.png"
+    },
+    {
+        "id": "5362",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5362.png"
+    },
+    {
+        "id": "5363",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5363.png"
+    },
+    {
+        "id": "5364",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5364.png"
+    },
+    {
+        "id": "5365",
+        "name": "Premier Season Five Medal",
+        "image": "https://raw.githubusercontent.com/Nereziel/cs2-WeaponPaints/main/website/img/skins/collectible-5365.png"
     },
     {
         "id": "6001",
