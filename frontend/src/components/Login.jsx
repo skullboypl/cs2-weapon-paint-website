@@ -5,7 +5,10 @@ import {
   SlidersHorizontal,
   Layers,
   Crosshair,
+  Monitor,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+import "../styles/Download.css";
 import { useI18n } from "../i18n/useI18n";
 import { apiUrl } from "../lib/api";
 import { cloudhubCopy } from "../lib/cloudhubCopy";
@@ -25,6 +28,7 @@ export default function Login() {
           <Brand />
         </a>
         <div>
+          <Link className="ch-download-link" to="/download"><Monitor size={16} aria-hidden="true" />{c.download}</Link>
           <a className="ch-nav-link" href="#experience">
             {c.help} <ArrowUpRight size={14} />
           </a>

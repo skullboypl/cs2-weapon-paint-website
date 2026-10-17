@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   Crosshair,
+  Monitor,
   LayoutGrid,
   Layers,
   UserRound,
@@ -11,6 +12,7 @@ import {
   ShieldCheck,
   ArrowUpRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import TeamSelector from "../components/TeamSelector";
 import Weapons from "../components/Weapons";
 import LoadoutsPanel from "../components/LoadoutsPanel";
@@ -179,6 +181,7 @@ export default function Page({ user, team, setTeam, category, setCategory }) {
             <CircleHelp size={18} />
             {c.help}
           </button>
+          <Link className="ch-nav-item" to="/download"><Monitor size={18} aria-hidden="true" />{c.download}</Link>
         </nav>
         <div className="ch-sidebar-bottom">
           <div className="ch-community">

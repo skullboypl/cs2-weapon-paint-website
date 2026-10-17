@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useUser } from './components/useUser'
 import Login from './components/Login'
 import Page from './pages/Page'
+import Download from './pages/Download'
 import CookieConsent from './components/CookieConsent'
 import LoadingScreen from './components/LoadingScreen'
 import {
@@ -149,7 +150,7 @@ function LoadoutRoute({ user }) {
   )
 }
 
-export default function App() {
+function SessionApp() {
   const { user, loading, error } = useUser()
 
   if (error) return <main className="ch-connection-error"><h1>CloudHub CS2</h1><p>Nie można połączyć się z aplikacją / Unable to connect.</p><button className="ch-primary" onClick={() => window.location.reload()}>Spróbuj ponownie / Retry</button></main>
@@ -164,11 +165,20 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter>
       <div className="app-root">
         {user ? <LoggedInRoutes user={user} /> : <Login />}
         <CookieConsent />
       </div>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/download" element={<Download />} />
+        <Route path="*" element={<SessionApp />} />
+      </Routes>
     </BrowserRouter>
   )
 }

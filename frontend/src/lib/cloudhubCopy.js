@@ -2,6 +2,7 @@ export function cloudhubCopy(locale) {
   const pl = locale === "pl";
   return pl
     ? {
+        download: "Pobierz CloudHub",
         studio: "Twoje studio skinów",
         arsenal: "Arsenał",
         loadout: "Moje wyposażenie",
@@ -63,6 +64,7 @@ export function cloudhubCopy(locale) {
         retry: "Spróbuj ponownie",
       }
     : {
+        download: "Get CloudHub",
         studio: "Your skin studio",
         arsenal: "Arsenal",
         loadout: "My loadout",
