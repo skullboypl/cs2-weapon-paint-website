@@ -1,0 +1,17 @@
+.ch-download-page { min-height: 100dvh; display: flex; flex-direction: column; }
+.ch-download-page .ch-landing-nav { width: 100%; box-sizing: border-box; flex-shrink: 0; }
+.ch-download-main { flex: 1; width: min(100% - 40px, 760px); margin: 0 auto; padding: clamp(48px, 9vh, 112px) 0 64px; text-align: center; }
+.ch-download-icon { display: grid; place-items: center; width: 112px; height: 112px; margin: 0 auto 32px; border: 1px solid #8295ff40; border-radius: 30px; color: #a5b4ff; background: linear-gradient(140deg, #28457940, #7534a42b); box-shadow: 0 0 80px #6676ff14; }
+.ch-download-main h1 { margin: 20px 0; font-size: clamp(32px, 5vw, 58px); line-height: 1.12; letter-spacing: -.04em; text-wrap: balance; }
+.ch-download-main p { max-width: 590px; margin: 0 auto 22px; color: #adb4c9; font-size: 17px; line-height: 1.7; }
+.ch-download-main .ch-download-future { font-size: 14px; color: #8d96ae; }
+.ch-download-main .ch-primary { margin-top: 18px; white-space: normal; max-width: 100%; }
+.ch-download-footer { padding: 24px; text-align: center; color: #8d96ae; font-size: 12px; }
+.ch-download-link { display: inline-flex; align-items: center; gap: 7px; border: 1px solid #8295ff40; border-radius: 10px; padding: 9px 12px; color: #c4ceff; font-size: 13px; font-weight: 600; text-decoration: none; }
+.ch-download-link:hover { background: #8295ff18; border-color: #8295ff80; }
+.ch-download-link:focus-visible { outline: 2px solid #9aaeff; outline-offset: 4px; }
+@media (max-width: 520px) {
+  .ch-download-link { padding: 8px; font-size: 11px; gap: 4px; }
+  .ch-download-link svg { width: 14px; }
+  .ch-download-main .ch-primary { padding: 14px; font-size: 13px; }
+}

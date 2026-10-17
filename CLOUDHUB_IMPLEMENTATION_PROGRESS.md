@@ -47,3 +47,16 @@ Etap nadaje się do przeglądu i połączenia jako wyłączony domyślnie fundam
 ## Następny krok
 
 Rozpocząć etap 2 od odczytu API CounterStrikeSharp i CS2UIKit oraz kontraktu z CloudHub Match System. Brakujące informacje produkcyjne opisano w instrukcji audytu; nie zgadywać wyników meczów, wersji schematu WeaponPaints 3.3a, SteamID właściciela ani istniejących komend. Nadal można lokalnie projektować i testować logikę kolejki, antyfarm i rozliczeń niezależnie od gry.
+
+## Przyszły moduł — CloudHub Desktop (dodano 17 października 2026)
+
+Po ukończeniu strony i backendu zaplanowano aplikację Windows, najlepiej współdzielącą obecny frontend. Tauri jest kandydatem do oceny, nie zatwierdzoną nową zależnością.
+
+- Te same konta Steam, profile, znajomi, ranking, Cloud Coins, sklep i konfigurator WeaponPaints; wspólny backend i postęp, bez drugiej ekonomii.
+- Docelowo uruchamianie/dołączanie do serwera CS2, aktualizacje aplikacji i powiadomienia.
+- Na teraz wyłącznie publiczna podstrona `/download` z komunikatem „Aplikacja CloudHub — wkrótce” oraz przycisk „Pobierz CloudHub” na ekranie logowania i w panelu gracza.
+- Brak instalatora, nieczynnego linku pobierania, projektu Tauri, desktopowego logowania i aktualizatora. Nie rozpoczynano implementacji aplikacji i nie zmieniano zakresu Etapu 2.
+
+### Stan środowiska przy tym dodatku
+
+Po odtworzeniu środowiska dostępny jest zapisany na GitHubie etap 1 (`ee256ce`, PR #2). Lokalne niewypchnięte pliki Etapu 2 z poprzedniej instancji nie zostały odtworzone i gałąź `cloudhub-core` nie istnieje na zdalnym repozytorium. Nie oznaczamy tego kodu jako zapisanego na GitHubie ani nie zastępujemy go inną implementacją. Wznowienie prac nad Etapem 2 wymaga odzyskania poprzedniej instancji/plików. Dodatek Desktop jest odrębną gałęzią opartą na potwierdzonym `master` i nie zawiera zmian backendu, migracji ani pluginu.
