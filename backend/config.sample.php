@@ -26,3 +26,7 @@ define('API_READ_CACHE_TTL', 5);
 
 // Stage 1 is opt-in. Run cloudhub-migrate.php first; never enables purchases or skin restrictions.
 define('CLOUDHUB_CORE_ENABLED', false);
+
+// Stage 2 remains off until isolated staging tests pass. Never put real keys here.
+define('CLOUDHUB_INGEST_ENABLED', false);
+// Define CLOUDHUB_INGEST_KEYS in a private ingestion-only config as server_id => random key (32+ bytes).

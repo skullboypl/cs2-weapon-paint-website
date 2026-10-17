@@ -21,7 +21,7 @@ foreach ($db->query("SHOW TABLES LIKE 'wp_%'")->fetchAll(PDO::FETCH_COLUMN) as $
 }
 CloudHubSchema::migrate($db, __DIR__ . '/../migrations');
 CloudHubSchema::migrate($db, __DIR__ . '/../migrations');
-$check((int)$db->query('SELECT COUNT(*) FROM cloudhub_schema_migrations')->fetchColumn() === 1,'Repeat migration must be idempotent');
+$check((int)$db->query('SELECT COUNT(*) FROM cloudhub_schema_migrations')->fetchColumn() === 2,'Repeat migration must be idempotent');
 foreach ($wpBefore as $table => $schema) { $check($schema === $db->query("SHOW CREATE TABLE `$table`")->fetch(PDO::FETCH_NUM)[1], 'WeaponPaints schema unchanged'); }
 $check($skinBefore === $db->query("SELECT * FROM wp_player_skins WHERE steamid='76561198000000099'")->fetch(PDO::FETCH_ASSOC),'Existing skin settings survive migration');
 $db->exec("DELETE FROM wp_player_skins WHERE steamid='76561198000000099'");
@@ -31,9 +31,9 @@ $db->exec("UPDATE cloudhub_rank_config SET min_rp=501 WHERE rank_key='silver'");
 CloudHubSchema::migrate($db, __DIR__ . '/../migrations');
 $check((int)$db->query("SELECT min_rp FROM cloudhub_rank_config WHERE rank_key='silver'")->fetchColumn() === 501,'Migration must preserve edited settings');
 $db->exec("UPDATE cloudhub_rank_config SET min_rp=500 WHERE rank_key='silver'");
-$db->exec("UPDATE cloudhub_schema_migrations SET sha256=REPEAT('0',64)");
+$db->exec("UPDATE cloudhub_schema_migrations SET sha256=REPEAT('0',64) WHERE version='001_cloudhub_foundations.sql'");
 $reject(fn()=>CloudHubSchema::migrate($db,__DIR__.'/../migrations'),'Reject changed migration checksum');
-$db->prepare('UPDATE cloudhub_schema_migrations SET sha256=?')->execute([hash_file('sha256',__DIR__.'/../migrations/001_cloudhub_foundations.sql')]);
+$db->prepare("UPDATE cloudhub_schema_migrations SET sha256=? WHERE version='001_cloudhub_foundations.sql'")->execute([hash_file('sha256',__DIR__.'/../migrations/001_cloudhub_foundations.sql')]);
 $a = new CloudHubAccounts($db);
 $one = '76561198000000001'; $two = '76561198000000002';
 $reject(fn()=>$a->register('76561198000000001 OR 1=1','Bad'),'Reject noncanonical identity');

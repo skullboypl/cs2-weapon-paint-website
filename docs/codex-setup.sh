@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+export CI=true
 # Never consume deployment settings during preparation.
 for cloudhub_var in $(compgen -e); do
  case "$cloudhub_var" in DB_*|CLOUDHUB_CONFIG|CLOUDHUB_STORAGE|CLOUDHUB_DOMAIN|STEAM_API_KEY) unset "$cloudhub_var";; esac
