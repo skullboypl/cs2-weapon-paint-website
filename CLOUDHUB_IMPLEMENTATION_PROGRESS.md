@@ -44,7 +44,7 @@ Etap nadaje się do przeglądu i połączenia jako wyłączony domyślnie fundam
 6. CS2UIKit: audyt API `v2.0.0-preview.1`, lokalny prototyp, integracja GUI i fallback, weryfikacja Workshop 3807024759 / MultiAddonManager / `mm_client_extra_addons`. Bez aktualizacji CSS/Metamod/gamedata.
 7. Pełne testy systemowe, bezpieczeństwa, współbieżności, wydajności, awarii DB, zmian map i restartów w środowisku testowym. Wdrożenie, migracja produkcji i restart CS2 wymagają osobnej zgody właściciela.
 
-## Następny krok
+## Plan zapisany po Etapie 1 (wykonany w odtworzonym Etapie 2)
 
 Rozpocząć etap 2 od odczytu API CounterStrikeSharp i CS2UIKit oraz kontraktu z CloudHub Match System. Brakujące informacje produkcyjne opisano w instrukcji audytu; nie zgadywać wyników meczów, wersji schematu WeaponPaints 3.3a, SteamID właściciela ani istniejących komend. Nadal można lokalnie projektować i testować logikę kolejki, antyfarm i rozliczeń niezależnie od gry.
 
@@ -59,4 +59,16 @@ Po ukończeniu strony i backendu zaplanowano aplikację Windows, najlepiej wspó
 
 ### Stan środowiska przy tym dodatku
 
-Po odtworzeniu środowiska dostępny jest zapisany na GitHubie etap 1 (`ee256ce`, PR #2). Lokalne niewypchnięte pliki Etapu 2 z poprzedniej instancji nie zostały odtworzone i gałąź `cloudhub-core` nie istnieje na zdalnym repozytorium. Nie oznaczamy tego kodu jako zapisanego na GitHubie ani nie zastępujemy go inną implementacją. Wznowienie prac nad Etapem 2 wymaga odzyskania poprzedniej instancji/plików. Dodatek Desktop jest odrębną gałęzią opartą na potwierdzonym `master` i nie zawiera zmian backendu, migracji ani pluginu.
+Po odtworzeniu środowiska dostępny jest zapisany na GitHubie etap 1 (`ee256ce`, PR #2). Lokalne niewypchnięte pliki Etapu 2 z poprzedniej instancji nie zostały odtworzone i gałąź `cloudhub-core` nie istnieje na zdalnym repozytorium. Nie oznaczamy tego kodu jako zapisanego na GitHubie ani nie zastępujemy go inną implementacją. Ten stan został następnie zamknięty decyzją użytkownika o ponownej implementacji; odtworzony Etap 2 opisano poniżej. Dodatek Desktop jest odrębną gałęzią opartą na potwierdzonym `master` i nie zawiera zmian backendu, migracji ani pluginu.
+
+
+## Etap 2 — ponowna implementacja zakończona do stagingu (17 października 2026)
+
+Na podstawie master `14b1391` odtworzono CloudHub Core na `cloudhub-core-stage2`. To nowa implementacja na zlecenie użytkownika, nie odzyskane źródła. Fundamenty Etapu 1 i CloudHub Desktop zachowane.
+
+- Plugin CSS 1.0.376 / .NET 10: obserwacja statystyk i wyników rund, asynchroniczny outbox na dysku, podpisy HMAC, ponawianie i kwarantanna.
+- Backend: addytywna migracja 002, konfigurowalne RP/CC, sześć istniejących rang, antyfarm par i godzinowe limity, atomowe rozliczenia, deduplikacja zdarzenia i rundy, sezony, prywatna historia portfela.
+- Automatyczna konfiguracja Codexa bez SQL i bez uruchamiania bazy/gry; pełna treść w `docs/codex-setup.sh`, zatwierdzenie/publikacja przez ustawienia środowiska. Testy używają osobnego lokalnego helpera i jednorazowej bazy.
+- Moduły zapisywane i wypychane kolejno: `00ade2d` (setup), `369f41f` (backend), `85b92f5` (plugin), `0333624` (historia i staging), następnie raport końcowy.
+- Wyniki: 39 asercji C#, 31 fundamentów PHP, 50 rozliczeń PHP, 13 testów API/UI; build/lint i lokalna składnia Nginx/FPM poprawne. Szczegóły: `docs/CORE_STAGE2_TEST_REPORT.md`.
+- Plugin i ingestion wyłączone domyślnie. Brak zmian produkcji. Następny krok to przegląd PR i osobno uzgodniony staging zgodnie z `docs/CORE_STAGE2.pl.md`. Match System pozostaje niewpiętym adapterem, bez naliczania wyników/nagród całych meczów.

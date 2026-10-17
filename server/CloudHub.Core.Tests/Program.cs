@@ -31,7 +31,7 @@ var endpoint=new Uri("https://ingest.invalid/api/ingest.php");var key=V("key");
 try {
     bool rejected=false;try{await using var bad=new DurableOutbox(directory,new Uri("http://ingest.invalid"),"test",key,_=>{});}catch(ArgumentException){rejected=true;}Check(rejected,"insecure HTTP configuration rejected");
     var unavailable=new FakeHandler(_=>new(HttpStatusCode.ServiceUnavailable));
-    await using(var box=new DurableOutbox(directory,endpoint,"test",key,_=>{},unavailable,TimeSpan.FromMilliseconds(20))){Check(box.TryEnqueue(e),"bounded admission");await Until(()=>Directory.GetFiles(directory,"*.json").Length==1);await Until(()=>unavailable.Calls>0);Check(File.ReadAllText(Directory.GetFiles(directory,"*.json")[0])==Protocol.Encode(e),"exact payload persisted during outage");}
+    await using(var box=new DurableOutbox(directory,endpoint,"test",key,_=>{},unavailable,TimeSpan.FromMilliseconds(20))){Check(!box.TryEnqueue(e with {EventId="../escape"}),"outbox rejects unsafe identity");Check(box.TryEnqueue(e),"bounded admission");await Until(()=>Directory.GetFiles(directory,"*.json").Length==1);await Until(()=>unavailable.Calls>0);Check(File.ReadAllText(Directory.GetFiles(directory,"*.json")[0])==Protocol.Encode(e),"exact payload persisted during outage");}
     var ack=new FakeHandler(r=>{
         var body=r.Content!.ReadAsStringAsync().GetAwaiter().GetResult();var stamp=r.Headers.GetValues("X-CloudHub-Timestamp").Single();
         if(r.Headers.GetValues("X-CloudHub-Signature").Single()!=EventSigner.Sign(key,"test",stamp,body))throw new Exception("bad signature");
