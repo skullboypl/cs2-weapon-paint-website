@@ -44,3 +44,8 @@ Thumbs.db
 # Reproducible optimized upstream images (included in release)
 frontend/public/catalog-images/
 frontend/public/data/image-manifest.json
+
+# CloudHub server build/runtime data
+server/**/bin/
+server/**/obj/
+server/**/outbox/
